@@ -20,7 +20,7 @@ export function organizationSchema(): Json {
     areaServed: LOCATIONS.map((l) => ({ '@type': 'City', name: l.city })),
     address: LOCATIONS.map((l) => ({
       '@type': 'PostalAddress',
-      streetAddress: l.addressLine,
+      streetAddress: 'addressLine2' in l && l.addressLine2 ? `${l.addressLine}, ${l.addressLine2}` : l.addressLine,
       addressLocality: l.city,
       addressRegion: l.region,
       postalCode: l.postalCode,
@@ -61,7 +61,7 @@ export function localBusinessSchema(locationSlug: 'belagavi' | 'hubballi'): Json
     priceRange: '₹₹',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: loc.addressLine,
+      streetAddress: 'addressLine2' in loc && loc.addressLine2 ? `${loc.addressLine}, ${loc.addressLine2}` : loc.addressLine,
       addressLocality: loc.city,
       addressRegion: loc.region,
       postalCode: loc.postalCode,
@@ -102,7 +102,7 @@ export function courseSchema(): Json {
         name: `${SITE.name} ${l.city}`,
         address: {
           '@type': 'PostalAddress',
-          streetAddress: l.addressLine,
+          streetAddress: 'addressLine2' in l && l.addressLine2 ? `${l.addressLine}, ${l.addressLine2}` : l.addressLine,
           addressLocality: l.city,
           addressRegion: l.region,
           postalCode: l.postalCode,
@@ -163,7 +163,7 @@ export function articleSchema(opts: {
     image: opts.image.startsWith('http') ? opts.image : `${SITE.url}${opts.image}`,
     datePublished: opts.datePublished,
     dateModified: opts.dateModified ?? opts.datePublished,
-    author: { '@type': 'Person', name: opts.author ?? 'Master Beauty Academy' },
+    author: { '@type': 'Person', name: opts.author ?? 'Master Makeup Studio & Academy' },
     publisher: { '@id': `${SITE.url}/#organization` },
     mainEntityOfPage: `${SITE.url}/blog/${opts.slug}`,
   };

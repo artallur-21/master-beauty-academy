@@ -6,9 +6,10 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 <header class="sticky top-0 z-40 backdrop-blur-md bg-[rgba(250,246,240,0.82)] border-b border-ink-200/60">
   <div class="container-w container-px flex items-center justify-between h-16 lg:h-20">
     <a href="/" aria-label={`${SITE.name} home`} class="flex items-center gap-3">
-      <span class="inline-block w-9 h-9 rounded-full bg-gradient-to-br from-brand-700 to-brand-900 text-gold-400 grid place-items-center font-serif text-lg">M</span>
-      <span class="font-serif text-[1.05rem] tracking-tight">
-        <span class="font-medium">Master Beauty</span><span class="text-brand-700"> Academy</span>
+      <img src={SITE.logo} alt={`${SITE.name} logo`} width="44" height="44" class="w-10 h-10 lg:w-11 lg:h-11 object-contain" fetchpriority="high" decoding="async" />
+      <span class="font-serif text-[1.02rem] lg:text-[1.1rem] tracking-tight leading-tight hidden sm:inline-flex flex-col">
+        <span class="font-medium">Master Makeup Studio</span>
+        <span class="text-brand-700 text-[0.78rem] tracking-[0.18em] uppercase">& Academy</span>
       </span>
     </a>
 

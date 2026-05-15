@@ -1,11 +1,14 @@
 ---
-const tiles = [
-  { c: 'from-brand-200 to-brand-100', label: 'Facial Treatment Demo' },
-  { c: 'from-gold-300 to-gold-400', label: 'Threading Practice' },
-  { c: 'from-brand-100 to-cream', label: 'Skin Analysis Session' },
-  { c: 'from-brand-300 to-brand-200', label: 'Body Polishing' },
-  { c: 'from-gold-400 to-brand-200', label: 'Manicure Practice' },
-  { c: 'from-brand-100 to-brand-200', label: 'Graduation Day' },
+const images = [
+  { src: '/images/student-1.webp', label: 'Student practical session' },
+  { src: '/images/student-2.webp', label: 'Treatment demonstration' },
+  { src: '/images/student-3.webp', label: 'Facial protocol training' },
+  { src: '/images/course-1.webp', label: 'Skin treatment masterclass' },
+  { src: '/images/student-4.webp', label: 'Hands-on practice' },
+  { src: '/images/course-2.webp', label: 'Live-client session' },
+  { src: '/images/student-5.webp', label: 'Graduation milestone' },
+  { src: '/images/course-3.webp', label: 'Senior trainer coaching' },
+  { src: '/images/classroom.webp', label: 'Inside the academy' },
 ];
 ---
 <section class="section">
@@ -13,9 +16,18 @@ const tiles = [
     <p class="eyebrow">Student Gallery</p>
     <h2 class="mt-3 max-w-2xl text-balance">Inside our classrooms — from first day to certification.</h2>
     <div class="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-      {tiles.map((t) => (
-        <figure class={`aspect-[4/5] rounded-xl bg-gradient-to-br ${t.c} relative overflow-hidden ring-1 ring-ink-200`}>
-          <figcaption class="absolute bottom-3 left-3 text-xs font-medium text-ink-900/80 bg-white/70 backdrop-blur px-2.5 py-1 rounded-full">{t.label}</figcaption>
+      {images.map((img, i) => (
+        <figure class="aspect-[4/5] rounded-xl overflow-hidden ring-1 ring-ink-200 bg-ink-100 relative group">
+          <img
+            src={img.src}
+            alt={img.label}
+            width="800"
+            height="1000"
+            loading={i < 3 ? 'eager' : 'lazy'}
+            decoding="async"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+          <figcaption class="absolute bottom-3 left-3 text-xs font-medium text-ink-900/90 bg-white/85 backdrop-blur px-2.5 py-1 rounded-full">{img.label}</figcaption>
         </figure>
       ))}
     </div>

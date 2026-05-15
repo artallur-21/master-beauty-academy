@@ -16,7 +16,7 @@ export function buildSeo(props: SeoProps) {
     ? props.image.startsWith('http')
       ? props.image
       : `${SITE.url}${props.image}`
-    : `${SITE.url}/images/og-default.jpg`;
+    : `${SITE.url}${SITE.ogImage}`;
 
   const fullTitle =
     props.title.length > 0 && !props.title.includes(SITE.name)

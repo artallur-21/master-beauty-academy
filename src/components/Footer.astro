@@ -7,8 +7,8 @@ const year = new Date().getFullYear();
   <div class="container-w container-px py-16 grid gap-12 lg:grid-cols-4">
     <div>
       <a href="/" class="flex items-center gap-3" aria-label={`${SITE.name} home`}>
-        <span class="inline-block w-10 h-10 rounded-full bg-gradient-to-br from-brand-600 to-brand-900 text-gold-400 grid place-items-center font-serif">M</span>
-        <span class="font-serif text-lg">Master Beauty Academy</span>
+        <img src={SITE.logo} alt={`${SITE.name} logo`} width="48" height="48" class="w-12 h-12 object-contain bg-white rounded-full p-1" loading="lazy" decoding="async" />
+        <span class="font-serif text-lg leading-tight">Master Makeup Studio<br/><span class="text-gold-400 text-xs tracking-[0.2em] uppercase">& Academy</span></span>
       </a>
       <p class="mt-4 text-sm text-ink-300 leading-relaxed">
         India's premier professional beautician training academy. Certified courses in Belagavi & Hubballi with placement support.
@@ -59,7 +59,7 @@ const year = new Date().getFullYear();
 
   <div class="border-t border-ink-700/60">
     <div class="container-w container-px py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-ink-400">
-      <p>&copy; {year} Master Beauty Academy. All rights reserved.</p>
+      <p>&copy; {year} Master Makeup Studio & Academy. All rights reserved.</p>
       <p>Belagavi · Hubballi · Karnataka, India</p>
     </div>
   </div>
