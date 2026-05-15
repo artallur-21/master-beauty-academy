@@ -1,4 +1,4 @@
-# Master Beauty Academy — masterbeautyacademy.com
+# Master Beauty Academy — themasterbeautyacademy.com
 
 A production-ready, AI-first static website for **Master Beauty Academy** — India's premier Professional Beautician training institute in **Belagavi** and **Hubballi**.
 

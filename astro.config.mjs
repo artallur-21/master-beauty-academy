@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://masterbeautyacademy.com',
+  site: 'https://themasterbeautyacademy.com',
   output: 'static',
   trailingSlash: 'never',
   build: {

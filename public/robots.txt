@@ -31,5 +31,5 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://masterbeautyacademy.com/sitemap-index.xml
-Sitemap: https://masterbeautyacademy.com/rss.xml
+Sitemap: https://themasterbeautyacademy.com/sitemap-index.xml
+Sitemap: https://themasterbeautyacademy.com/rss.xml

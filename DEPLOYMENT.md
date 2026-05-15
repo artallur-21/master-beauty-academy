@@ -50,7 +50,7 @@ sudo systemctl reload nginx
 ## 5. TLS (Let's Encrypt)
 
 ```bash
-sudo certbot --nginx -d masterbeautyacademy.com -d www.masterbeautyacademy.com
+sudo certbot --nginx -d themasterbeautyacademy.com -d www.themasterbeautyacademy.com
 sudo systemctl enable --now certbot.timer
 ```
 
@@ -96,12 +96,12 @@ Target metrics enforced during build review:
 Run after every release:
 
 ```bash
-npx unlighthouse --site https://masterbeautyacademy.com
+npx unlighthouse --site https://themasterbeautyacademy.com
 ```
 
 ## 9. Monitoring & SEO
 
-- **Google Search Console** — verify both `https://masterbeautyacademy.com` and submit `sitemap-index.xml`.
+- **Google Search Console** — verify both `https://themasterbeautyacademy.com` and submit `sitemap-index.xml`.
 - **Google Analytics 4** — install via a single `<script async>` in `BaseLayout.astro` (replace placeholder).
 - **PageSpeed Insights** — schedule weekly tracking via the API.
 - **Bing Webmaster Tools** — submit the same sitemap.
