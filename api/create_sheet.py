@@ -37,7 +37,7 @@ def main() -> int:
 
     # 1. Create the spreadsheet with a "Leads" tab + initial header
     spreadsheet = sheets.spreadsheets().create(body={
-        "properties": {"title": NAME, "locale": "en_IN", "timeZone": "Asia/Kolkata"},
+        "properties": {"title": NAME, "locale": "en", "timeZone": "Asia/Kolkata"},
         "sheets": [{
             "properties": {
                 "title": "Leads",
