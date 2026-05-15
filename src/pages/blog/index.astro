@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+import { breadcrumbSchema } from '@lib/schema';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const schema = breadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+]);
+
+const fmt = (d: Date) => d.toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<BaseLayout
+  title="Beautician Career & Beauty Industry Insights — Master Beauty Academy Blog"
+  description="Career guides, fee comparisons, technique deep-dives and beauty industry insights from Master Beauty Academy. Practical reading for aspiring and working beauticians."
+  path="/blog"
+  schema={schema}
+>
+  <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }]} />
+
+  <section class="container-w container-px pt-8 pb-12">
+    <p class="eyebrow">The Journal</p>
+    <h1 class="mt-4 max-w-3xl text-balance">Beautician career & beauty industry insights.</h1>
+    <p class="mt-5 max-w-2xl text-lg text-ink-500 text-pretty">Career guides, fee comparisons and technique deep-dives — written for aspiring and working beauticians.</p>
+  </section>
+
+  <section class="container-w container-px pb-20">
+    <ul class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map((p) => (
+        <li>
+          <a href={`/blog/${p.slug}`} class="card !p-0 overflow-hidden block h-full flex flex-col">
+            <div class="aspect-[16/10] bg-gradient-to-br from-brand-100 via-brand-50 to-cream"></div>
+            <div class="p-6 flex-1 flex flex-col">
+              <p class="text-xs text-ink-500">{fmt(p.data.pubDate)} · {p.data.readingTime ?? '6 min read'}</p>
+              <h2 class="mt-2 font-serif text-lg leading-snug">{p.data.title}</h2>
+              <p class="mt-2 text-sm text-ink-500 line-clamp-3">{p.data.description}</p>
+              <span class="mt-4 text-sm text-brand-700 font-medium">Read article →</span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

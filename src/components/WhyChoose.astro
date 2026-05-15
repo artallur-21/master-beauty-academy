@@ -1,0 +1,29 @@
+---
+const items = [
+  { t: 'Expert-Led Training', d: 'Senior trainers with 10+ years of professional salon experience guide every module.' },
+  { t: '15+ Practical Modules', d: 'A complete syllabus from skin science to body therapies — taught hands-on, not just theory.' },
+  { t: 'Live-Client Practice', d: 'Real treatments on real clients in our supervised in-academy studio.' },
+  { t: 'Recognised Certificate', d: 'A portfolio-ready certificate accepted by salons and spas across India.' },
+  { t: 'Placement Support', d: 'Direct introductions to partner salons across Karnataka — 95% placement rate.' },
+  { t: 'Small Batch Sizes', d: 'Maximum 12 students per batch for personalised mentoring and faster mastery.' },
+];
+---
+<section class="section bg-cream">
+  <div class="container-w container-px">
+    <p class="eyebrow">Why Master Beauty Academy</p>
+    <h2 class="mt-3 max-w-2xl text-balance">A curriculum engineered for working professionals — not classroom theorists.</h2>
+    <p class="mt-4 max-w-2xl text-ink-500 text-pretty">Every module pairs technique training with live-client practice, hygiene protocols, product knowledge and salon-readiness — the things that actually decide if a beautician thrives.</p>
+
+    <ul class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {items.map((i) => (
+        <li class="card">
+          <div class="w-10 h-10 grid place-items-center rounded-full bg-brand-50 text-brand-700 mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <h3 class="font-serif text-xl">{i.t}</h3>
+          <p class="mt-2 text-ink-500">{i.d}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import Gallery from '@components/Gallery.astro';
+import CTA from '@components/CTA.astro';
+import { breadcrumbSchema } from '@lib/schema';
+
+const schema = breadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Gallery', url: '/gallery' },
+]);
+---
+
+<BaseLayout
+  title="Student Gallery — Master Beauty Academy"
+  description="Inside our Belagavi & Hubballi academies. Student practice, live-client sessions, certification days and graduation moments from Master Beauty Academy."
+  path="/gallery"
+  schema={schema}
+>
+  <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Gallery', url: '/gallery' }]} />
+  <section class="container-w container-px pt-8 pb-4">
+    <p class="eyebrow">Inside the Academy</p>
+    <h1 class="mt-4 max-w-3xl text-balance">Real students. Real practice. Real results.</h1>
+    <p class="mt-5 max-w-2xl text-lg text-ink-500 text-pretty">A glimpse into our classrooms, live-client studio and graduation days across Belagavi and Hubballi.</p>
+  </section>
+  <Gallery />
+  <CTA />
+</BaseLayout>

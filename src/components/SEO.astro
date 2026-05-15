@@ -1,0 +1,55 @@
+---
+import { SITE } from '@lib/site';
+import { buildSeo, type SeoProps } from '@lib/seo';
+import { organizationSchema, websiteSchema } from '@lib/schema';
+
+interface Props extends SeoProps {
+  schema?: Record<string, unknown>[] | Record<string, unknown>;
+  preloadImage?: string;
+}
+
+const { schema, preloadImage, ...seoInput } = Astro.props;
+const seo = buildSeo(seoInput);
+const schemaArray = schema
+  ? Array.isArray(schema)
+    ? schema
+    : [schema]
+  : [];
+const allSchema = [organizationSchema(), websiteSchema(), ...schemaArray];
+---
+
+<title>{seo.title}</title>
+<meta name="description" content={seo.description} />
+{seo.keywords && <meta name="keywords" content={seo.keywords} />}
+<link rel="canonical" href={seo.canonical} />
+{seo.noindex && <meta name="robots" content="noindex,nofollow" />}
+{!seo.noindex && <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />}
+
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:type" content={seo.type} />
+<meta property="og:title" content={seo.title} />
+<meta property="og:description" content={seo.description} />
+<meta property="og:url" content={seo.canonical} />
+<meta property="og:image" content={seo.ogImage} />
+<meta property="og:locale" content="en_IN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={seo.title} />
+<meta name="twitter:description" content={seo.description} />
+<meta name="twitter:image" content={seo.ogImage} />
+
+<meta name="theme-color" content="#7a1641" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content={SITE.name} />
+
+{preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap"
+/>
+
+{allSchema.map((s) => (
+  <script type="application/ld+json" set:html={JSON.stringify(s)} />
+))}

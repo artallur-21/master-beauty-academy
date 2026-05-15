@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import CTA from '@components/CTA.astro';
+import { getCollection } from 'astro:content';
+import { breadcrumbSchema, reviewSchema } from '@lib/schema';
+
+const all = await getCollection('testimonials');
+const schema = [
+  breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Testimonials', url: '/testimonials' }]),
+  reviewSchema(all.map((t) => ({ author: t.data.name, rating: t.data.rating, text: t.data.quote, date: t.data.year }))),
+];
+---
+
+<BaseLayout
+  title="Student Testimonials & Success Stories — Master Beauty Academy"
+  description="Read stories from Master Beauty Academy graduates — beauticians, salon owners and home-service professionals across Belagavi, Hubballi and Karnataka."
+  path="/testimonials"
+  schema={schema}
+>
+  <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Testimonials', url: '/testimonials' }]} />
+  <section class="container-w container-px pt-8 pb-10">
+    <p class="eyebrow">Student Voices</p>
+    <h1 class="mt-4 max-w-3xl text-balance">Stories from our 500+ graduates.</h1>
+    <p class="mt-5 max-w-2xl text-lg text-ink-500 text-pretty">From first-job placements to opening their own parlours — here's what life after Master Beauty Academy looks like.</p>
+  </section>
+
+  <section class="container-w container-px pb-20">
+    <ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {all.map((t) => (
+        <li class="card">
+          <div class="flex gap-0.5 text-gold-500" aria-label={`${t.data.rating} of 5 stars`}>
+            {Array.from({ length: t.data.rating }).map(() => (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <blockquote class="mt-4 font-serif text-[1.0625rem] leading-relaxed text-ink-900 text-pretty">“{t.data.quote}”</blockquote>
+          <footer class="mt-5 text-sm">
+            <p class="font-medium">{t.data.name}</p>
+            <p class="text-ink-500">{t.data.city} {t.data.year && `· Batch ${t.data.year}`}</p>
+          </footer>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <CTA />
+</BaseLayout>

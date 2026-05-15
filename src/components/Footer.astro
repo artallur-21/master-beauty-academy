@@ -1,0 +1,66 @@
+---
+import { SITE, LOCATIONS, NAV } from '@lib/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-ink-900 text-ink-100 mt-24">
+  <div class="container-w container-px py-16 grid gap-12 lg:grid-cols-4">
+    <div>
+      <a href="/" class="flex items-center gap-3" aria-label={`${SITE.name} home`}>
+        <span class="inline-block w-10 h-10 rounded-full bg-gradient-to-br from-brand-600 to-brand-900 text-gold-400 grid place-items-center font-serif">M</span>
+        <span class="font-serif text-lg">Master Beauty Academy</span>
+      </a>
+      <p class="mt-4 text-sm text-ink-300 leading-relaxed">
+        India's premier professional beautician training academy. Certified courses in Belagavi & Hubballi with placement support.
+      </p>
+      <div class="mt-5 flex gap-3">
+        <a href={SITE.socials.instagram} rel="noopener" aria-label="Instagram" class="w-9 h-9 grid place-items-center rounded-full border border-ink-700 hover:border-gold-400 hover:text-gold-400 transition">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.62c-3.14 0-3.5.01-4.74.07-1.06.05-1.64.22-2.02.37-.51.2-.87.43-1.25.81-.38.38-.62.75-.81 1.25-.15.38-.32.96-.37 2.02-.06 1.24-.07 1.6-.07 4.74s.01 3.5.07 4.74c.05 1.06.22 1.64.37 2.02.2.51.43.87.81 1.25.38.38.75.62 1.25.81.38.15.96.32 2.02.37 1.24.06 1.6.07 4.74.07s3.5-.01 4.74-.07c1.06-.05 1.64-.22 2.02-.37.51-.2.87-.43 1.25-.81.38-.38.62-.75.81-1.25.15-.38.32-.96.37-2.02.06-1.24.07-1.6.07-4.74s-.01-3.5-.07-4.74c-.05-1.06-.22-1.64-.37-2.02-.2-.51-.43-.87-.81-1.25-.38-.38-.75-.62-1.25-.81-.38-.15-.96-.32-2.02-.37-1.24-.06-1.6-.07-4.74-.07Zm0 2.76a5.46 5.46 0 1 1 0 10.92 5.46 5.46 0 0 1 0-10.92Zm0 1.62a3.84 3.84 0 1 0 0 7.68 3.84 3.84 0 0 0 0-7.68Zm5.64-1.84a1.28 1.28 0 1 1 0 2.56 1.28 1.28 0 0 1 0-2.56Z"/></svg>
+        </a>
+        <a href={SITE.socials.facebook} rel="noopener" aria-label="Facebook" class="w-9 h-9 grid place-items-center rounded-full border border-ink-700 hover:border-gold-400 hover:text-gold-400 transition">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21.95v-7.6h2.55l.38-2.96H13.5V9.5c0-.86.24-1.44 1.46-1.44h1.56V5.41c-.27-.04-1.2-.12-2.28-.12-2.26 0-3.8 1.38-3.8 3.92v2.18H7.88v2.96h2.56v7.6h3.06Z"/></svg>
+        </a>
+        <a href={SITE.socials.youtube} rel="noopener" aria-label="YouTube" class="w-9 h-9 grid place-items-center rounded-full border border-ink-700 hover:border-gold-400 hover:text-gold-400 transition">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.5c-.27-1.02-1.07-1.82-2.09-2.09C19.06 5 12 5 12 5s-7.06 0-8.91.41C2.07 5.68 1.27 6.48 1 7.5.6 9.35.6 12 .6 12s0 2.65.4 4.5c.27 1.02 1.07 1.82 2.09 2.09C4.94 19 12 19 12 19s7.06 0 8.91-.41c1.02-.27 1.82-1.07 2.09-2.09.4-1.85.4-4.5.4-4.5s0-2.65-.4-4.5ZM9.8 15.3V8.7L15.5 12l-5.7 3.3Z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="font-serif text-base text-gold-400 mb-4">Explore</h3>
+      <ul class="space-y-2 text-sm text-ink-300">
+        {NAV.map((n) => <li><a href={n.href} class="hover:text-gold-400">{n.label}</a></li>)}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-serif text-base text-gold-400 mb-4">Our Centres</h3>
+      <ul class="space-y-4 text-sm text-ink-300">
+        {LOCATIONS.map((l) => (
+          <li>
+            <p class="font-medium text-ink-100">{l.city}</p>
+            <p>{l.addressLine}, {l.locality}, {l.region} {l.postalCode}</p>
+            <a href={`tel:${l.phone}`} class="text-gold-400 hover:underline">{l.phone}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-serif text-base text-gold-400 mb-4">Contact</h3>
+      <ul class="space-y-2 text-sm text-ink-300">
+        <li><a href={`mailto:${SITE.email}`} class="hover:text-gold-400">{SITE.email}</a></li>
+        <li><a href={`tel:${SITE.phonePrimary}`} class="hover:text-gold-400">{SITE.phonePrimary}</a></li>
+        <li><a href={`https://wa.me/${SITE.phoneWhatsapp}`} rel="noopener" class="hover:text-gold-400">WhatsApp</a></li>
+      </ul>
+      <a href="/contact" class="btn btn-gold mt-5 !py-2.5 !px-5 text-sm">Get a Free Counselling Call</a>
+    </div>
+  </div>
+
+  <div class="border-t border-ink-700/60">
+    <div class="container-w container-px py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-ink-400">
+      <p>&copy; {year} Master Beauty Academy. All rights reserved.</p>
+      <p>Belagavi · Hubballi · Karnataka, India</p>
+    </div>
+  </div>
+</footer>

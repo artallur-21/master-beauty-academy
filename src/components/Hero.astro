@@ -1,0 +1,60 @@
+---
+import { SITE } from '@lib/site';
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  sub?: string;
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+  variant?: 'home' | 'inner';
+}
+const {
+  eyebrow = 'Professional Beautician Course',
+  heading,
+  sub,
+  primaryCta = { label: 'Enquire Now', href: '/contact' },
+  secondaryCta = { label: 'Download Brochure', href: '/contact#brochure' },
+  variant = 'home',
+} = Astro.props;
+---
+
+<section class:list={['relative overflow-hidden', variant === 'home' ? 'grad-hero text-white pt-20 pb-24 lg:pt-28 lg:pb-32' : 'pt-16 pb-12 bg-cream']}>
+  {variant === 'home' && (
+    <div aria-hidden="true" class="absolute inset-0 opacity-[0.08] mix-blend-screen pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0); background-size: 32px 32px;"></div>
+  )}
+  <div class="container-w container-px relative">
+    <div class="max-w-3xl">
+      <p class={variant === 'home' ? 'eyebrow !text-gold-400 [&::before]:bg-gold-400' : 'eyebrow'}>{eyebrow}</p>
+      <h1 class:list={['mt-4 text-balance', variant === 'home' && 'text-white']}>{heading}</h1>
+      {sub && <p class:list={['mt-6 max-w-2xl text-lg text-pretty', variant === 'home' ? 'text-ink-200' : 'text-ink-700']}>{sub}</p>}
+
+      {variant === 'home' && (
+        <div class="mt-9 flex flex-wrap items-center gap-3">
+          <a href={primaryCta.href} class="btn btn-gold">{primaryCta.label}</a>
+          <a href={secondaryCta.href} class="btn btn-outline !bg-transparent !text-white !border-white/30 hover:!border-white">{secondaryCta.label}</a>
+        </div>
+      )}
+
+      {variant === 'home' && (
+        <dl class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
+          <div>
+            <dt class="text-xs uppercase tracking-widest text-gold-400">Students Trained</dt>
+            <dd class="font-serif text-2xl mt-1">{SITE.studentCount}</dd>
+          </div>
+          <div>
+            <dt class="text-xs uppercase tracking-widest text-gold-400">Years Experience</dt>
+            <dd class="font-serif text-2xl mt-1">{SITE.yearsExperience}</dd>
+          </div>
+          <div>
+            <dt class="text-xs uppercase tracking-widest text-gold-400">Placement Rate</dt>
+            <dd class="font-serif text-2xl mt-1">{SITE.placementRate}</dd>
+          </div>
+          <div>
+            <dt class="text-xs uppercase tracking-widest text-gold-400">Centres</dt>
+            <dd class="font-serif text-2xl mt-1">{SITE.centresCount}</dd>
+          </div>
+        </dl>
+      )}
+    </div>
+  </div>
+</section>

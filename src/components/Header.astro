@@ -1,0 +1,76 @@
+---
+import { NAV, SITE } from '@lib/site';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="sticky top-0 z-40 backdrop-blur-md bg-[rgba(250,246,240,0.82)] border-b border-ink-200/60">
+  <div class="container-w container-px flex items-center justify-between h-16 lg:h-20">
+    <a href="/" aria-label={`${SITE.name} home`} class="flex items-center gap-3">
+      <span class="inline-block w-9 h-9 rounded-full bg-gradient-to-br from-brand-700 to-brand-900 text-gold-400 grid place-items-center font-serif text-lg">M</span>
+      <span class="font-serif text-[1.05rem] tracking-tight">
+        <span class="font-medium">Master Beauty</span><span class="text-brand-700"> Academy</span>
+      </span>
+    </a>
+
+    <nav aria-label="Primary" class="hidden lg:flex items-center gap-1 text-[0.92rem]">
+      {NAV.map((item) => {
+        const active = path === item.href.replace(/\/$/, '');
+        return (
+          <a
+            href={item.href}
+            class:list={['px-3 py-2 rounded-full transition-colors hover:text-brand-700', active && 'text-brand-700']}
+            aria-current={active ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={`https://wa.me/${SITE.phoneWhatsapp}?text=${encodeURIComponent(SITE.whatsappMessage)}`}
+        class="btn btn-primary !py-2.5 !px-4 text-sm"
+        rel="noopener"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.04 0C5.46 0 .1 5.36.1 11.94c0 2.1.55 4.16 1.6 5.98L0 24l6.24-1.63a11.93 11.93 0 0 0 5.8 1.48h.01c6.58 0 11.94-5.36 11.94-11.94 0-3.19-1.24-6.19-3.47-8.43Zm-8.48 18.36h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.7.97.99-3.6-.23-.37a9.91 9.91 0 0 1-1.52-5.31c0-5.47 4.45-9.92 9.93-9.92 2.65 0 5.14 1.03 7.01 2.91a9.85 9.85 0 0 1 2.91 7.02c0 5.47-4.45 9.91-9.98 9.91Z"/></svg>
+        Enquire
+      </a>
+      <button
+        type="button"
+        class="lg:hidden p-2 rounded-md text-ink-900"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        data-mobile-toggle
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-nav" hidden class="lg:hidden border-t border-ink-200 bg-cream">
+    <nav aria-label="Mobile" class="container-w container-px py-4 grid gap-1">
+      {NAV.map((item) => (
+        <a href={item.href} class="py-2.5 text-base border-b border-ink-200/60 last:border-0">{item.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.querySelector('[data-mobile-toggle]');
+  const panel = document.getElementById('mobile-nav');
+  if (btn && panel) {
+    btn.addEventListener('click', () => {
+      const open = panel.hasAttribute('hidden') ? false : true;
+      if (open) {
+        panel.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        panel.removeAttribute('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+</script>

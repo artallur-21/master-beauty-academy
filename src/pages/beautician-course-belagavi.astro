@@ -1,0 +1,35 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import LocationPage from '@components/LocationPage.astro';
+import { getEntry } from 'astro:content';
+import { courseSchema, faqSchema, localBusinessSchema, breadcrumbSchema } from '@lib/schema';
+
+const faqs = (await getEntry('faqs', 'belagavi')).data.items;
+const schema = [
+  localBusinessSchema('belagavi'),
+  courseSchema(),
+  faqSchema(faqs),
+  breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Beautician Course', url: '/beautician-course' },
+    { name: 'Belagavi', url: '/beautician-course-belagavi' },
+  ]),
+];
+
+const usps = [
+  { t: 'Khade Bazar location', d: 'Heart of Belagavi — auto-reachable from Tilakwadi, Camp and Shahapur.' },
+  { t: 'Local placement network', d: 'Partner salons across Belagavi, Tilakwadi, Vadgaon and Hindwadi.' },
+  { t: 'Kannada + English instruction', d: 'Modules taught bilingually for clarity on every technique.' },
+  { t: 'Live-client studio', d: 'Real-client treatments under senior supervision from week three.' },
+];
+---
+
+<BaseLayout
+  title="Professional Beautician Course in Belagavi — Master Beauty Academy"
+  description="Best beautician course in Belagavi at Master Beauty Academy. 15+ modules, certified trainers, live-client practice, morning & evening batches. Khade Bazar location."
+  path="/beautician-course-belagavi"
+  keywords={['beautician course belagavi', 'beauty academy belagavi', 'beauty parlour course belagavi']}
+  schema={schema}
+>
+  <LocationPage slug="belagavi" faqs={faqs} usps={usps} />
+</BaseLayout>

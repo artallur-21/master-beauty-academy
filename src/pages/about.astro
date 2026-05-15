@@ -1,0 +1,74 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import CTA from '@components/CTA.astro';
+import { SITE, LOCATIONS } from '@lib/site';
+import { breadcrumbSchema } from '@lib/schema';
+
+const schema = breadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'About', url: '/about' },
+]);
+---
+
+<BaseLayout
+  title="About Master Beauty Academy — Shaping Professional Beauticians Since 2015"
+  description="Master Beauty Academy is a 10-year-old professional beautician training institute with centres in Belagavi & Hubballi. 500+ students trained, 95% placement rate."
+  path="/about"
+  keywords={['best beauty academy belagavi', 'master beauty academy', 'beautician institute karnataka']}
+  schema={schema}
+>
+  <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'About', url: '/about' }]} />
+  <section class="container-w container-px pt-10 pb-12">
+    <p class="eyebrow">About Master Beauty Academy</p>
+    <h1 class="mt-4 max-w-3xl text-balance">Shaping Professional Beauticians Since 2015.</h1>
+    <p class="mt-6 max-w-2xl text-lg text-ink-500 text-pretty">A decade ago we set out to do one thing better than anyone else in North Karnataka — train professional beauticians who walk into any salon and outperform from day one. 500+ graduates later, we still measure ourselves by the same standard.</p>
+  </section>
+
+  <section class="container-w container-px pb-16 grid lg:grid-cols-2 gap-12">
+    <div class="prose-luxe max-w-none">
+      <h2>Our mission</h2>
+      <p>To raise the technical, hygienic and professional standards of India's beauty industry — one rigorously trained beautician at a time. We refuse to dilute curriculum, batch size, or live-client practice to grow faster.</p>
+
+      <h2>Our story</h2>
+      <p>Master Beauty Academy was founded in 2015 by senior salon professionals frustrated by the gap between "completion certificates" and salon-floor reality. Our founders had spent decades training apprentices the hard way — and they built this academy as the apprenticeship every aspiring beautician deserves.</p>
+
+      <h2>What makes us different</h2>
+      <ul>
+        <li><strong>Senior trainers only.</strong> Every module is led by a trainer with 8+ years of professional salon experience.</li>
+        <li><strong>Live-client studio.</strong> Every student completes a minimum of 10 supervised live-client sessions before graduating.</li>
+        <li><strong>Small batches.</strong> Capped at 12 students for personalised mentoring.</li>
+        <li><strong>Placement network.</strong> Active relationships with 40+ salons across Karnataka.</li>
+      </ul>
+
+      <h2>Awards & recognition</h2>
+      <p>Featured in regional press as one of Karnataka's leading vocational training institutes for the beauty industry. 4.9-star average across 187+ Google reviews. Recognised by partner salons as the most reliable source of salon-ready graduates in the Belagavi–Hubballi corridor.</p>
+    </div>
+
+    <div class="space-y-8">
+      <div class="card !p-7">
+        <h3 class="font-serif text-xl">Our Centres</h3>
+        <ul class="mt-4 space-y-5">
+          {LOCATIONS.map((l) => (
+            <li>
+              <p class="font-medium">{l.city}</p>
+              <p class="text-sm text-ink-500 mt-1">{l.addressLine}, {l.locality}</p>
+              <a href={`/beautician-course-${l.slug}`} class="text-sm text-brand-700 mt-2 inline-block hover:underline">Visit {l.city} page →</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="card !p-7 !bg-brand-50 !border-brand-100">
+        <h3 class="font-serif text-xl">At a glance</h3>
+        <dl class="mt-4 grid grid-cols-2 gap-4 text-sm">
+          <div><dt class="text-ink-500">Founded</dt><dd class="font-serif text-lg">{SITE.founded}</dd></div>
+          <div><dt class="text-ink-500">Students trained</dt><dd class="font-serif text-lg">{SITE.studentCount}</dd></div>
+          <div><dt class="text-ink-500">Placement rate</dt><dd class="font-serif text-lg">{SITE.placementRate}</dd></div>
+          <div><dt class="text-ink-500">Avg. rating</dt><dd class="font-serif text-lg">{SITE.rating.value} / 5</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+  <CTA />
+</BaseLayout>

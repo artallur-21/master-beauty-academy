@@ -1,0 +1,48 @@
+---
+interface Props { id?: string; compact?: boolean }
+const { id = 'enquiry', compact = false } = Astro.props;
+---
+<form
+  id={id}
+  name="enquiry"
+  method="POST"
+  action="/api/enquiry"
+  class:list={['card !p-7 grid gap-4', compact && 'md:grid-cols-2']}
+  data-form
+  novalidate
+>
+  <div class="grid gap-1.5">
+    <label for={`${id}-name`} class="text-sm font-medium">Full Name</label>
+    <input id={`${id}-name`} name="name" type="text" required autocomplete="name" class="px-4 py-3 rounded-lg border border-ink-300 bg-white focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200" />
+  </div>
+  <div class="grid gap-1.5">
+    <label for={`${id}-phone`} class="text-sm font-medium">Phone</label>
+    <input id={`${id}-phone`} name="phone" type="tel" required pattern="[0-9+\\-\\s]{7,15}" autocomplete="tel" inputmode="tel" class="px-4 py-3 rounded-lg border border-ink-300 bg-white focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200" />
+  </div>
+  <div class="grid gap-1.5">
+    <label for={`${id}-city`} class="text-sm font-medium">Preferred Centre</label>
+    <select id={`${id}-city`} name="city" required class="px-4 py-3 rounded-lg border border-ink-300 bg-white focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200">
+      <option value="Belagavi">Belagavi</option>
+      <option value="Hubballi">Hubballi</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div class:list={['grid gap-1.5', compact && 'md:col-span-2']}>
+    <label for={`${id}-message`} class="text-sm font-medium">Message <span class="text-ink-400 font-normal">(optional)</span></label>
+    <textarea id={`${id}-message`} name="message" rows="3" class="px-4 py-3 rounded-lg border border-ink-300 bg-white focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200"></textarea>
+  </div>
+  <button type="submit" class:list={['btn btn-primary', compact && 'md:col-span-2 justify-self-start']}>Get Free Counselling Call</button>
+  <p class="text-xs text-ink-400 col-span-full">By submitting, you agree to be contacted about the Beautician Course. We respect your privacy.</p>
+</form>
+
+<script>
+  document.querySelectorAll('form[data-form]').forEach((f) => {
+    f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const form = e.currentTarget as HTMLFormElement;
+      const data = Object.fromEntries(new FormData(form).entries());
+      const text = `New Enquiry%0A%0AName: ${data.name}%0APhone: ${data.phone}%0ACity: ${data.city}%0AMessage: ${data.message || '-'}`;
+      window.location.href = `https://wa.me/919686868686?text=${text}`;
+    });
+  });
+</script>

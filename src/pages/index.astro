@@ -1,0 +1,49 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/Hero.astro';
+import WhyChoose from '@components/WhyChoose.astro';
+import CourseSnapshot from '@components/CourseSnapshot.astro';
+import Gallery from '@components/Gallery.astro';
+import Testimonials from '@components/Testimonials.astro';
+import LocationCards from '@components/LocationCards.astro';
+import FAQ from '@components/FAQ.astro';
+import BlogPreview from '@components/BlogPreview.astro';
+import CTA from '@components/CTA.astro';
+import { getEntry } from 'astro:content';
+import { courseSchema, faqSchema, localBusinessSchema, reviewSchema } from '@lib/schema';
+
+const homeFaqs = await getEntry('faqs', 'home');
+const schema = [
+  courseSchema(),
+  localBusinessSchema('belagavi'),
+  localBusinessSchema('hubballi'),
+  faqSchema(homeFaqs.data.items),
+  reviewSchema([
+    { author: 'Priya Patil', rating: 5, text: 'Best beautician academy in Belagavi — incredible hands-on training.' },
+    { author: 'Anjali Kulkarni', rating: 5, text: 'I opened my own parlour six months after graduating. Worth every rupee.' },
+    { author: 'Shruti Desai', rating: 5, text: 'Senior trainers, small batches, real client practice.' },
+  ]),
+];
+---
+
+<BaseLayout
+  title="Professional Beautician Course in Belagavi & Hubballi"
+  description="India's premier Professional Beautician Course in Belagavi & Hubballi. 15+ modules, live-client practice, certified trainers, 95% placement. Enrol today."
+  path="/"
+  keywords={['beautician course', 'beauty academy belagavi', 'beautician training hubballi', 'professional beautician course']}
+  schema={schema}
+>
+  <Hero
+    eyebrow="Professional Beautician Course · Belagavi & Hubballi"
+    heading="India's Premier Professional Beautician Course — Belagavi & Hubballi"
+    sub="A 3-month, hands-on certification across 15+ modules — skin science, facials, threading, waxing, body therapies and salon management. Taught by senior industry trainers with a 95% placement rate."
+  />
+  <WhyChoose />
+  <CourseSnapshot />
+  <Gallery />
+  <Testimonials limit={3} />
+  <LocationCards />
+  <FAQ items={homeFaqs.data.items} heading="Everything aspiring beauticians ask" lead="Concise answers about the course, fees, timings, certification and career outcomes." />
+  <BlogPreview />
+  <CTA />
+</BaseLayout>

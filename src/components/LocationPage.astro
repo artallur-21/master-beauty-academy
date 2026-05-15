@@ -1,0 +1,103 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+import EnquiryForm from './EnquiryForm.astro';
+import Testimonials from './Testimonials.astro';
+import FAQ from './FAQ.astro';
+import CTA from './CTA.astro';
+import { LOCATIONS } from '@lib/site';
+
+interface Props {
+  slug: 'belagavi' | 'hubballi';
+  faqs: { q: string; a: string }[];
+  usps: { t: string; d: string }[];
+}
+const { slug, faqs, usps } = Astro.props;
+const loc = LOCATIONS.find((l) => l.slug === slug)!;
+---
+
+<Breadcrumbs items={[
+  { name: 'Home', url: '/' },
+  { name: 'Beautician Course', url: '/beautician-course' },
+  { name: loc.city, url: `/beautician-course-${slug}` },
+]} />
+
+<section class="container-w container-px pt-8 pb-12 grid lg:grid-cols-[1.4fr_1fr] gap-12 items-start">
+  <div>
+    <p class="eyebrow">Beautician Course · {loc.city}</p>
+    <h1 class="mt-4 text-balance">Professional Beautician Course in {loc.city} — Enrol at Master Beauty Academy</h1>
+    <p class="mt-6 max-w-2xl text-lg text-ink-500 text-pretty">
+      Train as a professional beautician at our {loc.city} centre on {loc.addressLine}, easily reachable from {loc.landmarks.slice(0, 3).join(', ')} and beyond. A complete 3-month certification with senior trainers, live-client practice and direct salon placement.
+    </p>
+    <div class="mt-7 flex flex-wrap gap-2 text-sm">
+      {loc.landmarks.map((lm) => (
+        <span class="px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 border border-brand-100">{lm}</span>
+      ))}
+    </div>
+  </div>
+  <div class="lg:sticky lg:top-28">
+    <EnquiryForm id={`enquire-${slug}`} />
+  </div>
+</section>
+
+<section class="section bg-white">
+  <div class="container-w container-px">
+    <p class="eyebrow">Why study here</p>
+    <h2 class="mt-3 max-w-2xl text-balance">Why beauticians across {loc.city} choose Master Beauty Academy.</h2>
+    <ul class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {usps.map((u) => (
+        <li class="card">
+          <h3 class="font-serif text-lg">{u.t}</h3>
+          <p class="mt-2 text-ink-500 text-sm">{u.d}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-w container-px grid lg:grid-cols-2 gap-12">
+    <div>
+      <p class="eyebrow">Our {loc.city} centre</p>
+      <h2 class="mt-3 text-balance">Visit us in person.</h2>
+      <address class="not-italic mt-6 text-lg text-ink-700">
+        Master Beauty Academy — {loc.city}<br />
+        {loc.addressLine}<br />
+        {loc.locality}, {loc.city}, {loc.region} {loc.postalCode}
+      </address>
+      <p class="mt-4 text-ink-500">
+        Phone: <a href={`tel:${loc.phone}`} class="text-brand-700 hover:underline">{loc.phone}</a>
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href={`tel:${loc.phone}`} class="btn btn-primary">Call Centre</a>
+        <a href={`https://www.google.com/maps/dir/?api=1&destination=${loc.latitude},${loc.longitude}`} rel="noopener" class="btn btn-outline">Get Directions</a>
+      </div>
+    </div>
+    <div class="aspect-[4/3] rounded-2xl overflow-hidden ring-1 ring-ink-200">
+      <iframe src={loc.mapEmbed} title={`Map of ${loc.city} centre`} loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-cream">
+  <div class="container-w container-px">
+    <p class="eyebrow">Batch schedule</p>
+    <h2 class="mt-3 max-w-2xl text-balance">Morning and evening batches every month.</h2>
+    <div class="mt-10 grid gap-5 md:grid-cols-2">
+      <div class="card">
+        <p class="font-serif text-sm text-gold-500 tracking-widest">MORNING BATCH</p>
+        <p class="font-serif text-2xl mt-2">10:00 am – 1:00 pm</p>
+        <p class="text-ink-500 mt-2">Monday to Saturday</p>
+      </div>
+      <div class="card">
+        <p class="font-serif text-sm text-gold-500 tracking-widest">EVENING BATCH</p>
+        <p class="font-serif text-2xl mt-2">{slug === 'belagavi' ? '3:00 pm – 6:00 pm' : '4:00 pm – 7:00 pm'}</p>
+        <p class="text-ink-500 mt-2">Monday to Saturday</p>
+      </div>
+    </div>
+    <p class="mt-6 text-sm text-ink-500">New batches typically start every 4 weeks. Confirm the next start date with our counsellor.</p>
+  </div>
+</section>
+
+<Testimonials city={loc.city as 'Belagavi' | 'Hubballi'} limit={3} />
+<FAQ items={faqs} heading={`Beautician course in ${loc.city} — your questions answered`} eyebrow="Local FAQ" />
+<CTA heading={`Begin your beautician journey in ${loc.city}.`} />

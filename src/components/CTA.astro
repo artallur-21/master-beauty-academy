@@ -1,0 +1,23 @@
+---
+import { SITE } from '@lib/site';
+interface Props { heading?: string; sub?: string }
+const {
+  heading = 'Begin your beautician career with India\'s most trusted training academy.',
+  sub = 'Speak to our counsellor — get personalised advice on batches, fees and your career path.',
+} = Astro.props;
+---
+<section class="section">
+  <div class="container-w container-px">
+    <div class="grad-hero text-white rounded-3xl p-10 md:p-16 relative overflow-hidden">
+      <div class="max-w-2xl">
+        <p class="eyebrow !text-gold-400 [&::before]:bg-gold-400">Take the next step</p>
+        <h2 class="mt-4 text-white text-balance">{heading}</h2>
+        <p class="mt-4 text-ink-200 text-pretty">{sub}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/contact" class="btn btn-gold">Get Free Counselling</a>
+          <a href={`https://wa.me/${SITE.phoneWhatsapp}`} rel="noopener" class="btn btn-outline !bg-transparent !text-white !border-white/30 hover:!border-white">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

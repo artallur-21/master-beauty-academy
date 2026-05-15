@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+interface Props { city?: 'Belagavi' | 'Hubballi'; limit?: number }
+const { city, limit = 3 } = Astro.props;
+const all = await getCollection('testimonials');
+const items = (city ? all.filter((t) => t.data.city === city) : all).slice(0, limit);
+---
+<section class="section bg-white">
+  <div class="container-w container-px">
+    <p class="eyebrow">Student Voices</p>
+    <h2 class="mt-3 max-w-2xl text-balance">Real results from real students.</h2>
+    <ul class="mt-12 grid gap-6 md:grid-cols-3">
+      {items.map((t) => (
+        <li class="card relative">
+          <div class="flex gap-0.5 text-gold-500" aria-label={`${t.data.rating} out of 5 stars`}>
+            {Array.from({ length: t.data.rating }).map(() => (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <blockquote class="mt-4 font-serif text-[1.0625rem] leading-relaxed text-ink-900 text-pretty">“{t.data.quote}”</blockquote>
+          <footer class="mt-5 text-sm">
+            <p class="font-medium">{t.data.name}</p>
+            <p class="text-ink-500">{t.data.city} {t.data.year && `· Batch ${t.data.year}`}</p>
+          </footer>
+        </li>
+      ))}
+    </ul>
+    {items.length === 0 && <p class="text-ink-500 mt-8">Testimonials coming soon.</p>}
+  </div>
+</section>

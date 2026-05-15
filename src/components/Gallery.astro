@@ -1,0 +1,23 @@
+---
+const tiles = [
+  { c: 'from-brand-200 to-brand-100', label: 'Facial Treatment Demo' },
+  { c: 'from-gold-300 to-gold-400', label: 'Threading Practice' },
+  { c: 'from-brand-100 to-cream', label: 'Skin Analysis Session' },
+  { c: 'from-brand-300 to-brand-200', label: 'Body Polishing' },
+  { c: 'from-gold-400 to-brand-200', label: 'Manicure Practice' },
+  { c: 'from-brand-100 to-brand-200', label: 'Graduation Day' },
+];
+---
+<section class="section">
+  <div class="container-w container-px">
+    <p class="eyebrow">Student Gallery</p>
+    <h2 class="mt-3 max-w-2xl text-balance">Inside our classrooms — from first day to certification.</h2>
+    <div class="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+      {tiles.map((t) => (
+        <figure class={`aspect-[4/5] rounded-xl bg-gradient-to-br ${t.c} relative overflow-hidden ring-1 ring-ink-200`}>
+          <figcaption class="absolute bottom-3 left-3 text-xs font-medium text-ink-900/80 bg-white/70 backdrop-blur px-2.5 py-1 rounded-full">{t.label}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
