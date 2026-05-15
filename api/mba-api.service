@@ -1,0 +1,31 @@
+[Unit]
+Description=Master Beauty Academy — Enquiry API
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/masterbeautyacademy.com/api
+EnvironmentFile=/var/www/masterbeautyacademy.com/api/.env
+ExecStart=/usr/bin/node --enable-source-maps dist/server.js
+Restart=on-failure
+RestartSec=3
+User=www-data
+Group=www-data
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mba-api
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/mba-api /var/www/masterbeautyacademy.com/api
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target

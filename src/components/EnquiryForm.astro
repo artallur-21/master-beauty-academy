@@ -13,11 +13,11 @@ const { id = 'enquiry', compact = false } = Astro.props;
 >
   <div class="grid gap-1.5">
     <label for={`${id}-name`} class="text-sm font-medium">Full Name</label>
-    <input id={`${id}-name`} name="name" type="text" required autocomplete="name" class="px-4 py-3 rounded-lg border border-ink-300 bg-white focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200" />
+    <input id={`${id}-name`} name="name" type="text" required minlength="2" maxlength="80" autocomplete="name" class="px-4 py-3 rounded-lg border border-ink-300 bg-white focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200" />
   </div>
   <div class="grid gap-1.5">
     <label for={`${id}-phone`} class="text-sm font-medium">Phone</label>
-    <input id={`${id}-phone`} name="phone" type="tel" required pattern="[0-9+\\-\\s]{7,15}" autocomplete="tel" inputmode="tel" class="px-4 py-3 rounded-lg border border-ink-300 bg-white focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200" />
+    <input id={`${id}-phone`} name="phone" type="tel" required pattern="[0-9+\\-\\s()]{7,20}" autocomplete="tel" inputmode="tel" class="px-4 py-3 rounded-lg border border-ink-300 bg-white focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200" />
   </div>
   <div class="grid gap-1.5">
     <label for={`${id}-city`} class="text-sm font-medium">Preferred Centre</label>
@@ -29,20 +29,98 @@ const { id = 'enquiry', compact = false } = Astro.props;
   </div>
   <div class:list={['grid gap-1.5', compact && 'md:col-span-2']}>
     <label for={`${id}-message`} class="text-sm font-medium">Message <span class="text-ink-400 font-normal">(optional)</span></label>
-    <textarea id={`${id}-message`} name="message" rows="3" class="px-4 py-3 rounded-lg border border-ink-300 bg-white focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200"></textarea>
+    <textarea id={`${id}-message`} name="message" rows="3" maxlength="2000" class="px-4 py-3 rounded-lg border border-ink-300 bg-white focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200"></textarea>
   </div>
-  <button type="submit" class:list={['btn btn-primary', compact && 'md:col-span-2 justify-self-start']}>Get Free Counselling Call</button>
+
+  {/* Honeypot — humans never see this; bots fill it */}
+  <input type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" class="!absolute !-left-[9999px] !w-px !h-px !opacity-0 !pointer-events-none" />
+
+  <button type="submit" class:list={['btn btn-primary', compact && 'md:col-span-2 justify-self-start']} data-submit>
+    <span data-label>Get Free Counselling Call</span>
+    <span data-loading hidden>Sending…</span>
+  </button>
+  <p data-status role="status" aria-live="polite" class="text-sm hidden col-span-full"></p>
   <p class="text-xs text-ink-400 col-span-full">By submitting, you agree to be contacted about the Beautician Course. We respect your privacy.</p>
 </form>
 
 <script>
-  document.querySelectorAll('form[data-form]').forEach((f) => {
-    f.addEventListener('submit', (e) => {
+  const WA_FALLBACK = 'https://wa.me/918904105156';
+
+  function readUtm(): Record<string, string> {
+    const sp = new URLSearchParams(window.location.search);
+    const out: Record<string, string> = {};
+    for (const k of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']) {
+      const v = sp.get(k);
+      if (v) out[k] = v;
+    }
+    return out;
+  }
+
+  document.querySelectorAll<HTMLFormElement>('form[data-form]').forEach((form) => {
+    const submitBtn = form.querySelector<HTMLButtonElement>('button[data-submit]');
+    const labelEl = form.querySelector<HTMLElement>('[data-label]');
+    const loadingEl = form.querySelector<HTMLElement>('[data-loading]');
+    const statusEl = form.querySelector<HTMLElement>('[data-status]');
+
+    const setStatus = (msg: string, kind: 'ok' | 'err' = 'ok') => {
+      if (!statusEl) return;
+      statusEl.textContent = msg;
+      statusEl.className = `text-sm col-span-full ${kind === 'ok' ? 'text-brand-700' : 'text-red-600'}`;
+    };
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const form = e.currentTarget as HTMLFormElement;
+      if (!form.reportValidity()) return;
+
       const data = Object.fromEntries(new FormData(form).entries());
-      const text = `New Enquiry%0A%0AName: ${data.name}%0APhone: ${data.phone}%0ACity: ${data.city}%0AMessage: ${data.message || '-'}`;
-      window.location.href = `https://wa.me/918904105156?text=${text}`;
+      const payload = {
+        ...data,
+        ...readUtm(),
+        source_page: window.location.pathname + window.location.search,
+      };
+
+      submitBtn?.setAttribute('disabled', '');
+      labelEl?.setAttribute('hidden', '');
+      loadingEl?.removeAttribute('hidden');
+
+      let waUrl = '';
+      let id: number | undefined;
+      try {
+        const res = await fetch('/api/enquiry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = (await res.json().catch(() => ({}))) as { ok?: boolean; id?: number; whatsappUrl?: string; error?: string };
+        if (res.ok && json.ok) {
+          waUrl = json.whatsappUrl ?? '';
+          id = json.id;
+        } else if (json.error === 'rate_limited') {
+          setStatus('Too many submissions — please try again later.', 'err');
+          submitBtn?.removeAttribute('disabled');
+          labelEl?.removeAttribute('hidden');
+          loadingEl?.setAttribute('hidden', '');
+          return;
+        }
+      } catch {
+        // Network/API down — fall through to WhatsApp anyway so the user isn't blocked
+      }
+
+      // Fallback WhatsApp text if API didn't return one
+      if (!waUrl) {
+        const text = `New Enquiry%0A%0AName: ${data.name}%0APhone: ${data.phone}%0ACity: ${data.city}%0AMessage: ${data.message || '-'}`;
+        waUrl = `${WA_FALLBACK}?text=${text}`;
+      }
+
+      // Mark WA click (fire-and-forget)
+      if (id) {
+        try {
+          navigator.sendBeacon?.(`/api/enquiry/${id}/whatsapp`, '{}');
+        } catch {}
+      }
+
+      setStatus('Opening WhatsApp…', 'ok');
+      window.location.href = waUrl;
     });
   });
 </script>
