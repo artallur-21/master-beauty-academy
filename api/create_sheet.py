@@ -12,10 +12,11 @@ Env vars:
 import json
 import os
 import sys
-from google.oauth2.service_account import Credentials
+from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 
-SA_KEY = os.environ.get("MBA_SA_KEY", "/etc/mba-sync/service-account.json")
+CREDS_PATH = os.environ.get("MBA_GOOGLE_CREDS", "/etc/mba-sync/oauth-creds.json")
 SHARE_WITH = [e.strip() for e in os.environ.get("MBA_SHARE_WITH", "ceo@atil.ltd").split(",") if e.strip()]
 NAME = os.environ.get("MBA_SHEET_NAME", "Master Beauty Academy — Lead Tracker")
 
@@ -24,6 +25,22 @@ SCOPES = [
     "https://www.googleapis.com/auth/drive",
 ]
 
+
+def load_creds() -> Credentials:
+    with open(CREDS_PATH) as f:
+        d = json.load(f)
+    creds = Credentials(
+        token=d.get("token"),
+        refresh_token=d.get("refresh_token"),
+        token_uri=d.get("token_uri", "https://oauth2.googleapis.com/token"),
+        client_id=d["client_id"],
+        client_secret=d["client_secret"],
+        scopes=SCOPES,
+    )
+    if not creds.valid:
+        creds.refresh(Request())
+    return creds
+
 HEADERS = [
     "ID", "Created (UTC)", "Name", "Phone", "WhatsApp", "City", "Message",
     "Source Page", "UTM Source", "UTM Medium", "UTM Campaign",
@@ -31,7 +48,7 @@ HEADERS = [
 ]
 
 def main() -> int:
-    creds = Credentials.from_service_account_file(SA_KEY, scopes=SCOPES)
+    creds = load_creds()
     sheets = build("sheets", "v4", credentials=creds, cache_discovery=False)
     drive = build("drive", "v3", credentials=creds, cache_discovery=False)
 
@@ -66,8 +83,11 @@ def main() -> int:
     sid = spreadsheet["spreadsheetId"]
     url = spreadsheet["spreadsheetUrl"]
 
-    # 2. Share with humans (writer access)
+    # 2. Sheet is already owned by ceo@atil.ltd (created via their OAuth).
+    # Additionally share with any extra emails.
     for email in SHARE_WITH:
+        if email.lower() == "ceo@atil.ltd":
+            continue
         try:
             drive.permissions().create(
                 fileId=sid,

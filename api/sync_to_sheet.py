@@ -14,20 +14,38 @@ Env vars:
   MBA_SHEET_TAB               worksheet name (default: Leads)
 """
 
+import json
 import os
 import sqlite3
 import sys
 from datetime import datetime, timezone
-from google.oauth2.service_account import Credentials
+from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 DB_PATH = os.environ.get("MBA_DB_PATH", "/var/lib/mba-api/enquiries.sqlite")
-SA_KEY = os.environ.get("MBA_SA_KEY", "/etc/mba-sync/service-account.json")
+CREDS_PATH = os.environ.get("MBA_GOOGLE_CREDS", "/etc/mba-sync/oauth-creds.json")
 SHEET_ID = os.environ.get("MBA_SHEET_ID", "")
 TAB = os.environ.get("MBA_SHEET_TAB", "Leads")
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+
+
+def load_creds() -> Credentials:
+    with open(CREDS_PATH) as f:
+        d = json.load(f)
+    creds = Credentials(
+        token=d.get("token"),
+        refresh_token=d.get("refresh_token"),
+        token_uri=d.get("token_uri", "https://oauth2.googleapis.com/token"),
+        client_id=d["client_id"],
+        client_secret=d["client_secret"],
+        scopes=SCOPES,
+    )
+    if not creds.valid:
+        creds.refresh(Request())
+    return creds
 
 HEADERS = [
     "ID", "Created (UTC)", "Name", "Phone", "WhatsApp", "City", "Message",
@@ -74,7 +92,7 @@ def main() -> int:
         print("error: MBA_SHEET_ID not set", file=sys.stderr)
         return 2
 
-    creds = Credentials.from_service_account_file(SA_KEY, scopes=SCOPES)
+    creds = load_creds()
     svc = build("sheets", "v4", credentials=creds, cache_discovery=False)
 
     rows = fetch_rows(DB_PATH)
