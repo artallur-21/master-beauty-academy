@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
+import BlogCard from './BlogCard.astro';
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
-const fmt = (d: Date) => d.toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 <section class="section bg-cream">
   <div class="container-w container-px">
@@ -15,17 +15,17 @@ const fmt = (d: Date) => d.toLocaleDateString('en-IN', { year: 'numeric', month:
       <a href="/blog" class="btn btn-outline">All Articles</a>
     </div>
     <ul class="mt-12 grid gap-6 md:grid-cols-3">
-      {posts.map((p) => (
+      {posts.map((p, i) => (
         <li>
-          <a href={`/blog/${p.slug}`} class="card !p-0 overflow-hidden block h-full flex flex-col">
-            <div class="aspect-[16/10] bg-gradient-to-br from-brand-100 to-brand-50"></div>
-            <div class="p-6 flex-1 flex flex-col">
-              <p class="text-xs text-ink-500">{fmt(p.data.pubDate)}</p>
-              <h3 class="mt-2 font-serif text-lg leading-snug">{p.data.title}</h3>
-              <p class="mt-2 text-sm text-ink-500 line-clamp-3">{p.data.description}</p>
-              <span class="mt-4 text-sm text-brand-700 font-medium">Read article →</span>
-            </div>
-          </a>
+          <BlogCard
+            href={`/blog/${p.slug}`}
+            title={p.data.title}
+            description={p.data.description}
+            pubDate={p.data.pubDate}
+            readingTime={p.data.readingTime}
+            tag={p.data.tags?.[0]}
+            index={i}
+          />
         </li>
       ))}
     </ul>

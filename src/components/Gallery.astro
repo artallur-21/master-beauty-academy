@@ -1,20 +1,21 @@
 ---
 const images = [
-  { src: '/images/student-1.webp', label: 'Student practical session' },
-  { src: '/images/student-2.webp', label: 'Treatment demonstration' },
-  { src: '/images/student-3.webp', label: 'Facial protocol training' },
-  { src: '/images/course-1.webp', label: 'Skin treatment masterclass' },
-  { src: '/images/student-4.webp', label: 'Hands-on practice' },
-  { src: '/images/course-2.webp', label: 'Live-client session' },
-  { src: '/images/student-5.webp', label: 'Graduation milestone' },
-  { src: '/images/course-3.webp', label: 'Senior trainer coaching' },
-  { src: '/images/classroom.webp', label: 'Inside the academy' },
+  { src: '/images/student-1.webp', label: 'Graduate Portfolio' },
+  { src: '/images/student-2.webp', label: 'Student Showcase' },
+  { src: '/images/student-3.webp', label: 'Graduate Portfolio' },
+  { src: '/images/course-1.webp', label: 'Featured Graduate' },
+  { src: '/images/student-4.webp', label: 'Student Showcase' },
+  { src: '/images/course-2.webp', label: 'Graduate Portfolio' },
+  { src: '/images/student-5.webp', label: 'Graduation Day' },
+  { src: '/images/course-3.webp', label: 'Featured Graduate' },
+  { src: '/images/student-6.webp', label: 'Graduate Portfolio' },
 ];
 ---
 <section class="section">
   <div class="container-w container-px">
     <p class="eyebrow">Student Gallery</p>
-    <h2 class="mt-3 max-w-2xl text-balance">Inside our classrooms — from first day to certification.</h2>
+    <h2 class="mt-3 max-w-2xl text-balance">Real graduates. Real careers.</h2>
+    <p class="mt-4 max-w-2xl text-ink-500 text-pretty">A glimpse into the work and milestones of Master Makeup Studio & Academy students across Belagavi and Hubballi.</p>
     <div class="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
       {images.map((img, i) => (
         <figure class="aspect-[4/5] rounded-xl overflow-hidden ring-1 ring-ink-200 bg-ink-100 relative group">
@@ -23,7 +24,7 @@ const images = [
             alt={img.label}
             width="800"
             height="1000"
-            loading={i < 3 ? 'eager' : 'lazy'}
+            loading={i < 6 ? 'eager' : 'lazy'}
             decoding="async"
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
