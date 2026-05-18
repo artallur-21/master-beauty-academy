@@ -5,14 +5,18 @@ import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import WhatsAppFloat from '@components/WhatsAppFloat.astro';
 import StickyMobileCTA from '@components/StickyMobileCTA.astro';
+import UrgencyBanner from '@components/UrgencyBanner.astro';
+import ExitIntentPopup from '@components/ExitIntentPopup.astro';
 import type { SeoProps } from '@lib/seo';
 
 interface Props extends SeoProps {
   schema?: Record<string, unknown>[] | Record<string, unknown>;
   preloadImage?: string;
   hideStickyCta?: boolean;
+  hideUrgencyBanner?: boolean;
+  hideExitIntent?: boolean;
 }
-const { schema, preloadImage, hideStickyCta = false, ...seo } = Astro.props;
+const { schema, preloadImage, hideStickyCta = false, hideUrgencyBanner = false, hideExitIntent = false, ...seo } = Astro.props;
 ---
 <!doctype html>
 <html lang="en-IN">
@@ -28,6 +32,7 @@ const { schema, preloadImage, hideStickyCta = false, ...seo } = Astro.props;
   </head>
   <body class="bg-cream text-ink-900 pb-16 lg:pb-0">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-brand-700 focus:px-3 focus:py-2 focus:rounded">Skip to main content</a>
+    {!hideUrgencyBanner && <UrgencyBanner />}
     <Header />
     <main id="main">
       <slot />
@@ -35,5 +40,6 @@ const { schema, preloadImage, hideStickyCta = false, ...seo } = Astro.props;
     <Footer />
     <WhatsAppFloat />
     {!hideStickyCta && <StickyMobileCTA />}
+    {!hideExitIntent && <ExitIntentPopup />}
   </body>
 </html>

@@ -1,0 +1,103 @@
+---
+/**
+ * Course Fee & Batch Schedule. Pricing shown as ranges — call to confirm exact fee.
+ * To plug in exact fees, replace ?? values per course type.
+ */
+const courses = [
+  {
+    name: 'Professional Beautician Course',
+    duration: '3 Months',
+    batchSize: 'Max 12',
+    mode: 'Onsite · Belagavi or Hubballi',
+    fee: '₹25,000 – ₹45,000',
+    includes: ['All 15 modules', 'Starter kit', 'Live-client sessions', 'Certificate', 'Placement support'],
+    flag: 'FLAGSHIP',
+    featured: true,
+  },
+  {
+    name: 'Fast-Track Beautician Course',
+    duration: '6–8 Weeks',
+    batchSize: 'Max 10',
+    mode: 'Onsite · Full-day',
+    fee: '₹22,000 – ₹38,000',
+    includes: ['All 15 modules', 'Compressed schedule', 'Live-client sessions', 'Certificate'],
+    flag: 'INTENSIVE',
+  },
+  {
+    name: 'Advanced + Salon Business',
+    duration: '4–5 Months',
+    batchSize: 'Max 10',
+    mode: 'Onsite · Belagavi or Hubballi',
+    fee: '₹45,000 – ₹70,000',
+    includes: ['Everything in flagship', 'Salon ops & marketing', 'Business mentoring', 'Extended placement'],
+    flag: 'CAREER+',
+  },
+];
+
+const upcomingBatches = [
+  { centre: 'Belagavi', batch: 'Morning', start: 'Next intake — call to confirm', time: '10:00 am – 1:00 pm' },
+  { centre: 'Belagavi', batch: 'Evening', start: 'Next intake — call to confirm', time: '3:00 pm – 6:00 pm' },
+  { centre: 'Hubballi',  batch: 'Morning', start: 'Next intake — call to confirm', time: '10:00 am – 1:00 pm' },
+  { centre: 'Hubballi',  batch: 'Evening', start: 'Next intake — call to confirm', time: '4:00 pm – 7:00 pm' },
+];
+---
+
+<section class="section bg-white">
+  <div class="container-w container-px">
+    <p class="eyebrow">Course fees &amp; batch schedule</p>
+    <h2 class="mt-3 max-w-2xl text-balance">Transparent fees. EMI available. No surprise add-ons.</h2>
+    <p class="mt-4 max-w-2xl text-ink-500 text-pretty">Ranges below depend on batch type and inclusions. Call or WhatsApp our counsellor for the exact fee, EMI plan and any active offers.</p>
+
+    <ul class="mt-12 grid gap-6 md:grid-cols-3">
+      {courses.map((c) => (
+        <li class:list={["card flex flex-col", c.featured && '!border-brand-200 !ring-2 !ring-brand-100 relative']}>
+          {c.featured && <span class="absolute -top-3 left-6 bg-gold-400 text-ink-900 text-[10px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full">Most popular</span>}
+          <p class="text-[0.7rem] uppercase tracking-[0.18em] text-gold-500 font-medium">{c.flag}</p>
+          <h3 class="mt-2 font-serif text-xl leading-tight">{c.name}</h3>
+          <p class="mt-3 font-serif text-2xl text-brand-700">{c.fee}</p>
+          <dl class="mt-4 space-y-1.5 text-sm">
+            <div class="flex justify-between"><dt class="text-ink-500">Duration</dt><dd class="font-medium">{c.duration}</dd></div>
+            <div class="flex justify-between"><dt class="text-ink-500">Batch size</dt><dd class="font-medium">{c.batchSize}</dd></div>
+            <div class="flex justify-between"><dt class="text-ink-500">Mode</dt><dd class="font-medium text-right">{c.mode}</dd></div>
+          </dl>
+          <ul class="mt-5 space-y-1.5 text-sm text-ink-700">
+            {c.includes.map((i) => (
+              <li class="flex gap-2"><span class="text-brand-700 mt-1">✓</span>{i}</li>
+            ))}
+          </ul>
+          <a href="/contact" class:list={['btn mt-7', c.featured ? 'btn-primary' : 'btn-outline']}>Get fee details</a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-16 grid lg:grid-cols-[1.2fr_1fr] gap-10">
+      <div>
+        <h3 class="font-serif text-2xl text-balance">Upcoming batches</h3>
+        <div class="mt-5 overflow-hidden rounded-xl border border-ink-200">
+          <table class="w-full text-sm">
+            <thead class="bg-brand-50 text-brand-700">
+              <tr><th class="text-left px-4 py-3">Centre</th><th class="text-left px-4 py-3">Batch</th><th class="text-left px-4 py-3">Time</th><th class="text-left px-4 py-3">Next start</th></tr>
+            </thead>
+            <tbody class="divide-y divide-ink-200">
+              {upcomingBatches.map((b) => (
+                <tr class="bg-white">
+                  <td class="px-4 py-3 font-medium">{b.centre}</td>
+                  <td class="px-4 py-3">{b.batch}</td>
+                  <td class="px-4 py-3 text-ink-700">{b.time}</td>
+                  <td class="px-4 py-3 text-ink-500">{b.start}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-4 text-xs text-ink-500">New batches typically start every 4 weeks. Seats are limited to 12 per batch — early enquirers get scheduling priority.</p>
+      </div>
+      <aside class="card !p-7 !bg-brand-50 !border-brand-100">
+        <p class="eyebrow">EMI &amp; instalments</p>
+        <h3 class="mt-3 font-serif text-xl">Pay across 2 or 3 months.</h3>
+        <p class="mt-3 text-ink-700 text-sm leading-relaxed">Most students pay ₹10,000–₹15,000 per month for the duration of the course. No interest. No paperwork. Just talk to our counsellor.</p>
+        <a href="/contact" class="btn btn-primary mt-5 !py-2.5 !px-5 text-sm">Get EMI options</a>
+      </aside>
+    </div>
+  </div>
+</section>

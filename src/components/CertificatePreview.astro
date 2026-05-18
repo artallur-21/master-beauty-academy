@@ -1,0 +1,40 @@
+---
+import { SITE } from '@lib/site';
+---
+<section class="section">
+  <div class="container-w container-px grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center">
+    <div>
+      <p class="eyebrow">Certification</p>
+      <h2 class="mt-3 text-balance">A certificate that names every module you've mastered.</h2>
+      <p class="mt-5 text-ink-700 text-pretty">Graduate beauticians receive the {SITE.name} Professional Beautician Certificate after passing both written and practical assessments. Unlike generic "completion certificates", ours lists each of the 15 modules — so salon employers can see exactly what you've trained on.</p>
+      <ul class="mt-6 space-y-2.5 text-ink-700">
+        <li class="flex gap-3"><span class="text-brand-700 mt-1">✦</span>Issued only after written + practical pass</li>
+        <li class="flex gap-3"><span class="text-brand-700 mt-1">✦</span>Module-level breakdown of trained skills</li>
+        <li class="flex gap-3"><span class="text-brand-700 mt-1">✦</span>Recognised across our 40+ partner salon network</li>
+        <li class="flex gap-3"><span class="text-brand-700 mt-1">✦</span>Verifiable via QR code</li>
+      </ul>
+      <a href="/contact" class="btn btn-outline mt-7">See a sample certificate</a>
+    </div>
+
+    {/* Stylised certificate card — design-first preview, swap for a real photo when ready */}
+    <div class="relative">
+      <div class="absolute inset-0 -rotate-2 rounded-2xl bg-gradient-to-br from-gold-400/20 to-brand-200/30 blur-xl"></div>
+      <article class="relative aspect-[1.4/1] rounded-2xl bg-cream border-4 border-double border-gold-400/60 p-6 sm:p-10 shadow-[var(--shadow-lift)] flex flex-col" style="background-image: radial-gradient(circle at 1px 1px, rgba(122,22,65,0.06) 1px, transparent 0); background-size: 18px 18px;">
+        <div class="flex items-start justify-between">
+          <div class="w-12 h-12 rounded-full bg-brand-700 text-gold-400 grid place-items-center font-serif text-xl">M</div>
+          <p class="text-[10px] uppercase tracking-[0.2em] text-gold-600">Certificate of Completion</p>
+        </div>
+        <div class="mt-6 flex-1 flex flex-col justify-center text-center">
+          <p class="text-xs uppercase tracking-[0.18em] text-ink-500">This is to certify that</p>
+          <p class="mt-3 font-serif text-2xl sm:text-3xl text-brand-900">[ Student Name ]</p>
+          <p class="mt-3 text-sm text-ink-700 max-w-md mx-auto">has successfully completed the Professional Beautician Course at Master Makeup Studio &amp; Academy, covering 15 modules including skin science, facials, threading, waxing, bleaching, de-tan, body therapies, manicure, pedicure and salon management.</p>
+        </div>
+        <div class="mt-4 grid grid-cols-3 gap-3 text-[10px] uppercase tracking-[0.15em] text-ink-500">
+          <div><p>Batch</p><p class="font-serif text-sm text-ink-900 normal-case tracking-normal mt-1">2025 · {SITE.shortName}</p></div>
+          <div class="text-center"><div class="mx-auto w-12 h-12 rounded-full border-2 border-gold-500/70 grid place-items-center text-gold-600 font-serif">✦</div></div>
+          <div class="text-right"><p>Signed</p><p class="font-serif text-sm text-ink-900 normal-case tracking-normal mt-1">Lead Trainer</p></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

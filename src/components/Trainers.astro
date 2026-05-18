@@ -1,0 +1,59 @@
+---
+/**
+ * Trainer profiles. Defaults are editable placeholders — swap with real photos and bios.
+ */
+const trainers = [
+  {
+    name: 'Senior Skin Therapy Trainer',
+    title: 'Lead Trainer — Skin Science & Facials',
+    years: '12+',
+    expertise: ['Skin analysis', 'Anti-ageing facials', 'Brightening protocols'],
+    bio: 'Twelve years across leading salons in Bengaluru and Belagavi. Trains every facials and skin-science module personally.',
+    photo: '/images/student-5.webp',
+  },
+  {
+    name: 'Senior Threading & Brow Trainer',
+    title: 'Lead Trainer — Threading & Brow Sculpting',
+    years: '10+',
+    expertise: ['Precision threading', 'Brow mapping', 'Aftercare'],
+    bio: 'Specialises in face-shape-based brow design. Has trained over 200 working beauticians since 2018.',
+    photo: '/images/student-2.webp',
+  },
+  {
+    name: 'Senior Body Therapy Trainer',
+    title: 'Lead Trainer — Body Therapies & Wraps',
+    years: '9+',
+    expertise: ['Body polishing', 'Therapeutic wraps', 'Massage protocols'],
+    bio: 'Background in spa-grade body therapies. Builds the body-care modules and runs the live-client studio days.',
+    photo: '/images/student-4.webp',
+  },
+];
+---
+
+<section class="section bg-white">
+  <div class="container-w container-px">
+    <p class="eyebrow">Our trainers</p>
+    <h2 class="mt-3 max-w-2xl text-balance">Senior industry trainers — not freshers reading off a slide.</h2>
+    <p class="mt-4 max-w-2xl text-ink-500 text-pretty">Every module is led by a trainer with at least 8 years of professional salon experience. They've built the curriculum and they teach it personally.</p>
+    <ul class="mt-12 grid gap-6 md:grid-cols-3">
+      {trainers.map((t) => (
+        <li class="card !p-0 overflow-hidden flex flex-col">
+          <div class="aspect-[4/5] bg-ink-100 relative">
+            <img src={t.photo} alt={t.title} width="600" height="750" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+            <div class="absolute bottom-3 left-3 bg-white/85 backdrop-blur px-2.5 py-1 rounded-full text-[10px] uppercase tracking-[0.15em] text-brand-700 font-medium">{t.years} years</div>
+          </div>
+          <div class="p-6">
+            <p class="text-[0.7rem] uppercase tracking-[0.16em] text-gold-500">{t.title}</p>
+            <h3 class="mt-2 font-serif text-xl">{t.name}</h3>
+            <p class="mt-3 text-sm text-ink-700 leading-relaxed">{t.bio}</p>
+            <ul class="mt-4 flex flex-wrap gap-1.5 text-[11px]">
+              {t.expertise.map((e) => (
+                <li class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-700 border border-brand-100">{e}</li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

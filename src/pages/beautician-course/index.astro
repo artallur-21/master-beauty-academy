@@ -7,6 +7,10 @@ import CTA from '@components/CTA.astro';
 import { MODULES } from '@lib/site';
 import { courseSchema, faqSchema, breadcrumbSchema } from '@lib/schema';
 import { getEntry } from 'astro:content';
+import DayInLife from '@components/DayInLife.astro';
+import FeeTable from '@components/FeeTable.astro';
+import CertificatePreview from '@components/CertificatePreview.astro';
+import RelatedPages from '@components/RelatedPages.astro';
 
 const courseFaqs = await getEntry('faqs', 'course');
 const schema = [
@@ -102,6 +106,10 @@ const schema = [
     </div>
   </section>
 
+  <DayInLife />
+  <FeeTable />
+  <CertificatePreview />
   <FAQ items={courseFaqs.data.items} heading="Questions about the course" eyebrow="Course FAQ" />
+  <RelatedPages />
   <CTA heading="Ready to begin your beautician career?" />
 </BaseLayout>

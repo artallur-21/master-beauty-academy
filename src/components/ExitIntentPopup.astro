@@ -1,0 +1,118 @@
+---
+/**
+ * Exit-intent enquiry popup. Astro Island — only ~1 KB of script.
+ *
+ * Triggers:
+ *   - Desktop: cursor leaves the top edge of the viewport
+ *   - Mobile : after 45s of activity AND user has scrolled past 50% of the page
+ *
+ * Suppressed via sessionStorage so it shows at most once per session.
+ * Suppressed if the user has already submitted (sessionStorage flag set by EnquiryForm).
+ */
+---
+
+<dialog id="exit-intent" class="hidden m-auto p-0 rounded-2xl border-0 backdrop:bg-black/60 backdrop:backdrop-blur-sm w-[min(92vw,460px)] open:flex" aria-labelledby="exit-intent-title">
+  <div class="bg-white rounded-2xl overflow-hidden flex flex-col w-full">
+    <div class="grad-hero text-white px-7 pt-7 pb-6 relative">
+      <button type="button" data-close class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 grid place-items-center text-white" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <p class="eyebrow !text-gold-400 [&::before]:bg-gold-400">Before you go</p>
+      <h2 id="exit-intent-title" class="mt-2 text-white text-[1.5rem] leading-tight font-serif text-balance">Get a free counselling call.</h2>
+      <p class="mt-2 text-sm text-ink-200">A 10-minute call with our beautician counsellor — fees, batch timings, EMI, career advice. No commitment.</p>
+    </div>
+    <form data-form id="exit-enquiry" class="p-6 grid gap-3" novalidate>
+      <input type="text" name="name" placeholder="Your name" required minlength="2" maxlength="80" autocomplete="name" class="px-4 py-2.5 rounded-lg border border-ink-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200" />
+      <input type="tel" name="phone" placeholder="Phone" required pattern="[0-9+\\-\\s()]{7,20}" autocomplete="tel" inputmode="tel" class="px-4 py-2.5 rounded-lg border border-ink-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200" />
+      <select name="city" required class="px-4 py-2.5 rounded-lg border border-ink-300 bg-white focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-200">
+        <option value="Belagavi">Belagavi</option>
+        <option value="Hubballi">Hubballi</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" class="!absolute !-left-[9999px] !w-px !h-px !opacity-0 !pointer-events-none" />
+      <button type="submit" class="btn btn-primary" data-submit>
+        <span data-label>Get my free call</span>
+        <span data-loading hidden>Sending…</span>
+      </button>
+      <p data-status role="status" aria-live="polite" class="text-sm hidden"></p>
+      <button type="button" data-close class="text-xs text-ink-500 hover:text-ink-900 mt-1">No thanks, continue browsing</button>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  const KEY_SEEN = 'mba_exit_seen';
+  const KEY_DONE = 'mba_enquiry_sent';
+
+  const dialog = document.getElementById('exit-intent') as HTMLDialogElement | null;
+  if (dialog && !sessionStorage.getItem(KEY_SEEN) && !sessionStorage.getItem(KEY_DONE)) {
+    const open = () => {
+      if (sessionStorage.getItem(KEY_SEEN) || sessionStorage.getItem(KEY_DONE)) return;
+      sessionStorage.setItem(KEY_SEEN, '1');
+      try { dialog.showModal(); } catch { /* dialog unsupported */ }
+    };
+
+    // Desktop — leave-intent
+    document.addEventListener('mouseout', (e) => {
+      if ((e as MouseEvent).relatedTarget === null && (e as MouseEvent).clientY <= 0) open();
+    });
+
+    // Mobile fallback — after 45s + scroll-past-half
+    if (matchMedia('(max-width: 1024px)').matches) {
+      setTimeout(() => {
+        if (window.scrollY / (document.body.scrollHeight - window.innerHeight) > 0.5) open();
+      }, 45000);
+    }
+
+    dialog.querySelectorAll<HTMLElement>('[data-close]').forEach((el) =>
+      el.addEventListener('click', () => dialog.close()),
+    );
+
+    // Form submit — POST to API then redirect to WhatsApp
+    const form = dialog.querySelector<HTMLFormElement>('form[data-form]');
+    if (form) {
+      const submitBtn = form.querySelector<HTMLButtonElement>('button[data-submit]');
+      const labelEl = form.querySelector<HTMLElement>('[data-label]');
+      const loadingEl = form.querySelector<HTMLElement>('[data-loading]');
+      const statusEl = form.querySelector<HTMLElement>('[data-status]');
+      const WA_FALLBACK = 'https://wa.me/918904105156';
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        submitBtn?.setAttribute('disabled', '');
+        labelEl?.setAttribute('hidden', '');
+        loadingEl?.removeAttribute('hidden');
+
+        const payload = { ...data, source_page: location.pathname + '#exit-intent' };
+        let waUrl = '';
+        try {
+          const res = await fetch('/api/enquiry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          const json = (await res.json().catch(() => ({}))) as { ok?: boolean; whatsappUrl?: string; error?: string };
+          if (json.ok) {
+            waUrl = json.whatsappUrl ?? '';
+          } else if (json.error === 'rate_limited') {
+            if (statusEl) { statusEl.textContent = 'Too many submissions — try again later.'; statusEl.className = 'text-sm text-red-600'; }
+            submitBtn?.removeAttribute('disabled'); labelEl?.removeAttribute('hidden'); loadingEl?.setAttribute('hidden', '');
+            return;
+          }
+        } catch { /* fall through */ }
+
+        if (!waUrl) {
+          const text = `Exit-intent Enquiry%0A%0AName: ${data.name}%0APhone: ${data.phone}%0ACity: ${data.city}`;
+          waUrl = `${WA_FALLBACK}?text=${text}`;
+        }
+
+        sessionStorage.setItem(KEY_DONE, '1');
+        if (statusEl) { statusEl.textContent = 'Opening WhatsApp…'; statusEl.className = 'text-sm text-brand-700'; }
+        location.href = waUrl;
+      });
+    }
+  }
+</script>

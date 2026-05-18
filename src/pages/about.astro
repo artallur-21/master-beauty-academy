@@ -1,8 +1,13 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
+import FounderMessage from '@components/FounderMessage.astro';
+import Facilities from '@components/Facilities.astro';
+import Trainers from '@components/Trainers.astro';
+import Awards from '@components/Awards.astro';
+import LocationCards from '@components/LocationCards.astro';
 import CTA from '@components/CTA.astro';
-import { SITE, LOCATIONS } from '@lib/site';
+import { SITE } from '@lib/site';
 import { breadcrumbSchema } from '@lib/schema';
 
 const schema = breadcrumbSchema([
@@ -13,62 +18,64 @@ const schema = breadcrumbSchema([
 
 <BaseLayout
   title="About Master Makeup Studio & Academy — Shaping Professional Beauticians Since 2015"
-  description="Master Makeup Studio & Academy is a 10-year-old professional beautician training institute with centres in Belagavi & Hubballi. 500+ students trained, 95% placement rate."
+  description="Master Makeup Studio & Academy — a 10-year professional beautician institute in Belagavi & Hubballi. 500+ graduates, senior trainers, live-client studio, 95% placement."
   path="/about"
-  keywords={['best beauty academy belagavi', 'master beauty academy', 'beautician institute karnataka']}
+  keywords={['best beauty academy belagavi', 'master makeup studio academy', 'beautician institute karnataka']}
   schema={schema}
 >
   <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'About', url: '/about' }]} />
+
   <section class="container-w container-px pt-10 pb-12">
-    <p class="eyebrow">About Master Makeup Studio & Academy</p>
-    <h1 class="mt-4 max-w-3xl text-balance">Shaping Professional Beauticians Since 2015.</h1>
-    <p class="mt-6 max-w-2xl text-lg text-ink-500 text-pretty">A decade ago we set out to do one thing better than anyone else in North Karnataka — train professional beauticians who walk into any salon and outperform from day one. 500+ graduates later, we still measure ourselves by the same standard.</p>
+    <p class="eyebrow">About Master Makeup Studio &amp; Academy</p>
+    <h1 class="mt-4 max-w-3xl text-balance">Shaping Professional Beauticians Since {SITE.founded}.</h1>
+    <p class="mt-6 max-w-2xl text-lg text-ink-500 text-pretty">
+      A decade ago we set out to do one thing better than anyone else in North Karnataka — train professional beauticians who walk into any salon and outperform from day one. {SITE.studentCount} graduates later, we still measure ourselves by the same standard.
+    </p>
+    <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl">
+      <div><dt class="text-xs uppercase tracking-widest text-brand-700">Founded</dt><dd class="font-serif text-2xl mt-1">{SITE.founded}</dd></div>
+      <div><dt class="text-xs uppercase tracking-widest text-brand-700">Graduates</dt><dd class="font-serif text-2xl mt-1">{SITE.studentCount}</dd></div>
+      <div><dt class="text-xs uppercase tracking-widest text-brand-700">Placement</dt><dd class="font-serif text-2xl mt-1">{SITE.placementRate}</dd></div>
+      <div><dt class="text-xs uppercase tracking-widest text-brand-700">Rating</dt><dd class="font-serif text-2xl mt-1">{SITE.rating.value} / 5</dd></div>
+    </dl>
   </section>
 
-  <section class="container-w container-px pb-16 grid lg:grid-cols-2 gap-12">
-    <div class="prose-luxe max-w-none">
-      <h2>Our mission</h2>
-      <p>To raise the technical, hygienic and professional standards of India's beauty industry — one rigorously trained beautician at a time. We refuse to dilute curriculum, batch size, or live-client practice to grow faster.</p>
+  <FounderMessage />
 
-      <h2>Our story</h2>
-      <p>Master Makeup Studio & Academy was founded in 2015 by senior salon professionals frustrated by the gap between "completion certificates" and salon-floor reality. Our founders had spent decades training apprentices the hard way — and they built this academy as the apprenticeship every aspiring beautician deserves.</p>
-
-      <h2>What makes us different</h2>
-      <ul>
-        <li><strong>Senior trainers only.</strong> Every module is led by a trainer with 8+ years of professional salon experience.</li>
-        <li><strong>Live-client studio.</strong> Every student completes a minimum of 10 supervised live-client sessions before graduating.</li>
-        <li><strong>Small batches.</strong> Capped at 12 students for personalised mentoring.</li>
-        <li><strong>Placement network.</strong> Active relationships with 40+ salons across Karnataka.</li>
-      </ul>
-
-      <h2>Awards & recognition</h2>
-      <p>Featured in regional press as one of Karnataka's leading vocational training institutes for the beauty industry. 4.9-star average across 187+ Google reviews. Recognised by partner salons as the most reliable source of salon-ready graduates in the Belagavi–Hubballi corridor.</p>
-    </div>
-
-    <div class="space-y-8">
-      <div class="card !p-7">
-        <h3 class="font-serif text-xl">Our Centres</h3>
-        <ul class="mt-4 space-y-5">
-          {LOCATIONS.map((l) => (
-            <li>
-              <p class="font-medium">{l.city}</p>
-              <p class="text-sm text-ink-500 mt-1">{l.addressLine}, {l.locality}</p>
-              <a href={`/beautician-course-${l.slug}`} class="text-sm text-brand-700 mt-2 inline-block hover:underline">Visit {l.city} page →</a>
-            </li>
-          ))}
+  <section class="section bg-cream">
+    <div class="container-w container-px grid lg:grid-cols-[1.4fr_1fr] gap-12">
+      <div class="prose-luxe max-w-none">
+        <h2>Our mission</h2>
+        <p>To raise the technical, hygienic and professional standards of India's beauty industry — one rigorously trained beautician at a time. We refuse to dilute curriculum, batch size, or live-client practice to grow faster.</p>
+        <h2>How we work</h2>
+        <p>Every batch is capped at 12 students. Every module is led by a senior trainer with 8+ years of professional salon experience. Roughly 70% of class time is supervised hands-on practice — including a minimum of 10 live-client sessions per student before graduation.</p>
+        <p>We teach the science behind the techniques, not just the technique itself. A student who understands why a particular bleach formula works on combination skin will outperform one who only knows how to apply it.</p>
+        <h2>What we won't do</h2>
+        <ul>
+          <li>Crowd batches past 12 students.</li>
+          <li>Issue certificates to anyone who hasn't passed both written and practical assessments.</li>
+          <li>Replace live-client practice with extra theory hours.</li>
+          <li>Skip hygiene and sterilisation protocols to save time.</li>
         </ul>
       </div>
-
-      <div class="card !p-7 !bg-brand-50 !border-brand-100">
-        <h3 class="font-serif text-xl">At a glance</h3>
-        <dl class="mt-4 grid grid-cols-2 gap-4 text-sm">
-          <div><dt class="text-ink-500">Founded</dt><dd class="font-serif text-lg">{SITE.founded}</dd></div>
-          <div><dt class="text-ink-500">Students trained</dt><dd class="font-serif text-lg">{SITE.studentCount}</dd></div>
-          <div><dt class="text-ink-500">Placement rate</dt><dd class="font-serif text-lg">{SITE.placementRate}</dd></div>
-          <div><dt class="text-ink-500">Avg. rating</dt><dd class="font-serif text-lg">{SITE.rating.value} / 5</dd></div>
-        </dl>
-      </div>
+      <aside class="space-y-6">
+        <div class="card !p-7 !bg-white">
+          <h3 class="font-serif text-lg">By the numbers</h3>
+          <dl class="mt-4 space-y-2.5 text-sm">
+            <div class="flex justify-between"><dt class="text-ink-500">Years training</dt><dd class="font-medium">{SITE.yearsExperience}</dd></div>
+            <div class="flex justify-between"><dt class="text-ink-500">Active centres</dt><dd class="font-medium">{SITE.centresCount}</dd></div>
+            <div class="flex justify-between"><dt class="text-ink-500">Max batch size</dt><dd class="font-medium">12</dd></div>
+            <div class="flex justify-between"><dt class="text-ink-500">Training modules</dt><dd class="font-medium">15+</dd></div>
+            <div class="flex justify-between"><dt class="text-ink-500">Live-client sessions / student</dt><dd class="font-medium">10+ min</dd></div>
+            <div class="flex justify-between"><dt class="text-ink-500">Partner salons</dt><dd class="font-medium">40+</dd></div>
+          </dl>
+        </div>
+      </aside>
     </div>
   </section>
+
+  <Facilities />
+  <Trainers />
+  <Awards />
+  <LocationCards />
   <CTA />
 </BaseLayout>

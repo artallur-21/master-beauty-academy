@@ -1,0 +1,29 @@
+---
+const blocks = [
+  { time: '9:30 am', t: 'Arrival & set-up', d: 'Students sterilise their stations, prep tools and review the day’s protocol with the trainer.' },
+  { time: '10:00 am', t: 'Theory block', d: '30–45 minutes of focused theory: skin science, product chemistry or the technique you’ll practise today.' },
+  { time: '11:00 am', t: 'Live demo', d: 'The senior trainer performs the full technique once at normal speed, once narrated step by step.' },
+  { time: '11:45 am', t: 'Peer & mannequin practice', d: 'You work the technique on a peer or training mannequin while the trainer circulates and corrects in real time.' },
+  { time: '12:45 pm', t: 'Break', d: 'Reset, review notes, refill water — a real salon day has no slack so we train for stamina too.' },
+  { time: '1:15 pm', t: 'Live-client session (from week 3)', d: 'Real treatments on real clients with supervised pricing, hygiene and consultation flow.' },
+  { time: '2:30 pm', t: 'Debrief & assessment', d: 'Each student gets individual feedback. Common mistakes go on the board. Day ends with a 5-question check-in.' },
+];
+---
+
+<section class="section bg-cream">
+  <div class="container-w container-px">
+    <p class="eyebrow">Day in the life of a student</p>
+    <h2 class="mt-3 max-w-2xl text-balance">A typical day inside the academy.</h2>
+    <p class="mt-4 max-w-2xl text-ink-500 text-pretty">Structured, supervised, and engineered around real practice. Not a single hour wasted on filler.</p>
+    <ol class="mt-12 relative border-l-2 border-brand-200 pl-7 space-y-7 max-w-3xl">
+      {blocks.map((b) => (
+        <li class="relative">
+          <span aria-hidden="true" class="absolute -left-[35px] top-1 w-3 h-3 rounded-full bg-brand-700 ring-4 ring-cream"></span>
+          <p class="text-[0.7rem] uppercase tracking-[0.18em] text-gold-500 font-medium font-mono">{b.time}</p>
+          <h3 class="mt-1 font-serif text-lg leading-tight">{b.t}</h3>
+          <p class="mt-1.5 text-ink-700 leading-relaxed">{b.d}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
