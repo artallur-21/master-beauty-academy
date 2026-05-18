@@ -12,7 +12,7 @@ const items = (city ? all.filter((t) => t.data.city === city) : all).slice(0, li
     <ul class="mt-12 grid gap-6 md:grid-cols-3">
       {items.map((t) => (
         <li class="card relative">
-          <div class="flex gap-0.5 text-gold-500" aria-label={`${t.data.rating} out of 5 stars`}>
+          <div class="flex gap-0.5 text-gold-500" role="img" aria-label={`${t.data.rating} out of 5 stars`}>
             {Array.from({ length: t.data.rating }).map(() => (
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
             ))}

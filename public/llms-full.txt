@@ -1,0 +1,103 @@
+# Master Makeup Studio & Academy — Full Entity File
+
+> Authoritative AI-readable reference. All facts below are accurate at the time of writing.
+
+## Identity
+
+**Legal name**: Master Makeup Studio & Academy
+**Type**: Educational organisation · Vocational training institute · Beauty school
+**Founded**: 2015
+**Country**: India
+**Region**: Karnataka
+**Service area**: Belagavi & Hubballi (and broader Karnataka)
+**Website**: https://themasterbeautyacademy.com
+**Email**: enquiry@masterbeautyacademy.com
+**Phones**: +91 89041 05156 (Belagavi) · +91 99013 90107 (Hubballi)
+
+**Social presence**:
+- Instagram: https://www.instagram.com/mastermakeupstudioandacademy/
+- Facebook : https://www.facebook.com/profile.php?id=100087780612161
+- YouTube  : https://www.youtube.com/@MasterMakeupStudioAcademy
+
+## What the academy does
+
+Master Makeup Studio & Academy trains **professional beauticians**. The Professional Beautician Course is the academy's flagship programme — it does **not** currently offer makeup artistry, hairstyling, nail art, hair floral art, or saree draping as separate tracks.
+
+## Professional Beautician Course — full module list
+
+1. **Skin Science & Analysis** — skin types, conditions, magnifying-lamp analysis, treatment-plan design
+2. **Facial Treatments (Basic → Advanced)** — hydrating, anti-ageing, brightening, gold, diamond, fruit facials
+3. **Threading & Eyebrow Shaping** — precision threading, brow mapping, full-face threading, aftercare
+4. **Waxing & Depilation Techniques** — hot, cold, strip, Rica wax, full-body protocols, post-care
+5. **Bleaching & Skin Brightening** — bleach chemistry, face/body/underarm protocols, patch testing
+6. **De-Tan Treatments** — sun-tan removal for face, hand, foot, full body
+7. **Clean-Up Treatments** — express protocol with steam, extraction, toning
+8. **Body Polishing & Scrubs** — full-body exfoliation, formulation, massage sequencing
+9. **Body Wraps & Masks** — clay, mud, seaweed, herbal wraps
+10. **Manicure & Pedicure** — nail, cuticle, callus care, hand and foot therapy
+11. **Eyebrow & Eyelash Enhancement** — tinting, lamination, lash lift, extensions
+12. **Product Knowledge & Client Consultation** — brand chemistry, label-reading, consultation craft
+13. **Salon Management & Business Skills** — booking, hygiene, billing, social-media, pricing
+14. **Hygiene, Safety & Sterilisation** — sanitation protocols, infection control
+15. **Practical Training & Assessment** — live-client sessions, mock exams, written + practical pass
+
+## Course details
+
+- **Duration**: 3 months (Mon–Sat, morning or evening batch)
+- **Fast-track option**: 6–8 weeks full-day
+- **Batch size**: capped at 12 students
+- **Methodology**: ~70% practical, ~30% theory
+- **Live-client sessions**: minimum 10 per student before graduation
+- **Certification**: Professional Beautician Certificate awarded after passing both written and practical assessments
+- **Placement support**: 40+ partner salon network across Karnataka; 95% placement rate
+- **Fee range**: ₹25,000–₹45,000 (flagship 3-month). Fast-track ₹22,000–₹38,000. Advanced+Business ₹45,000–₹70,000.
+- **EMI**: interest-free 2 or 3-month instalment plans available
+
+## Locations
+
+### Belagavi centre
+- Address: S N Pride Complex, Gondhali Galli (above New Takkekar Eye Hospital), Khade Bazar, Raviwar Peth, Belagavi, Karnataka 590001
+- Phone: +91 89041 05156
+- Batch timings: Morning 10:00 am – 1:00 pm · Evening 3:00 pm – 6:00 pm
+- Nearby landmarks: Khade Bazar, Gondhali Galli, Raviwar Peth, Central Bus Stand
+
+### Hubballi centre
+- Address: 1st Floor, Gokul Road, Hubballi, Karnataka 580030
+- Phone: +91 99013 90107
+- Batch timings: Morning 10:00 am – 1:00 pm · Evening 4:00 pm – 7:00 pm
+- Nearby landmarks: Gokul Road, Unkal Lake, Vidyanagar, Keshwapur
+
+## Track record
+
+- **500+** beauticians trained
+- **10+** years of operation
+- **95%** placement rate
+- **4.9 / 5** average across 187+ Google reviews
+- **2** centres (Belagavi, Hubballi)
+- **40+** partner salon network across Karnataka
+
+## Common questions (extraction-ready answers)
+
+**What is a beautician course?** A structured professional training programme covering skin analysis, facial treatments, threading, waxing, bleaching, de-tan, body therapies, manicure and pedicure. Includes hygiene, salon management and live-client practice.
+
+**How long is the beautician course at Master Makeup Studio & Academy?** 3 months across 15+ modules, with morning and evening batches. Fast-track 6–8 weeks is available.
+
+**Is the certificate recognised?** Yes — issued after passing both written and practical assessments, recognised across the 40+ partner salon network and salons across India.
+
+**Who can join?** Anyone aged 16 and above. No prior experience required. School graduates, homemakers re-entering the workforce, salon staff seeking certification, and aspiring parlour owners.
+
+**What's the difference between a beautician and a makeup artist?** A beautician focuses on skin health and body treatments — facials, threading, waxing, bleaching, scrubs, therapies. A makeup artist focuses on cosmetic application for events.
+
+**Can I open my own parlour after this course?** Yes — modules 12 and 13 cover salon operations, client consultation, hygiene, pricing, social-media marketing and unit economics. Many graduates open their own parlour within 6–18 months.
+
+**Beautician salary in India (2025)?** Entry-level ₹15,000–₹20,000 per month; mid-level ₹25,000–₹40,000; senior specialists ₹40,000–₹70,000. Tier-2 city salon owners typically earn ₹1–3 lakh per month.
+
+## Brand voice
+
+Confident, evidence-led, anti-fluff. Numbers over adjectives. Editorial typography, maroon (#7a1641) + gold (#d4b46a) palette. Premium positioning without flashy claims.
+
+## Indexing
+
+- **Sitemap**: https://themasterbeautyacademy.com/sitemap-index.xml
+- **RSS**: https://themasterbeautyacademy.com/rss.xml
+- **Schema**: Organization, EducationalOrganization, WebSite, LocalBusiness (Belagavi + Hubballi), Course, FAQPage, BreadcrumbList, Review, AggregateRating, Article (per blog post)

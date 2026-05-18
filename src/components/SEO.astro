@@ -43,12 +43,9 @@ const allSchema = [organizationSchema(), websiteSchema(), ...schemaArray];
 <meta name="author" content={SITE.name} />
 
 {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap"
-/>
+{/* Self-hosted fonts — preload the two critical above-the-fold weights */}
+<link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin />
 
 {allSchema.map((s) => (
   <script type="application/ld+json" set:html={JSON.stringify(s)} />

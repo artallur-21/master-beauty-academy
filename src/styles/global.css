@@ -1,5 +1,43 @@
 @import 'tailwindcss';
 
+/* Self-hosted fonts — eliminates render-blocking Google Fonts request */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/fraunces-var.woff2') format('woff2-variations'),
+       url('/fonts/fraunces-var.woff2') format('woff2');
+}
+
 @theme {
   /* Brand palette — luxury maroon + gold */
   --color-brand-50: #fdf3f7;
@@ -16,8 +54,8 @@
 
   --color-gold-300: #e8cf91;
   --color-gold-400: #d4b46a;
-  --color-gold-500: #b9974a;
-  --color-gold-600: #997833;
+  --color-gold-500: #997833; /* darkened from #b9974a for WCAG AA contrast on light backgrounds */
+  --color-gold-600: #7d6128;
 
   --color-ink-900: #14101a;
   --color-ink-800: #1f1925;

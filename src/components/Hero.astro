@@ -22,7 +22,17 @@ const {
   {variant === 'home' && (
     <>
       <div class="absolute inset-0">
-        <img src="/images/hero.webp" alt="" width="1600" height="900" class="w-full h-full object-cover" fetchpriority="high" decoding="async" aria-hidden="true" />
+        <img
+          src="/images/hero-800.webp"
+          srcset="/images/hero-480.webp 480w, /images/hero-800.webp 800w, /images/hero.webp 1400w"
+          sizes="100vw"
+          alt=""
+          width="1400" height="933"
+          class="w-full h-full object-cover"
+          fetchpriority="high"
+          decoding="async"
+          aria-hidden="true"
+        />
         <div class="absolute inset-0 bg-gradient-to-br from-[rgba(42,13,30,0.86)] via-[rgba(61,13,32,0.78)] to-[rgba(42,13,30,0.92)]"></div>
         <div aria-hidden="true" class="absolute inset-0 opacity-[0.06] mix-blend-screen" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.6) 1px, transparent 0); background-size: 32px 32px;"></div>
       </div>
