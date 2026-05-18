@@ -163,7 +163,7 @@ export function articleSchema(opts: {
     image: opts.image.startsWith('http') ? opts.image : `${SITE.url}${opts.image}`,
     datePublished: opts.datePublished,
     dateModified: opts.dateModified ?? opts.datePublished,
-    author: { '@type': 'Person', name: opts.author ?? 'Master Makeup Studio & Academy' },
+    author: { '@type': 'Person', name: opts.author ?? 'Master Beauty Academy' },
     publisher: { '@id': `${SITE.url}/#organization` },
     mainEntityOfPage: `${SITE.url}/blog/${opts.slug}`,
   };

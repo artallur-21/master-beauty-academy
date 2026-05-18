@@ -1,10 +1,10 @@
-# Master Makeup Studio & Academy — Full Entity File
+# Master Beauty Academy — Full Entity File
 
 > Authoritative AI-readable reference. All facts below are accurate at the time of writing.
 
 ## Identity
 
-**Legal name**: Master Makeup Studio & Academy
+**Legal name**: Master Beauty Academy
 **Type**: Educational organisation · Vocational training institute · Beauty school
 **Founded**: 2015
 **Country**: India
@@ -21,7 +21,7 @@
 
 ## What the academy does
 
-Master Makeup Studio & Academy trains **professional beauticians**. The Professional Beautician Course is the academy's flagship programme — it does **not** currently offer makeup artistry, hairstyling, nail art, hair floral art, or saree draping as separate tracks.
+Master Beauty Academy trains **professional beauticians**. The Professional Beautician Course is the academy's flagship programme — it does **not** currently offer makeup artistry, hairstyling, nail art, hair floral art, or saree draping as separate tracks.
 
 ## Professional Beautician Course — full module list
 
@@ -80,7 +80,7 @@ Master Makeup Studio & Academy trains **professional beauticians**. The Professi
 
 **What is a beautician course?** A structured professional training programme covering skin analysis, facial treatments, threading, waxing, bleaching, de-tan, body therapies, manicure and pedicure. Includes hygiene, salon management and live-client practice.
 
-**How long is the beautician course at Master Makeup Studio & Academy?** 3 months across 15+ modules, with morning and evening batches. Fast-track 6–8 weeks is available.
+**How long is the beautician course at Master Beauty Academy?** 3 months across 15+ modules, with morning and evening batches. Fast-track 6–8 weeks is available.
 
 **Is the certificate recognised?** Yes — issued after passing both written and practical assessments, recognised across the 40+ partner salon network and salons across India.
 

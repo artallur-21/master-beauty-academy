@@ -1,19 +1,19 @@
 export const SITE = {
-  name: 'Master Makeup Studio & Academy',
+  name: 'Master Beauty Academy',
   shortName: 'Master Academy',
-  legalName: 'Master Makeup Studio & Academy',
+  legalName: 'Master Beauty Academy',
   domain: 'themasterbeautyacademy.com',
   url: 'https://themasterbeautyacademy.com',
   tagline: 'Professional Beautician Training in Belagavi & Hubballi',
   description:
-    'Master Makeup Studio & Academy offers an industry-leading Professional Beautician Course in Belagavi & Hubballi. 15+ training modules covering facials, threading, waxing, bleaching, de-tan, body therapies and more — taught by certified experts with placement support.',
+    'Master Beauty Academy offers an industry-leading Professional Beautician Course in Belagavi & Hubballi. 15+ training modules covering facials, threading, waxing, bleaching, de-tan, body therapies and more — taught by certified experts with placement support.',
   founded: '2015',
   email: 'enquiry@themasterbeautyacademy.com',
   phonePrimary: '+91-89041-05156',
   phoneSecondary: '+91-99013-90107',
   phoneWhatsapp: '918904105156',
   whatsappMessage: 'Hi, I want to enquire about the Beautician Course.',
-  logo: '/images/logo.png',
+  logo: '/images/logo.webp',
   ogImage: '/images/hero.webp',
   socials: {
     instagram: 'https://www.instagram.com/mastermakeupstudioandacademy/',

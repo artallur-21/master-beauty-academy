@@ -168,7 +168,7 @@ admin.get('/', (c) => {
     .when{color:#7e7689;font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
     .src{color:#7e7689;font-size:11px;font-family:ui-monospace,monospace}
   </style></head><body>
-    <header><h1>Master Makeup Studio &amp; Academy — Enquiries</h1><span style="font-size:12px;opacity:.7">${new Date().toLocaleString('en-IN')}</span></header>
+    <header><h1>Master Beauty Academy — Enquiries</h1><span style="font-size:12px;opacity:.7">${new Date().toLocaleString('en-IN')}</span></header>
     <main>
       <div class="stats">
         <div class="stat"><div class="v">${s.total}</div><div class="l">Total</div></div>

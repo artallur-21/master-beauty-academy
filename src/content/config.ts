@@ -8,7 +8,7 @@ const blog = defineCollection({
       description: z.string().min(80).max(180),
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
-      author: z.string().default('Master Makeup Studio & Academy'),
+      author: z.string().default('Master Beauty Academy'),
       cover: image().optional(),
       coverAlt: z.string().optional(),
       tags: z.array(z.string()).default([]),

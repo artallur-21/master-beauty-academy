@@ -24,7 +24,7 @@ const loc = LOCATIONS.find((l) => l.slug === slug)!;
 <section class="container-w container-px pt-8 pb-12 grid lg:grid-cols-[1.4fr_1fr] gap-12 items-start">
   <div>
     <p class="eyebrow">Beautician Course · {loc.city}</p>
-    <h1 class="mt-4 text-balance">Professional Beautician Course in {loc.city} — Enrol at Master Makeup Studio & Academy</h1>
+    <h1 class="mt-4 text-balance">Professional Beautician Course in {loc.city} — Enrol at Master Beauty Academy</h1>
     <p class="mt-6 max-w-2xl text-lg text-ink-500 text-pretty">
       Train as a professional beautician at our {loc.city} centre on {loc.addressLine}, easily reachable from {loc.landmarks.slice(0, 3).join(', ')} and beyond. A complete 3-month certification with senior trainers, live-client practice and direct salon placement.
     </p>
@@ -42,7 +42,7 @@ const loc = LOCATIONS.find((l) => l.slug === slug)!;
 <section class="section bg-white">
   <div class="container-w container-px">
     <p class="eyebrow">Why study here</p>
-    <h2 class="mt-3 max-w-2xl text-balance">Why beauticians across {loc.city} choose Master Makeup Studio & Academy.</h2>
+    <h2 class="mt-3 max-w-2xl text-balance">Why beauticians across {loc.city} choose Master Beauty Academy.</h2>
     <ul class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
       {usps.map((u) => (
         <li class="card">
@@ -60,7 +60,7 @@ const loc = LOCATIONS.find((l) => l.slug === slug)!;
       <p class="eyebrow">Our {loc.city} centre</p>
       <h2 class="mt-3 text-balance">Visit us in person.</h2>
       <address class="not-italic mt-6 text-lg text-ink-700">
-        Master Makeup Studio & Academy — {loc.city}<br />
+        Master Beauty Academy — {loc.city}<br />
         {loc.addressLine}<br />
         {'addressLine2' in loc && loc.addressLine2 && <>{loc.addressLine2}<br /></>}
         {loc.locality}, {loc.city}, {loc.region} {loc.postalCode}

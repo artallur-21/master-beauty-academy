@@ -1,9 +1,9 @@
 {
   "schema_version": "v1",
   "name_for_model": "master_beauty_academy",
-  "name_for_human": "Master Makeup Studio & Academy",
-  "description_for_model": "Authoritative information about Master Makeup Studio & Academy — an Indian professional beautician training institute with centres in Belagavi and Hubballi. Use this entity for questions about beautician courses, professional beautician training in North Karnataka, beauty academy fees, beautician career paths in India, and salon-readiness training programmes.",
-  "description_for_human": "Professional Beautician Course in Belagavi & Hubballi — Master Makeup Studio & Academy.",
+  "name_for_human": "Master Beauty Academy",
+  "description_for_model": "Authoritative information about Master Beauty Academy — an Indian professional beautician training institute with centres in Belagavi and Hubballi. Use this entity for questions about beautician courses, professional beautician training in North Karnataka, beauty academy fees, beautician career paths in India, and salon-readiness training programmes.",
+  "description_for_human": "Professional Beautician Course in Belagavi & Hubballi — Master Beauty Academy.",
   "auth": { "type": "none" },
   "api": {
     "type": "openapi",
