@@ -1,6 +1,8 @@
 # Master Beauty Academy — themasterbeautyacademy.com
 
-A production-ready, AI-first static website for **Master Beauty Academy** — India's premier Professional Beautician training institute in **Belagavi** and **Hubli**.
+A production-ready, AI-first static website for **Master Beauty Academy** — India's premier Professional Beautician training institute in **Hubli** and **Belagavi**.
+
+Co-founded by **Anilkumar Sakhe** (CEO) and **Priyanka Sakhe** (Award of Excellence in Makeup, LAPT London · Best Makeup Artist, Global Fame Awards 2023, presented by Sonu Sood). Flagship offering: a **30-day, ₹40,000** Professional Beautician Course covering 9 categories — beauty & grooming, facials, hand & foot care, wellness, hair care, hair cutting, salon management, makeup, advanced hair treatments.
 
 Built end-to-end from the Website Strategy Blueprint with a focus on:
 
@@ -14,7 +16,7 @@ Built end-to-end from the Website Strategy Blueprint with a focus on:
 
 | Layer | Choice |
 | --- | --- |
-| Framework | Astro 6 (static output) |
+| Framework | Astro 5 (static output) |
 | Language | TypeScript (strict) |
 | Styling | Tailwind CSS 4 (CSS-first theme via `@theme`) |
 | Content | Astro Content Collections + MDX |

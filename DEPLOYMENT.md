@@ -1,6 +1,6 @@
 # Deployment — VPS (NGINX, HTTP/2, Brotli)
 
-Master Beauty Academy is a fully static Astro 6 build. The deployment target is a Linux VPS running NGINX with Brotli and Let's Encrypt TLS.
+Master Beauty Academy is a fully static Astro 5 build. The deployment target is a Linux VPS running NGINX with Brotli and Let's Encrypt TLS.
 
 ## 1. Local build
 
