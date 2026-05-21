@@ -2,7 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
 import CTA from '@components/CTA.astro';
-import { MODULES } from '@lib/site';
+import { MODULES, SITE } from '@lib/site';
 import { courseSchema, breadcrumbSchema } from '@lib/schema';
 
 const schema = [
@@ -13,29 +13,11 @@ const schema = [
     { name: 'Curriculum', url: '/beautician-course/curriculum' },
   ]),
 ];
-
-const moduleDetails: Record<number, string[]> = {
-  1: ['Skin types and conditions', 'Skin analysis under magnifying lamp', 'Recommending personalised regimens', 'Reading active ingredient labels'],
-  2: ['Cleansing protocols', 'Hydrating, anti-ageing, brightening facials', 'Fruit, gold and diamond facial techniques', 'Massage strokes and pressure points'],
-  3: ['Precision threading grip and movement', 'Eyebrow shape mapping by face structure', 'Upper lip and full-face threading', 'Aftercare and irritation control'],
-  4: ['Hot, cold, strip and Rica wax techniques', 'Full-body depilation protocol', 'Sensitive area waxing', 'Post-wax soothing care'],
-  5: ['Bleach types and skin compatibility', 'Face, body and underarm protocols', 'Brightening therapies', 'Patch testing and safety'],
-  6: ['De-tan agents and skin response', 'Face, hand, foot and full-body de-tan', 'Layering with other treatments', 'Tan-prevention guidance'],
-  7: ['Express clean-up protocol', 'Steaming, extraction and toning', 'Difference vs full facial', 'Walk-in service workflow'],
-  8: ['Full-body exfoliation', 'Scrub formulation knowledge', 'Massage sequencing', 'Circulation and skin texture outcomes'],
-  9: ['Clay, mud, seaweed, herbal wraps', 'Detox vs hydration protocols', 'Wrap-mask combinations', 'Spa-day workflows'],
-  10: ['Nail and cuticle care', 'Foot care and callus removal', 'Hand and foot massage', 'Hygiene and tool sterilisation'],
-  11: ['Brow tinting and lamination', 'Lash lift and tint', 'Eyelash extension fundamentals', 'Allergy and patch testing'],
-  12: ['Product chemistry basics', 'Brand matching by client need', 'Consultation script and rapport', 'Aftercare communication'],
-  13: ['Booking and billing systems', 'Daily salon operations', 'Pricing and packages', 'Social media and client retention'],
-  14: ['Sanitisation protocols', 'Sterilisation by treatment type', 'Personal hygiene standards', 'Infection control'],
-  15: ['Full-treatment live sessions', 'Mock practical exam', 'Written assessment', 'Portfolio review and certification'],
-};
 ---
 
 <BaseLayout
-  title="Beautician Course Curriculum — 15+ Professional Training Modules"
-  description="Complete beautician course curriculum: 15 modules covering skin science, facials, threading, waxing, bleaching, body therapies, salon management and certification."
+  title="Beautician Course Curriculum — 9-Category Professional Training"
+  description="Complete 30-day beautician course curriculum at Master Beauty Academy: beauty & grooming, facial treatments, hand & foot care, wellness, hair care, hair cutting, salon management, makeup, advanced hair treatments."
   path="/beautician-course/curriculum"
   keywords={['beautician course syllabus', 'beautician training modules', 'beauty course curriculum']}
   schema={schema}
@@ -48,8 +30,10 @@ const moduleDetails: Record<number, string[]> = {
 
   <section class="container-w container-px pt-8 pb-12">
     <p class="eyebrow">Detailed curriculum</p>
-    <h1 class="mt-4 max-w-3xl text-balance">Beautician Course Curriculum — 15+ Professional Training Modules</h1>
-    <p class="mt-6 max-w-2xl text-lg text-ink-500 text-pretty">A complete, module-by-module breakdown of what you learn — combining theory blocks with extensive supervised practice. Approximate weekly time-share: 30% theory, 70% practical.</p>
+    <h1 class="mt-4 max-w-3xl text-balance">Beautician Course Curriculum — 9 Professional Categories</h1>
+    <p class="mt-6 max-w-2xl text-lg text-ink-500 text-pretty">
+      A complete, category-by-category breakdown of what you learn in the 30-day Professional Beautician Course — beauty, skincare, hair care, wellness, salon management and professional makeup. {SITE.courseDurationDays} days · ₹{SITE.courseFee.toLocaleString('en-IN')} all-inclusive.
+    </p>
   </section>
 
   <section class="container-w container-px pb-20">
@@ -57,14 +41,14 @@ const moduleDetails: Record<number, string[]> = {
       {MODULES.map((m) => (
         <li class="card !p-7 md:!p-9 grid md:grid-cols-[180px_1fr] gap-6 md:gap-10 items-start">
           <div>
-            <span class="font-serif text-gold-500 text-sm tracking-widest">MODULE {String(m.n).padStart(2, '0')}</span>
+            <span class="font-serif text-gold-500 text-sm tracking-widest">CATEGORY {String(m.n).padStart(2, '0')}</span>
             <h2 class="mt-2 font-serif text-2xl leading-tight">{m.title}</h2>
           </div>
           <div>
             <p class="text-ink-700 text-pretty">{m.desc}</p>
-            {moduleDetails[m.n] && (
+            {m.items && m.items.length > 0 && (
               <ul class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-1.5">
-                {moduleDetails[m.n].map((d) => (
+                {m.items.map((d) => (
                   <li class="flex gap-2 text-sm text-ink-700"><span class="text-brand-700 mt-1.5">●</span>{d}</li>
                 ))}
               </ul>
@@ -75,5 +59,5 @@ const moduleDetails: Record<number, string[]> = {
     </ol>
   </section>
 
-  <CTA heading="Ready to enrol in the next batch?" />
+  <CTA heading="Enrol in the 30-day Professional Beautician Course." />
 </BaseLayout>

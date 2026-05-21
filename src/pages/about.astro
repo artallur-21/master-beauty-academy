@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
-import FounderMessage from '@components/FounderMessage.astro';
+import FoundersBlock from '@components/FoundersBlock.astro';
 import Facilities from '@components/Facilities.astro';
 import Trainers from '@components/Trainers.astro';
 import Awards from '@components/Awards.astro';
@@ -18,7 +18,7 @@ const schema = breadcrumbSchema([
 
 <BaseLayout
   title="About Master Beauty Academy — Shaping Professional Beauticians Since 2015"
-  description="Master Beauty Academy — a 10-year professional beautician institute in Belagavi & Hubballi. 500+ graduates, senior trainers, live-client studio, 95% placement."
+  description="Master Beauty Academy — founded by Anilkumar Sakhe (CEO, 15+ yrs) and Priyanka Sakhe (LAPT London, Global Fame Awards 2023). 1,000+ beauty professionals trained in Hubli & Belagavi. 30-day Professional Beautician Course."
   path="/about"
   keywords={['best beauty academy belagavi', 'master makeup studio academy', 'beautician institute karnataka']}
   schema={schema}
@@ -29,7 +29,7 @@ const schema = breadcrumbSchema([
     <p class="eyebrow">About Master Beauty Academy</p>
     <h1 class="mt-4 max-w-3xl text-balance">Shaping Professional Beauticians Since {SITE.founded}.</h1>
     <p class="mt-6 max-w-2xl text-lg text-ink-500 text-pretty">
-      A decade ago we set out to do one thing better than anyone else in North Karnataka — train professional beauticians who walk into any salon and outperform from day one. {SITE.studentCount} graduates later, we still measure ourselves by the same standard.
+      Founded by <strong class="text-ink-900">Anilkumar Sakhe</strong> (Co-Founder & CEO) and <strong class="text-ink-900">Priyanka Sakhe</strong> (LAPT London · Global Fame Awards 2023), Master Beauty Academy has trained 1,000+ beauty professionals across India — many now earning up to ₹1 lakh per month from their own salons and freelance practices.
     </p>
     <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl">
       <div><dt class="text-xs uppercase tracking-widest text-brand-700">Founded</dt><dd class="font-serif text-2xl mt-1">{SITE.founded}</dd></div>
@@ -39,22 +39,22 @@ const schema = breadcrumbSchema([
     </dl>
   </section>
 
-  <FounderMessage />
+  <FoundersBlock />
 
   <section class="section bg-cream">
     <div class="container-w container-px grid lg:grid-cols-[1.4fr_1fr] gap-12">
       <div class="prose-luxe max-w-none">
         <h2>Our mission</h2>
-        <p>To raise the technical, hygienic and professional standards of India's beauty industry — one rigorously trained beautician at a time. We refuse to dilute curriculum, batch size, or live-client practice to grow faster.</p>
+        <p>To raise the technical and professional standards of India's beauty industry — one rigorously trained beauty professional at a time. We refuse to dilute curriculum or shortcut hands-on practice to grow faster.</p>
         <h2>How we work</h2>
-        <p>Every batch is capped at 12 students. Every module is led by a senior trainer with 8+ years of professional salon experience. Roughly 70% of class time is supervised hands-on practice — including a minimum of 10 live-client sessions per student before graduation.</p>
-        <p>We teach the science behind the techniques, not just the technique itself. A student who understands why a particular bleach formula works on combination skin will outperform one who only knows how to apply it.</p>
-        <h2>What we won't do</h2>
+        <p>The 30-day Professional Beautician Course is taught directly by the founders. Priyanka Sakhe leads technique modules (skincare, hair, makeup) — drawing on her LAPT London training and Global Fame Awards 2023 recognition. Anilkumar Sakhe leads salon-management and business-side training, drawing on 15+ years of business development experience.</p>
+        <p>We teach the science behind every technique — not just the steps. A graduate who understands <em>why</em> a HydraFacial works on dehydrated skin, or <em>why</em> a hair botox treatment restores damaged hair, outperforms one who has only memorised the protocol.</p>
+        <h2>What we won't compromise on</h2>
         <ul>
-          <li>Crowd batches past 12 students.</li>
-          <li>Issue certificates to anyone who hasn't passed both written and practical assessments.</li>
-          <li>Replace live-client practice with extra theory hours.</li>
-          <li>Skip hygiene and sterilisation protocols to save time.</li>
+          <li>Founder-led training — you learn directly from Priyanka and Anilkumar.</li>
+          <li>Real-equipment practice across all 9 categories (HydraFacial, hair smoothening, makeup, salon ops).</li>
+          <li>A founder-signed certificate that names every category you've trained on.</li>
+          <li>Hygiene and sterilisation protocols at salon-floor standard.</li>
         </ul>
       </div>
       <aside class="space-y-6">
@@ -63,10 +63,10 @@ const schema = breadcrumbSchema([
           <dl class="mt-4 space-y-2.5 text-sm">
             <div class="flex justify-between"><dt class="text-ink-500">Years training</dt><dd class="font-medium">{SITE.yearsExperience}</dd></div>
             <div class="flex justify-between"><dt class="text-ink-500">Active centres</dt><dd class="font-medium">{SITE.centresCount}</dd></div>
-            <div class="flex justify-between"><dt class="text-ink-500">Max batch size</dt><dd class="font-medium">12</dd></div>
-            <div class="flex justify-between"><dt class="text-ink-500">Training modules</dt><dd class="font-medium">15+</dd></div>
-            <div class="flex justify-between"><dt class="text-ink-500">Live-client sessions / student</dt><dd class="font-medium">10+ min</dd></div>
-            <div class="flex justify-between"><dt class="text-ink-500">Partner salons</dt><dd class="font-medium">40+</dd></div>
+            <div class="flex justify-between"><dt class="text-ink-500">Course duration</dt><dd class="font-medium">30 days</dd></div>
+            <div class="flex justify-between"><dt class="text-ink-500">Curriculum categories</dt><dd class="font-medium">9</dd></div>
+            <div class="flex justify-between"><dt class="text-ink-500">Course fee (all-incl.)</dt><dd class="font-medium">₹{SITE.courseFee.toLocaleString('en-IN')}</dd></div>
+            <div class="flex justify-between"><dt class="text-ink-500">Graduates</dt><dd class="font-medium">{SITE.studentCount}</dd></div>
           </dl>
         </div>
       </aside>

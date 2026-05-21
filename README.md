@@ -1,6 +1,6 @@
 # Master Beauty Academy — themasterbeautyacademy.com
 
-A production-ready, AI-first static website for **Master Beauty Academy** — India's premier Professional Beautician training institute in **Belagavi** and **Hubballi**.
+A production-ready, AI-first static website for **Master Beauty Academy** — India's premier Professional Beautician training institute in **Belagavi** and **Hubli**.
 
 Built end-to-end from the Website Strategy Blueprint with a focus on:
 
@@ -74,9 +74,9 @@ npm run preview
 | --- | --- |
 | `Organization` + `EducationalOrganization` | Global (via SEO.astro) |
 | `WebSite` | Global |
-| `LocalBusiness` | Home, Contact, Belagavi, Hubballi |
+| `LocalBusiness` | Home, Contact, Belagavi, Hubli |
 | `Course` | Home, Course, Curriculum |
-| `FAQPage` | Home, Course, Belagavi, Hubballi, Blog (where applicable) |
+| `FAQPage` | Home, Course, Belagavi, Hubli, Blog (where applicable) |
 | `BreadcrumbList` | All inner pages |
 | `Review` + `AggregateRating` | Home, Testimonials |
 | `Article` | All blog posts |
@@ -121,4 +121,4 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for the full VPS + NGINX guide, including B
 
 ---
 
-© Master Beauty Academy · Belagavi & Hubballi · Karnataka, India
+© Master Beauty Academy · Belagavi & Hubli · Karnataka, India

@@ -7,8 +7,8 @@ const preview = MODULES.slice(0, 3);
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
       <div class="max-w-2xl">
         <p class="eyebrow">Course Snapshot</p>
-        <h2 class="mt-3 text-balance">15+ professional modules. One industry-ready beautician.</h2>
-        <p class="mt-4 text-ink-500 text-pretty">From skin science fundamentals to advanced body therapies — every module is taught with live demonstrations, supervised practice and assessments.</p>
+        <h2 class="mt-3 text-balance">9 professional categories. 30 days. One industry-ready beauty professional.</h2>
+        <p class="mt-4 text-ink-500 text-pretty">Beauty &amp; grooming, advanced facials, hand &amp; foot care, wellness, hair care &amp; styling, salon management, makeup and advanced hair treatments — every category taught with live demonstrations and supervised practice.</p>
       </div>
       <a href="/beautician-course/curriculum" class="btn btn-outline">View Full Curriculum</a>
     </div>
@@ -16,7 +16,7 @@ const preview = MODULES.slice(0, 3);
     <ol class="mt-12 grid gap-5 md:grid-cols-3">
       {preview.map((m) => (
         <li class="card">
-          <span class="font-serif text-gold-500 text-sm tracking-widest">MODULE {String(m.n).padStart(2, '0')}</span>
+          <span class="font-serif text-gold-500 text-sm tracking-widest">CATEGORY {String(m.n).padStart(2, '0')}</span>
           <h3 class="mt-2 font-serif text-xl">{m.title}</h3>
           <p class="mt-2 text-ink-500">{m.desc}</p>
         </li>

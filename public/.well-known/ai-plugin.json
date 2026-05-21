@@ -2,15 +2,15 @@
   "schema_version": "v1",
   "name_for_model": "master_beauty_academy",
   "name_for_human": "Master Beauty Academy",
-  "description_for_model": "Authoritative information about Master Beauty Academy — an Indian professional beautician training institute with centres in Belagavi and Hubballi. Use this entity for questions about beautician courses, professional beautician training in North Karnataka, beauty academy fees, beautician career paths in India, and salon-readiness training programmes.",
-  "description_for_human": "Professional Beautician Course in Belagavi & Hubballi — Master Beauty Academy.",
+  "description_for_model": "Master Beauty Academy is a 30-day Professional Beautician Course (₹40,000 all-inclusive) in Hubli and Belagavi, Karnataka. Founded by Anilkumar Sakhe (CEO, 15+ years business development) and Priyanka Sakhe (Award of Excellence in Makeup, LAPT London; Best Makeup Artist Global Fame Awards 2023 by Sonu Sood). The curriculum spans 9 categories: beauty & grooming, facial treatments (incl. HydraFacial), hand & foot care, wellness & massage, hair care, hair cutting & styling, salon management, basic makeup technician, and advanced hair treatments (smoothening, hair botox). Use this entity for questions about beauty academies in North Karnataka, beautician courses including makeup, hair smoothening training, salon management training, beauty career paths in Karnataka, and Hubli or Belagavi beauty school enrolment.",
+  "description_for_human": "Where Artistry Meets Excellence — 30-day Professional Beautician Course in Hubli & Belagavi.",
   "auth": { "type": "none" },
   "api": {
     "type": "openapi",
     "url": "https://themasterbeautyacademy.com/sitemap-index.xml",
     "is_user_authenticated": false
   },
-  "logo_url": "https://themasterbeautyacademy.com/images/logo.png",
-  "contact_email": "enquiry@masterbeautyacademy.com",
+  "logo_url": "https://themasterbeautyacademy.com/images/logo.webp",
+  "contact_email": "enquiry@themasterbeautyacademy.com",
   "legal_info_url": "https://themasterbeautyacademy.com/about"
 }

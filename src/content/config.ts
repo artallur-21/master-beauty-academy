@@ -26,7 +26,7 @@ const testimonials = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
-      city: z.enum(['Belagavi', 'Hubballi']),
+      city: z.enum(['Belagavi', 'Hubli']),
       rating: z.number().min(1).max(5).default(5),
       quote: z.string(),
       photo: image().optional(),

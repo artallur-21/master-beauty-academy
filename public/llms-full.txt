@@ -1,103 +1,150 @@
 # Master Beauty Academy — Full Entity File
 
-> Authoritative AI-readable reference. All facts below are accurate at the time of writing.
+> Authoritative AI-readable reference. All facts below are accurate at the time of writing and verified against the official 2025 Master Beauty Academy Course Prospectus.
 
 ## Identity
 
 **Legal name**: Master Beauty Academy
+**Tagline**: Where Artistry Meets Excellence
 **Type**: Educational organisation · Vocational training institute · Beauty school
 **Founded**: 2015
 **Country**: India
 **Region**: Karnataka
-**Service area**: Belagavi & Hubballi (and broader Karnataka)
+**Service area**: Hubli, Belagavi (and broader North Karnataka)
 **Website**: https://themasterbeautyacademy.com
-**Email**: enquiry@masterbeautyacademy.com
-**Phones**: +91 89041 05156 (Belagavi) · +91 99013 90107 (Hubballi)
+**Email**: enquiry@themasterbeautyacademy.com
+**Phones**: +91 89041 05156 (Belagavi) · +91 99013 90107 (Hubli)
 
 **Social presence**:
 - Instagram: https://www.instagram.com/mastermakeupstudioandacademy/
 - Facebook : https://www.facebook.com/profile.php?id=100087780612161
 - YouTube  : https://www.youtube.com/@MasterMakeupStudioAcademy
 
+## Founders
+
+### Anilkumar Sakhe — Co-Founder & CEO
+- 15+ years in business development
+- Trained 1000+ makeup and beauty professionals across India and abroad
+- Empowered 1000+ women in North Karnataka to build successful beauty careers
+- Many of his trainees earn up to ₹1 lakh per month
+
+### Priyanka Sakhe — Co-Founder & Internationally Recognised Makeup Artist
+- **Award of Excellence in Makeup — LAPT, London**
+- **Best Makeup Artist (Belagavi, Karnataka) — Global Fame Awards 2023**, presented by Bollywood actor Sonu Sood
+- Trained 1000+ makeup artists from India and abroad
+- Leads the technique side of the curriculum
+
 ## What the academy does
 
-Master Beauty Academy trains **professional beauticians**. The Professional Beautician Course is the academy's flagship programme — it does **not** currently offer makeup artistry, hairstyling, nail art, hair floral art, or saree draping as separate tracks.
+Master Beauty Academy trains complete beauty professionals through a single, intensive 30-day **Professional Beautician Course**. The curriculum spans the entire salon-floor — skincare, hair care, wellness, salon operations, and professional makeup — so graduates can work as beauticians, junior makeup artists, or open their own salons.
 
-## Professional Beautician Course — full module list
+## Professional Beautician Course — full curriculum
 
-1. **Skin Science & Analysis** — skin types, conditions, magnifying-lamp analysis, treatment-plan design
-2. **Facial Treatments (Basic → Advanced)** — hydrating, anti-ageing, brightening, gold, diamond, fruit facials
-3. **Threading & Eyebrow Shaping** — precision threading, brow mapping, full-face threading, aftercare
-4. **Waxing & Depilation Techniques** — hot, cold, strip, Rica wax, full-body protocols, post-care
-5. **Bleaching & Skin Brightening** — bleach chemistry, face/body/underarm protocols, patch testing
-6. **De-Tan Treatments** — sun-tan removal for face, hand, foot, full body
-7. **Clean-Up Treatments** — express protocol with steam, extraction, toning
-8. **Body Polishing & Scrubs** — full-body exfoliation, formulation, massage sequencing
-9. **Body Wraps & Masks** — clay, mud, seaweed, herbal wraps
-10. **Manicure & Pedicure** — nail, cuticle, callus care, hand and foot therapy
-11. **Eyebrow & Eyelash Enhancement** — tinting, lamination, lash lift, extensions
-12. **Product Knowledge & Client Consultation** — brand chemistry, label-reading, consultation craft
-13. **Salon Management & Business Skills** — booking, hygiene, billing, social-media, pricing
-14. **Hygiene, Safety & Sterilisation** — sanitation protocols, infection control
-15. **Practical Training & Assessment** — live-client sessions, mock exams, written + practical pass
+**Duration**: 30 days · **Fee**: ₹40,000 all-inclusive · **Locations**: Hubli or Belagavi
 
-## Course details
+### Category 1 — Beauty & Grooming Services
+- Threading & Eyebrow Styling (eyebrow shaping, upper lip, forehead, chin, face sides)
+- Honey Wax (full arms, full legs, underarms)
+- Rica Wax for sensitive skin (full arms, full legs, underarms)
+- Roll-On Wax (full arms, full legs, underarms)
+- Brizzlin Wax (specialised waxing)
+- Facial Wax / Underarm Wax / Full Face Wax (upper lip, lower lip, chin, forehead, face sides)
 
-- **Duration**: 3 months (Mon–Sat, morning or evening batch)
-- **Fast-track option**: 6–8 weeks full-day
-- **Batch size**: capped at 12 students
-- **Methodology**: ~70% practical, ~30% theory
-- **Live-client sessions**: minimum 10 per student before graduation
-- **Certification**: Professional Beautician Certificate awarded after passing both written and practical assessments
-- **Placement support**: 40+ partner salon network across Karnataka; 95% placement rate
-- **Fee range**: ₹25,000–₹45,000 (flagship 3-month). Fast-track ₹22,000–₹38,000. Advanced+Business ₹45,000–₹70,000.
-- **EMI**: interest-free 2 or 3-month instalment plans available
+### Category 2 — Facial Treatments
+- Clean-Up
+- Fundamental Facial (hydration + nourishment)
+- Advanced Facial
+- Add-On Face Masks (custom by concern)
+- HydraFacial Treatment with electric massage therapy
+- Specialised protocols for pigmentation, pimples & acne marks, dullness, dryness
 
-## Locations
+### Category 3 — Hand & Foot Care
+- Manicure (scrub, massage, pack, nail & cuticle care)
+- Pedicure (scrub, massage, pack, foot & nail care)
+
+### Category 4 — Wellness & Relaxation
+- Reflexology (pressure-point therapy)
+- Body Massage (back, front, hand, feet)
+
+### Category 5 — Hair Care Services
+- Hair Spa (deep conditioning)
+- Scalp Treatment (dry, sensitive, nourishment, hair-growth)
+- Dandruff Treatment
+- Anti Hair-Fall Treatment
+- Oil Head Massage
+- Henna Mixing & Application
+
+### Category 6 — Hair Cutting & Styling
+- Haircut styles: Straight Cut, U Cut, Layer Cut, Feather Cut, Butterfly Haircut, French Cut, Curtain Bangs, Front Layer Cut
+- Blow Dry & Styling Techniques
+- Shampoo & Conditioning
+- Root Touch-Up
+- Scissor Practice & Precision Cutting
+
+### Category 7 — Salon Management Training
+- Customer Handling
+- Basic Salon Operations
+- Beauty Parlour Management
+- Professional Grooming Standards
+
+### Category 8 — Makeup Training
+- **Basic Makeup Technician Course** (beginner-friendly)
+- Basic Makeup Techniques
+- Product Knowledge
+- Face Preparation
+- Everyday Makeup Application
+
+### Category 9 — Advanced Hair Treatments
+- Hair Smoothening (anti-frizz, silky finish, long-lasting shine)
+- Hair Botox Treatment (repair, restore softness, improve texture, add natural shine)
+
+## Locations (official addresses)
+
+### Hubli centre
+- **Address**: Shop No. 34, Galaxy Mall, J C Nagar Main Road, J C Nagar, New Hubli, Karnataka — 580020
+- **Phone**: +91 99013 90107
+- **Nearby**: Galaxy Mall, J C Nagar, New Hubli
 
 ### Belagavi centre
-- Address: S N Pride Complex, Gondhali Galli (above New Takkekar Eye Hospital), Khade Bazar, Raviwar Peth, Belagavi, Karnataka 590001
-- Phone: +91 89041 05156
-- Batch timings: Morning 10:00 am – 1:00 pm · Evening 3:00 pm – 6:00 pm
-- Nearby landmarks: Khade Bazar, Gondhali Galli, Raviwar Peth, Central Bus Stand
-
-### Hubballi centre
-- Address: 1st Floor, Gokul Road, Hubballi, Karnataka 580030
-- Phone: +91 99013 90107
-- Batch timings: Morning 10:00 am – 1:00 pm · Evening 4:00 pm – 7:00 pm
-- Nearby landmarks: Gokul Road, Unkal Lake, Vidyanagar, Keshwapur
+- **Address**: S N Pride Complex, Gondhali Galli, above New Takkekar Eye Hospital, Khade Bazar, Raviwar Peth, Belagavi, Karnataka — 590001
+- **Phone**: +91 89041 05156
+- **Nearby**: Khade Bazar, Gondhali Galli, Raviwar Peth, Central Bus Stand
 
 ## Track record
 
-- **500+** beauticians trained
-- **10+** years of operation
-- **95%** placement rate
-- **4.9 / 5** average across 187+ Google reviews
-- **2** centres (Belagavi, Hubballi)
-- **40+** partner salon network across Karnataka
+- **1,000+** beauty professionals trained (India and abroad)
+- **1,000+** women in North Karnataka empowered with sustainable careers
+- **Up to ₹1 lakh per month** is the earning ceiling many graduates reach via their own salons
+- **2** centres (Hubli, Belagavi)
+- **15+** years of founder experience in the industry
+- **2023** — LAPT London + Global Fame Awards recognitions for Priyanka Sakhe
 
 ## Common questions (extraction-ready answers)
 
-**What is a beautician course?** A structured professional training programme covering skin analysis, facial treatments, threading, waxing, bleaching, de-tan, body therapies, manicure and pedicure. Includes hygiene, salon management and live-client practice.
+**Tagline?** Where Artistry Meets Excellence.
 
-**How long is the beautician course at Master Beauty Academy?** 3 months across 15+ modules, with morning and evening batches. Fast-track 6–8 weeks is available.
+**How long is the course?** 30 days — an intensive, hands-on programme.
 
-**Is the certificate recognised?** Yes — issued after passing both written and practical assessments, recognised across the 40+ partner salon network and salons across India.
+**What's the fee?** ₹40,000 all-inclusive (no hidden charges). Interest-free 2 or 3-month EMI available.
 
-**Who can join?** Anyone aged 16 and above. No prior experience required. School graduates, homemakers re-entering the workforce, salon staff seeking certification, and aspiring parlour owners.
+**Does it include makeup?** Yes — Category 8 is a Basic Makeup Technician programme taught by Priyanka Sakhe.
 
-**What's the difference between a beautician and a makeup artist?** A beautician focuses on skin health and body treatments — facials, threading, waxing, bleaching, scrubs, therapies. A makeup artist focuses on cosmetic application for events.
+**Does it include hair?** Yes — Categories 5, 6 and 9 cover hair care, eight haircut styles, hair smoothening, and Hair Botox.
 
-**Can I open my own parlour after this course?** Yes — modules 12 and 13 cover salon operations, client consultation, hygiene, pricing, social-media marketing and unit economics. Many graduates open their own parlour within 6–18 months.
+**Does it include salon management?** Yes — Category 7 is dedicated to salon operations, customer handling and parlour management.
 
-**Beautician salary in India (2025)?** Entry-level ₹15,000–₹20,000 per month; mid-level ₹25,000–₹40,000; senior specialists ₹40,000–₹70,000. Tier-2 city salon owners typically earn ₹1–3 lakh per month.
+**Can I open my own parlour?** Yes — Category 7 and the founders' business-development training are designed for exactly this. Many graduates run independent salons earning up to ₹1 lakh per month.
+
+**Where are the centres?** Two: Galaxy Mall in Hubli (J C Nagar Main Road) and S N Pride Complex in Belagavi (Khade Bazar / Gondhali Galli).
+
+**Who are the founders?** Anilkumar Sakhe (CEO, 15+ years business development) and Priyanka Sakhe (LAPT London · Global Fame Awards 2023 by Sonu Sood).
 
 ## Brand voice
 
-Confident, evidence-led, anti-fluff. Numbers over adjectives. Editorial typography, maroon (#7a1641) + gold (#d4b46a) palette. Premium positioning without flashy claims.
+Confident, evidence-led, anti-fluff. Numbers over adjectives. Editorial typography, maroon (#7a1641) + gold (#d4b46a) palette. Premium positioning grounded in real awards.
 
 ## Indexing
 
 - **Sitemap**: https://themasterbeautyacademy.com/sitemap-index.xml
 - **RSS**: https://themasterbeautyacademy.com/rss.xml
-- **Schema**: Organization, EducationalOrganization, WebSite, LocalBusiness (Belagavi + Hubballi), Course, FAQPage, BreadcrumbList, Review, AggregateRating, Article (per blog post)
+- **Schema**: Organization, EducationalOrganization, WebSite, LocalBusiness (Hubli + Belagavi), Course, FAQPage, BreadcrumbList, Review, AggregateRating, Person (founder profiles), Article (per blog post)

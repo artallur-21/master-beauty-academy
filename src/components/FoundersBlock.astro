@@ -1,0 +1,44 @@
+---
+import { FOUNDERS } from '@lib/site';
+---
+<section class="section bg-white">
+  <div class="container-w container-px">
+    <p class="eyebrow">Meet the founders</p>
+    <h2 class="mt-3 max-w-3xl text-balance">The vision and expertise behind Master Beauty Academy.</h2>
+    <p class="mt-4 max-w-2xl text-ink-500 text-pretty">
+      Anilkumar Sakhe and Priyanka Sakhe co-founded Master Beauty Academy to do one thing better than anyone else in North Karnataka — train beauty professionals who can both deliver world-class work and run a profitable business.
+    </p>
+
+    <div class="mt-14 grid gap-10 lg:gap-14 lg:grid-cols-2">
+      {FOUNDERS.map((f, idx) => (
+        <article class:list={['relative grid grid-cols-[120px_1fr] sm:grid-cols-[150px_1fr] gap-6 items-start']}>
+          <figure class="relative">
+            <div class="aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-ink-200 bg-ink-900">
+              <img
+                src={f.photo}
+                srcset={`${f.photoSmall} 600w, ${f.photo} 1200w`}
+                sizes="(min-width:1024px) 150px, 120px"
+                alt={`${f.name} — ${f.role}`}
+                width="600" height="750"
+                loading={idx === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+          </figure>
+          <div>
+            <p class="text-[0.7rem] uppercase tracking-[0.18em] text-gold-500 font-medium">{f.role}</p>
+            <h3 class="mt-2 font-serif text-2xl leading-tight">{f.name}</h3>
+            <p class="mt-1 text-xs text-ink-500">{f.yearsExperience} years experience</p>
+            <ul class="mt-4 space-y-1.5">
+              {f.credentials.map((c) => (
+                <li class="flex gap-2 text-sm text-ink-700"><span class="text-brand-700 mt-1 shrink-0">✦</span>{c}</li>
+              ))}
+            </ul>
+            <p class="mt-4 text-ink-700 text-pretty leading-relaxed text-[0.95rem]">{f.bio}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

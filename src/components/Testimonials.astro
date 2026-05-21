@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-interface Props { city?: 'Belagavi' | 'Hubballi'; limit?: number }
+interface Props { city?: 'Belagavi' | 'Hubli'; limit?: number }
 const { city, limit = 3 } = Astro.props;
 const all = await getCollection('testimonials');
 const items = (city ? all.filter((t) => t.data.city === city) : all).slice(0, limit);
