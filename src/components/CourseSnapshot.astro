@@ -1,26 +1,56 @@
 ---
 import { MODULES } from '@lib/site';
-const preview = MODULES.slice(0, 3);
+
+// Map module title → category image slug (only some have real images; others fall back to a gradient)
+const imageMap: Record<string, string> = {
+  'Beauty & Grooming Services': 'beauty-grooming-services',
+  'Facial Treatments': 'facial-treatments',
+  'Hand & Foot Care': 'hand-foot-care',
+};
+
+const preview = MODULES.slice(0, 6).map((m) => ({
+  ...m,
+  imageSlug: imageMap[m.title] ?? null,
+}));
 ---
 <section class="section">
-  <div class="container-w container-px">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-      <div class="max-w-2xl">
-        <p class="eyebrow">Course Snapshot</p>
-        <h2 class="mt-3 text-balance">9 professional categories. 30 days. One industry-ready beauty professional.</h2>
-        <p class="mt-4 text-ink-500 text-pretty">Beauty &amp; grooming, advanced facials, hand &amp; foot care, wellness, hair care &amp; styling, salon management, makeup and advanced hair treatments — every category taught with live demonstrations and supervised practice.</p>
-      </div>
-      <a href="/beautician-course/curriculum" class="btn btn-outline">View Full Curriculum</a>
-    </div>
+  <div class="container-w container-px text-center">
+    <p class="eyebrow justify-center">Course snapshot</p>
+    <h2 class="mt-3 mx-auto max-w-3xl text-balance">9 categories. 30 days. One industry-ready beauty professional.</h2>
+    <p class="mt-4 mx-auto max-w-2xl text-ink-500 text-pretty">Beauty &amp; grooming, advanced facials, hand &amp; foot care, wellness, hair care &amp; styling, salon management, makeup and advanced hair treatments — every category taught hands-on by the founders.</p>
 
-    <ol class="mt-12 grid gap-5 md:grid-cols-3">
+    <ol class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-left">
       {preview.map((m) => (
-        <li class="card">
-          <span class="font-serif text-gold-500 text-sm tracking-widest">CATEGORY {String(m.n).padStart(2, '0')}</span>
-          <h3 class="mt-2 font-serif text-xl">{m.title}</h3>
-          <p class="mt-2 text-ink-500">{m.desc}</p>
+        <li class="card !p-0 overflow-hidden group transition">
+          <div class="aspect-[16/10] relative overflow-hidden">
+            {m.imageSlug ? (
+              <img
+                src={`/images/categories/${m.imageSlug}-500.webp`}
+                srcset={`/images/categories/${m.imageSlug}-500.webp 500w, /images/categories/${m.imageSlug}.webp 900w`}
+                sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 92vw"
+                alt={m.title}
+                width="900" height="563"
+                loading="lazy" decoding="async"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            ) : (
+              <div class="absolute inset-0 bg-gradient-to-br from-brand-700 via-brand-800 to-ink-900">
+                <div aria-hidden="true" class="absolute inset-0 opacity-[0.10] mix-blend-screen" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.6) 1px, transparent 0); background-size: 24px 24px;"></div>
+                <span class="absolute bottom-3 left-3 text-gold-400 font-serif text-[5rem] leading-none opacity-30 select-none">{String(m.n).padStart(2,'0')}</span>
+              </div>
+            )}
+          </div>
+          <div class="p-6">
+            <span class="font-serif text-gold-500 text-xs tracking-[0.18em]">CATEGORY {String(m.n).padStart(2, '0')}</span>
+            <h3 class="mt-2 font-serif text-xl leading-tight">{m.title}</h3>
+            <p class="mt-2 text-sm text-ink-500 leading-relaxed">{m.desc}</p>
+          </div>
         </li>
       ))}
     </ol>
+
+    <div class="mt-12">
+      <a href="/beautician-course/curriculum" class="btn btn-outline">View full 9-category curriculum →</a>
+    </div>
   </div>
 </section>

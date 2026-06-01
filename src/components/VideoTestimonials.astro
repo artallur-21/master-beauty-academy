@@ -1,42 +1,54 @@
 ---
 /**
- * Video testimonial cards.
- * Pass `videos` with YouTube/Vimeo URLs to enable real video; defaults render
- * a branded "Watch story" placeholder card that still looks intentional.
+ * Video testimonial cards — opens the YouTube video in a new tab.
+ * Thumbnails are pulled from YouTube's free maxresdefault.jpg endpoint
+ * (no JS, no API key) — works for every public YouTube video.
  */
 interface Video {
   name: string;
   outcome: string;
   city: string;
-  thumb?: string;
-  videoUrl?: string;
+  videoId: string;
   duration?: string;
 }
+const ytId = (url: string): string => {
+  const m = url.match(/[?&]v=([^&]+)|youtu\.be\/([^?&]+)/);
+  return m ? (m[1] || m[2]) : url;
+};
+
 const defaults: Video[] = [
-  { name: 'Priya Patil',     outcome: 'From student to senior beautician',        city: 'Belagavi', thumb: '/images/student-1.webp', duration: '0:48' },
-  { name: 'Anjali Kulkarni', outcome: 'Opened her own parlour in Vidyanagar',     city: 'Hubli', thumb: '/images/student-2.webp', duration: '1:12' },
-  { name: 'Shruti Desai',    outcome: 'Salon placement in 2 weeks of graduating', city: 'Belagavi', thumb: '/images/student-3.webp', duration: '0:54' },
+  { name: 'Master Beauty Academy Story',  outcome: 'Inside the academy — what you can expect',  city: 'Hubli · Belagavi', videoId: ytId('https://www.youtube.com/watch?v=BK9pLbJIwa4&t=6s'), duration: 'Watch' },
+  { name: 'Course Highlights',            outcome: 'See the 30-day course in action',           city: 'Hubli · Belagavi', videoId: ytId('https://www.youtube.com/watch?v=HQD_HhSgGws'),     duration: 'Watch' },
+  { name: 'Behind the Brand',             outcome: 'Meet the founders, walk the centres',       city: 'Hubli · Belagavi', videoId: ytId('https://www.youtube.com/watch?v=I6W8R0IHIfE'),     duration: 'Watch' },
 ];
 const { videos = defaults } = Astro.props as { videos?: Video[] };
 ---
 
 <section class="section bg-white">
-  <div class="container-w container-px">
-    <p class="eyebrow">Video stories</p>
-    <h2 class="mt-3 max-w-2xl text-balance">Hear it from our graduates.</h2>
-    <p class="mt-4 max-w-2xl text-ink-500 text-pretty">Short success stories from students who walked in with no experience and walked out salon-ready.</p>
+  <div class="container-w container-px text-center">
+    <p class="eyebrow justify-center">Video stories</p>
+    <h2 class="mt-3 mx-auto max-w-2xl text-balance">Watch the academy in action.</h2>
+    <p class="mt-4 mx-auto max-w-2xl text-ink-500 text-pretty">Real video from Master Beauty Academy — the centres, the founders, the work.</p>
 
-    <ul class="mt-12 grid gap-6 md:grid-cols-3">
+    <ul class="mt-12 grid gap-6 md:grid-cols-3 text-left">
       {videos.map((v) => (
         <li>
           <a
-            href={v.videoUrl ?? '/testimonials'}
+            href={`https://www.youtube.com/watch?v=${v.videoId}`}
+            target="_blank" rel="noopener"
             class="card !p-0 overflow-hidden block h-full flex flex-col group"
-            target={v.videoUrl ? '_blank' : undefined}
-            rel={v.videoUrl ? 'noopener' : undefined}
           >
             <div class="aspect-[16/10] bg-ink-100 relative overflow-hidden">
-              {v.thumb && <img src={v.thumb} alt={`${v.name} — ${v.outcome}`} width="800" height="500" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />}
+              <img
+                src={`https://i.ytimg.com/vi/${v.videoId}/hqdefault.jpg`}
+                srcset={`https://i.ytimg.com/vi/${v.videoId}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${v.videoId}/maxresdefault.jpg 1280w`}
+                sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 92vw"
+                alt={`${v.name} — ${v.outcome}`}
+                width="1280" height="800"
+                loading="lazy" decoding="async"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                referrerpolicy="no-referrer"
+              />
               <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent"></div>
               <div class="absolute inset-0 grid place-items-center">
                 <span class="w-14 h-14 rounded-full bg-white/95 grid place-items-center shadow-[var(--shadow-lift)] group-hover:scale-110 transition-transform">

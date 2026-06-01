@@ -22,47 +22,46 @@ const {
   {variant === 'home' && (
     <>
       <div class="absolute inset-0">
-        <img
-          src="/images/hero-800.webp"
-          srcset="/images/hero-480.webp 480w, /images/hero-800.webp 800w, /images/hero.webp 1400w"
-          sizes="100vw"
-          alt=""
-          width="1400" height="933"
-          class="w-full h-full object-cover"
-          fetchpriority="high"
-          decoding="async"
-          aria-hidden="true"
-        />
-        <div class="absolute inset-0 bg-gradient-to-br from-[rgba(42,13,30,0.86)] via-[rgba(61,13,32,0.78)] to-[rgba(42,13,30,0.92)]"></div>
+        <div class="absolute inset-0 grad-hero"></div>
         <div aria-hidden="true" class="absolute inset-0 opacity-[0.06] mix-blend-screen" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.6) 1px, transparent 0); background-size: 32px 32px;"></div>
       </div>
-      <div class="container-w container-px relative z-10 pt-20 pb-24 lg:pt-28 lg:pb-32">
-        <div class="max-w-3xl">
-          <p class="eyebrow !text-gold-400 [&::before]:bg-gold-400">{eyebrow}</p>
-          <h1 class="mt-4 text-balance text-white">{heading}</h1>
-          {sub && <p class="mt-6 max-w-2xl text-lg text-pretty text-ink-200">{sub}</p>}
-          <div class="mt-9 flex flex-wrap items-center gap-3">
-            <a href={primaryCta.href} class="btn btn-gold">{primaryCta.label}</a>
-            <a href={secondaryCta.href} class="btn btn-outline !bg-transparent !text-white !border-white/30 hover:!border-white">{secondaryCta.label}</a>
+
+      <div class="container-w container-px relative z-10 pt-16 pb-20 lg:pt-24 lg:pb-28">
+        <div class="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
+          {/* Left — text */}
+          <div>
+            <p class="eyebrow !text-gold-400 [&::before]:bg-gold-400">{eyebrow}</p>
+
+            {/* Prominent brand name above the headline */}
+            <p class="mt-5 font-serif text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.05] tracking-tight">
+              <span class="text-white">Master Beauty</span>
+              <span class="text-gold-400"> Academy</span>
+            </p>
+
+            <h1 class="mt-4 text-balance text-white text-[2rem] sm:text-[2.4rem] lg:text-[2.75rem] leading-[1.08] font-serif">{heading}</h1>
+            {sub && <p class="mt-6 max-w-xl text-base lg:text-lg text-pretty text-ink-200">{sub}</p>}
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a href={primaryCta.href} class="btn btn-gold">{primaryCta.label}</a>
+              <a href={secondaryCta.href} class="btn btn-outline !bg-transparent !text-white !border-white/30 hover:!border-white">{secondaryCta.label}</a>
+            </div>
           </div>
-          <dl class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
-            <div>
-              <dt class="text-xs uppercase tracking-widest text-gold-400">Students Trained</dt>
-              <dd class="font-serif text-2xl mt-1">{SITE.studentCount}</dd>
+
+          {/* Right — hero image */}
+          <figure class="relative">
+            <div class="absolute -inset-4 rounded-3xl bg-gold-400/10 blur-2xl"></div>
+            <div class="relative rounded-2xl overflow-hidden ring-1 ring-white/15 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] aspect-[4/5] sm:aspect-[5/6] lg:aspect-[4/5]">
+              <img
+                src="/images/master-herosection-800.webp"
+                srcset="/images/master-herosection-800.webp 800w, /images/master-herosection.webp 1200w"
+                sizes="(min-width:1024px) 520px, (min-width:640px) 60vw, 90vw"
+                alt="Master Beauty Academy hero — Priyanka Sakhe"
+                width="800" height="1000"
+                fetchpriority="high"
+                decoding="async"
+                class="w-full h-full object-cover"
+              />
             </div>
-            <div>
-              <dt class="text-xs uppercase tracking-widest text-gold-400">Years Experience</dt>
-              <dd class="font-serif text-2xl mt-1">{SITE.yearsExperience}</dd>
-            </div>
-            <div>
-              <dt class="text-xs uppercase tracking-widest text-gold-400">Placement Rate</dt>
-              <dd class="font-serif text-2xl mt-1">{SITE.placementRate}</dd>
-            </div>
-            <div>
-              <dt class="text-xs uppercase tracking-widest text-gold-400">Centres</dt>
-              <dd class="font-serif text-2xl mt-1">{SITE.centresCount}</dd>
-            </div>
-          </dl>
+          </figure>
         </div>
       </div>
     </>

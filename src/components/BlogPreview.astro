@@ -6,15 +6,14 @@ const posts = (await getCollection('blog'))
   .slice(0, 3);
 ---
 <section class="section bg-cream">
-  <div class="container-w container-px">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-      <div class="max-w-2xl">
-        <p class="eyebrow">From the Journal</p>
-        <h2 class="mt-3 text-balance">Career guidance & beauty industry insights.</h2>
-      </div>
+  <div class="container-w container-px text-center">
+    <p class="eyebrow justify-center">From the Journal</p>
+    <h2 class="mt-3 mx-auto max-w-2xl text-balance">Career guidance & beauty industry insights.</h2>
+    <p class="mt-4 mx-auto max-w-2xl text-ink-500 text-pretty">Practical reading for aspiring and working beauty professionals — fees, syllabus, techniques and salon careers.</p>
+    <div class="mt-6">
       <a href="/blog" class="btn btn-outline">All Articles</a>
     </div>
-    <ul class="mt-12 grid gap-6 md:grid-cols-3">
+    <ul class="mt-12 grid gap-6 md:grid-cols-3 text-left">
       {posts.map((p, i) => (
         <li>
           <BlogCard

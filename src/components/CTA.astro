@@ -2,14 +2,14 @@
 import { SITE } from '@lib/site';
 interface Props { heading?: string; sub?: string }
 const {
-  heading = 'Begin your beautician career with India\'s most trusted training academy.',
-  sub = 'Speak to our counsellor — get personalised advice on batches, fees and your career path.',
+  heading = "Begin your beauty career with India's most awarded training academy.",
+  sub = 'Speak to our counsellor — fees, batch timings, EMI, and career advice. No commitment.',
 } = Astro.props;
 ---
 <section class="section">
   <div class="container-w container-px">
-    <div class="grad-hero text-white rounded-3xl p-10 md:p-16 relative overflow-hidden">
-      <div class="max-w-2xl">
+    <div class="grad-hero text-white rounded-3xl p-8 sm:p-10 lg:p-14 relative overflow-hidden grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-center">
+      <div>
         <p class="eyebrow !text-gold-400 [&::before]:bg-gold-400">Take the next step</p>
         <h2 class="mt-4 text-white text-balance">{heading}</h2>
         <p class="mt-4 text-ink-200 text-pretty">{sub}</p>
@@ -18,6 +18,20 @@ const {
           <a href={`https://wa.me/${SITE.phoneWhatsapp}`} rel="noopener" class="btn btn-outline !bg-transparent !text-white !border-white/30 hover:!border-white">WhatsApp Us</a>
         </div>
       </div>
+      <figure class="relative max-w-[420px] mx-auto lg:max-w-none lg:justify-self-end">
+        <div aria-hidden="true" class="absolute -inset-6 rounded-3xl bg-gold-400/10 blur-3xl"></div>
+        <div class="relative rounded-2xl overflow-hidden ring-1 ring-white/15 shadow-[0_24px_70px_-20px_rgba(0,0,0,0.55)] aspect-[4/5]">
+          <img
+            src="/images/cta-master-700.webp"
+            srcset="/images/cta-master-700.webp 700w, /images/cta-master.webp 1200w"
+            sizes="(min-width:1024px) 420px, (min-width:640px) 60vw, 90vw"
+            alt="Master Beauty Academy — Anilkumar Sakhe inviting you to begin your beauty career"
+            width="800" height="1000"
+            loading="lazy" decoding="async"
+            class="w-full h-full object-cover object-top"
+          />
+        </div>
+      </figure>
     </div>
   </div>
 </section>
