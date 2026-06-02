@@ -4,8 +4,11 @@ import { MODULES } from '@lib/site';
 // Map module title → category image slug (only some have real images; others fall back to a gradient)
 const imageMap: Record<string, string> = {
   'Beauty & Grooming Services': 'beauty-grooming-services',
-  'Facial Treatments': 'facial-treatments',
-  'Hand & Foot Care': 'hand-foot-care',
+  'Facial Treatments':          'facial-treatments',
+  'Hand & Foot Care':           'hand-foot-care',
+  'Wellness & Relaxation':      'wellness-relaxation',
+  'Hair Care Services':         'hair-care-services',
+  'Hair Cutting & Styling':     'hair-cutting-styling',
 };
 
 const preview = MODULES.slice(0, 6).map((m) => ({
