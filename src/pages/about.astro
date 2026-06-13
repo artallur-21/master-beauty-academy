@@ -25,51 +25,112 @@ const schema = breadcrumbSchema([
 >
   <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'About', url: '/about' }]} />
 
-  <section class="container-w container-px pt-10 pb-12">
-    <p class="eyebrow">About Master Beauty Academy</p>
-    <h1 class="mt-4 max-w-3xl text-balance">Shaping Professional Beauticians Since {SITE.founded}.</h1>
-    <p class="mt-6 max-w-2xl text-lg text-ink-500 text-pretty">
-      Founded by <strong class="text-ink-900">Anilkumar Sakhe</strong> (Co-Founder & CEO) and <strong class="text-ink-900">Priyanka Sakhe</strong> (LAPT London · Global Fame Awards 2023), Master Beauty Academy has trained 1,000+ beauty professionals across India — many now earning up to ₹1 lakh per month from their own salons and freelance practices.
-    </p>
-    <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl">
-      <div><dt class="text-xs uppercase tracking-widest text-brand-700">Founded</dt><dd class="font-serif text-2xl mt-1">{SITE.founded}</dd></div>
-      <div><dt class="text-xs uppercase tracking-widest text-brand-700">Graduates</dt><dd class="font-serif text-2xl mt-1">{SITE.studentCount}</dd></div>
-      <div><dt class="text-xs uppercase tracking-widest text-brand-700">Placement</dt><dd class="font-serif text-2xl mt-1">{SITE.placementRate}</dd></div>
-      <div><dt class="text-xs uppercase tracking-widest text-brand-700">Rating</dt><dd class="font-serif text-2xl mt-1">{SITE.rating.value} / 5</dd></div>
-    </dl>
+  {/* Hero: text left, image right (mobile stacks) */}
+  <section class="container-w container-px pt-8 pb-8 lg:pt-10 lg:pb-10">
+    <div class="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-14 items-center">
+      <div>
+        <p class="eyebrow">About Master Beauty Academy</p>
+        <h1 class="mt-4 text-balance">Shaping Professional Beauticians Since {SITE.founded}.</h1>
+        <p class="mt-5 max-w-xl text-base lg:text-lg text-ink-500 text-pretty">
+          Founded by <strong class="text-ink-900">Anilkumar Sakhe</strong> (Co-Founder & CEO) and <strong class="text-ink-900">Priyanka Sakhe</strong> (LAPT London · Global Fame Awards 2023), Master Beauty Academy has trained 1,000+ beauty professionals across India — many now earning up to ₹1 lakh per month from their own salons and freelance practices.
+        </p>
+        <dl class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-5">
+          <div><dt class="text-xs uppercase tracking-widest text-brand-700">Founded</dt><dd class="font-serif text-xl lg:text-2xl mt-1">{SITE.founded}</dd></div>
+          <div><dt class="text-xs uppercase tracking-widest text-brand-700">Graduates</dt><dd class="font-serif text-xl lg:text-2xl mt-1">{SITE.studentCount}</dd></div>
+          <div><dt class="text-xs uppercase tracking-widest text-brand-700">Placement</dt><dd class="font-serif text-xl lg:text-2xl mt-1">{SITE.placementRate}</dd></div>
+          <div><dt class="text-xs uppercase tracking-widest text-brand-700">Rating</dt><dd class="font-serif text-xl lg:text-2xl mt-1">{SITE.rating.value} / 5</dd></div>
+        </dl>
+      </div>
+      <figure class="relative max-w-[480px] mx-auto lg:max-w-[520px] lg:justify-self-end">
+        <div aria-hidden="true" class="absolute -inset-5 rounded-3xl bg-gold-400/10 blur-2xl"></div>
+        <img
+          src="/images/about-hero-800.webp"
+          srcset="/images/about-hero-800.webp 800w, /images/about-hero.webp 1200w"
+          sizes="(min-width:1024px) 520px, (min-width:640px) 60vw, 92vw"
+          alt="Master Beauty Academy"
+          width="800" height="1000"
+          fetchpriority="high" decoding="async"
+          class="relative w-full h-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
+        />
+      </figure>
+    </div>
   </section>
 
   <FoundersBlock />
 
-  <section class="section bg-cream">
-    <div class="container-w container-px grid lg:grid-cols-[1.4fr_1fr] gap-12">
-      <div class="prose-luxe max-w-none">
-        <h2>Our mission</h2>
-        <p>To raise the technical and professional standards of India's beauty industry — one rigorously trained beauty professional at a time. We refuse to dilute curriculum or shortcut hands-on practice to grow faster.</p>
-        <h2>How we work</h2>
-        <p>The 30-day Professional Beautician Course is taught directly by the founders. Priyanka Sakhe leads technique modules (skincare, hair, makeup) — drawing on her LAPT London training and Global Fame Awards 2023 recognition. Anilkumar Sakhe leads salon-management and business-side training, drawing on 15+ years of business development experience.</p>
-        <p>We teach the science behind every technique — not just the steps. A graduate who understands <em>why</em> a HydraFacial works on dehydrated skin, or <em>why</em> a hair botox treatment restores damaged hair, outperforms one who has only memorised the protocol.</p>
-        <h2>What we won't compromise on</h2>
-        <ul>
-          <li>Founder-led training — you learn directly from Priyanka and Anilkumar.</li>
-          <li>Real-equipment practice across all 9 categories (HydraFacial, hair smoothening, makeup, salon ops).</li>
-          <li>A founder-signed certificate that names every category you've trained on.</li>
-          <li>Hygiene and sterilisation protocols at salon-floor standard.</li>
-        </ul>
+  {/* OUR MISSION — premium redesign with icon cards + decorative shapes */}
+  <section class="section relative overflow-hidden bg-gradient-to-b from-cream to-white">
+    {/* Decorative blobs */}
+    <div aria-hidden="true" class="absolute top-12 -left-24 w-72 h-72 rounded-full bg-brand-100/60 blur-3xl"></div>
+    <div aria-hidden="true" class="absolute bottom-0 -right-24 w-80 h-80 rounded-full bg-gold-300/30 blur-3xl"></div>
+
+    <div class="container-w container-px relative">
+      <div class="text-center max-w-3xl mx-auto">
+        <p class="eyebrow justify-center">Our mission</p>
+        <h2 class="mt-3 text-balance">Raising the standard of every beauty professional we train.</h2>
+        <p class="mt-5 text-ink-500 text-pretty">
+          The 30-day Professional Beautician Course is taught directly by the founders — <strong class="text-ink-900">Priyanka Sakhe</strong> leads technique (skincare, hair, makeup), and <strong class="text-ink-900">Anilkumar Sakhe</strong> leads salon-management and business training. No outsourced trainers. No diluted curriculum.
+        </p>
       </div>
-      <aside class="space-y-6">
-        <div class="card !p-7 !bg-white">
-          <h3 class="font-serif text-lg">By the numbers</h3>
-          <dl class="mt-4 space-y-2.5 text-sm">
-            <div class="flex justify-between"><dt class="text-ink-500">Years training</dt><dd class="font-medium">{SITE.yearsExperience}</dd></div>
-            <div class="flex justify-between"><dt class="text-ink-500">Active centres</dt><dd class="font-medium">{SITE.centresCount}</dd></div>
-            <div class="flex justify-between"><dt class="text-ink-500">Course duration</dt><dd class="font-medium">30 days</dd></div>
-            <div class="flex justify-between"><dt class="text-ink-500">Curriculum categories</dt><dd class="font-medium">9</dd></div>
-            <div class="flex justify-between"><dt class="text-ink-500">Course fee (all-incl.)</dt><dd class="font-medium">₹{SITE.courseFee.toLocaleString('en-IN')}</dd></div>
-            <div class="flex justify-between"><dt class="text-ink-500">Graduates</dt><dd class="font-medium">{SITE.studentCount}</dd></div>
-          </dl>
-        </div>
-      </aside>
+
+      {/* Pillars grid */}
+      <ul class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <li class="card relative !p-7 group transition hover:!border-brand-300 hover:shadow-[var(--shadow-lift)]">
+          <div class="w-12 h-12 grid place-items-center rounded-xl bg-gradient-to-br from-brand-700 to-brand-900 text-gold-400 mb-4 ring-1 ring-brand-200">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3 class="font-serif text-xl">Founder-led training</h3>
+          <p class="mt-2 text-sm text-ink-500 leading-relaxed">You learn directly from Priyanka and Anilkumar across all 9 categories. Every technique demonstrated personally.</p>
+        </li>
+        <li class="card relative !p-7 group transition hover:!border-brand-300 hover:shadow-[var(--shadow-lift)]">
+          <div class="w-12 h-12 grid place-items-center rounded-xl bg-gradient-to-br from-brand-700 to-brand-900 text-gold-400 mb-4 ring-1 ring-brand-200">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+          </div>
+          <h3 class="font-serif text-xl">30-day intensive</h3>
+          <p class="mt-2 text-sm text-ink-500 leading-relaxed">A focused programme that transforms passion into a profession. No drawn-out filler hours — every session builds salon-floor skill.</p>
+        </li>
+        <li class="card relative !p-7 group transition hover:!border-brand-300 hover:shadow-[var(--shadow-lift)]">
+          <div class="w-12 h-12 grid place-items-center rounded-xl bg-gradient-to-br from-brand-700 to-brand-900 text-gold-400 mb-4 ring-1 ring-brand-200">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <h3 class="font-serif text-xl">Awarded credentials</h3>
+          <p class="mt-2 text-sm text-ink-500 leading-relaxed">Priyanka holds the LAPT London Award of Excellence and Global Fame Awards 2023 (Sonu Sood). Anilkumar — 15+ years business development.</p>
+        </li>
+        <li class="card relative !p-7 group transition hover:!border-brand-300 hover:shadow-[var(--shadow-lift)]">
+          <div class="w-12 h-12 grid place-items-center rounded-xl bg-gradient-to-br from-brand-700 to-brand-900 text-gold-400 mb-4 ring-1 ring-brand-200">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3 class="font-serif text-xl">9 complete categories</h3>
+          <p class="mt-2 text-sm text-ink-500 leading-relaxed">Beauty & grooming, facials, hand & foot, wellness, hair care, hair cutting, salon mgmt, makeup, advanced hair treatments — all in one course.</p>
+        </li>
+        <li class="card relative !p-7 group transition hover:!border-brand-300 hover:shadow-[var(--shadow-lift)]">
+          <div class="w-12 h-12 grid place-items-center rounded-xl bg-gradient-to-br from-brand-700 to-brand-900 text-gold-400 mb-4 ring-1 ring-brand-200">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="font-serif text-xl">1,000+ graduates</h3>
+          <p class="mt-2 text-sm text-ink-500 leading-relaxed">Across India and abroad. Many now run their own salons earning up to ₹1 lakh per month — a career, not just a certificate.</p>
+        </li>
+        <li class="card relative !p-7 group transition hover:!border-brand-300 hover:shadow-[var(--shadow-lift)]">
+          <div class="w-12 h-12 grid place-items-center rounded-xl bg-gradient-to-br from-brand-700 to-brand-900 text-gold-400 mb-4 ring-1 ring-brand-200">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+          </div>
+          <h3 class="font-serif text-xl">Hubli &amp; Belagavi</h3>
+          <p class="mt-2 text-sm text-ink-500 leading-relaxed">Two flagship centres in North Karnataka — Galaxy Mall (Hubli) and S N Pride Complex (Belagavi). Same uncompromising standards in both.</p>
+        </li>
+      </ul>
+
+      {/* By the numbers strip */}
+      <div class="mt-14 max-w-4xl mx-auto bg-white rounded-2xl border border-ink-200 shadow-[var(--shadow-soft)] p-6 lg:p-8">
+        <p class="text-center text-[0.7rem] uppercase tracking-[0.18em] text-gold-500 font-medium">By the numbers</p>
+        <dl class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-5 gap-x-4 text-center divide-x divide-ink-200">
+          <div class="px-2"><dt class="text-[0.65rem] uppercase tracking-[0.15em] text-ink-500">Founded</dt><dd class="font-serif text-xl mt-1">{SITE.founded}</dd></div>
+          <div class="px-2"><dt class="text-[0.65rem] uppercase tracking-[0.15em] text-ink-500">Years</dt><dd class="font-serif text-xl mt-1">{SITE.yearsExperience}</dd></div>
+          <div class="px-2"><dt class="text-[0.65rem] uppercase tracking-[0.15em] text-ink-500">Centres</dt><dd class="font-serif text-xl mt-1">{SITE.centresCount}</dd></div>
+          <div class="px-2"><dt class="text-[0.65rem] uppercase tracking-[0.15em] text-ink-500">Duration</dt><dd class="font-serif text-xl mt-1">30 days</dd></div>
+          <div class="px-2"><dt class="text-[0.65rem] uppercase tracking-[0.15em] text-ink-500">Categories</dt><dd class="font-serif text-xl mt-1">9</dd></div>
+          <div class="px-2"><dt class="text-[0.65rem] uppercase tracking-[0.15em] text-ink-500">Graduates</dt><dd class="font-serif text-xl mt-1">{SITE.studentCount}</dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 

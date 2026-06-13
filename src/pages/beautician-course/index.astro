@@ -4,7 +4,7 @@ import Breadcrumbs from '@components/Breadcrumbs.astro';
 import FAQ from '@components/FAQ.astro';
 import EnquiryForm from '@components/EnquiryForm.astro';
 import CTA from '@components/CTA.astro';
-import { MODULES } from '@lib/site';
+import { MODULES, CATEGORY_IMAGE_MAP } from '@lib/site';
 import { courseSchema, faqSchema, breadcrumbSchema } from '@lib/schema';
 import { getEntry } from 'astro:content';
 import DayInLife from '@components/DayInLife.astro';
@@ -62,18 +62,40 @@ const schema = [
   </section>
 
   <section class="section bg-white">
-    <div class="container-w container-px">
-      <p class="eyebrow">What you'll learn</p>
-      <h2 class="mt-3 max-w-2xl text-balance">9 categories. Every essential beauty-professional skill.</h2>
-      <ol class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {MODULES.map((m) => (
-          <li class="card">
-            <span class="font-serif text-gold-500 text-sm tracking-widest">CATEGORY {String(m.n).padStart(2, '0')}</span>
-            <h3 class="mt-2 font-serif text-lg">{m.title}</h3>
-            <p class="mt-2 text-ink-500 text-sm">{m.desc}</p>
-          </li>
-        ))}
+    <div class="container-w container-px text-center">
+      <p class="eyebrow justify-center">What you'll learn</p>
+      <h2 class="mt-3 mx-auto max-w-2xl text-balance">9 categories. Every essential beauty-professional skill.</h2>
+      <p class="mt-4 mx-auto max-w-2xl text-ink-500 text-pretty">From threading and waxing to HydraFacial, hair botox and basic makeup — taught hands-on by Priyanka and Anilkumar Sakhe.</p>
+
+      <ol class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-left">
+        {MODULES.map((m) => {
+          const slug = CATEGORY_IMAGE_MAP[m.title];
+          return (
+            <li class="card !p-0 overflow-hidden group transition">
+              <div class="aspect-[16/10] relative overflow-hidden">
+                {slug ? (
+                  <img
+                    src={`/images/categories/${slug}-500.webp`}
+                    srcset={`/images/categories/${slug}-500.webp 500w, /images/categories/${slug}.webp 900w`}
+                    sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 92vw"
+                    alt={m.title} width="900" height="563"
+                    loading="lazy" decoding="async"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                ) : (
+                  <div class="absolute inset-0 bg-gradient-to-br from-brand-700 via-brand-800 to-ink-900"></div>
+                )}
+              </div>
+              <div class="p-6">
+                <span class="font-serif text-gold-500 text-xs tracking-[0.18em]">CATEGORY {String(m.n).padStart(2, '0')}</span>
+                <h3 class="mt-2 font-serif text-lg leading-tight">{m.title}</h3>
+                <p class="mt-2 text-sm text-ink-500 leading-relaxed">{m.desc}</p>
+              </div>
+            </li>
+          );
+        })}
       </ol>
+
       <div class="mt-12">
         <a href="/beautician-course/curriculum" class="btn btn-outline">View detailed curriculum →</a>
       </div>

@@ -111,6 +111,19 @@ export const NAV = [
   { label: 'Contact', href: '/contact' },
 ] as const;
 
+/** Slug for each category's image file in /public/images/categories/. */
+export const CATEGORY_IMAGE_MAP: Record<string, string> = {
+  'Beauty & Grooming Services': 'beauty-grooming-services',
+  'Facial Treatments':          'facial-treatments',
+  'Hand & Foot Care':           'hand-foot-care',
+  'Wellness & Relaxation':      'wellness-relaxation',
+  'Hair Care Services':         'hair-care-services',
+  'Hair Cutting & Styling':     'hair-cutting-styling',
+  'Salon Management Training':  'salon-management-training',
+  'Makeup Training':            'makeup-training',
+  'Advanced Hair Treatments':   'advanced-hair-treatments',
+};
+
 /**
  * Real 9-category curriculum from the official Master Beauty Academy
  * Course Prospectus (Hubli · Belagavi · 30 days · ₹40,000).

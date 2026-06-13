@@ -9,10 +9,11 @@ const defaults: Item[] = [
 const { items = defaults } = Astro.props;
 ---
 <section class="section bg-cream">
-  <div class="container-w container-px">
-    <p class="eyebrow">Related</p>
-    <h2 class="mt-3 max-w-2xl text-balance">Continue exploring.</h2>
-    <ul class="mt-10 grid gap-5 md:grid-cols-3">
+  <div class="container-w container-px text-center">
+    <p class="eyebrow justify-center">Related</p>
+    <h2 class="mt-3 mx-auto max-w-2xl text-balance">Continue exploring.</h2>
+    <p class="mt-4 mx-auto max-w-2xl text-ink-500 text-pretty">Centre-specific pages, the full syllabus, and more from the Master Beauty Academy team.</p>
+    <ul class="mt-10 grid gap-5 md:grid-cols-3 text-left">
       {items.map((i) => (
         <li>
           <a href={i.href} class="card block h-full hover:!border-brand-300">

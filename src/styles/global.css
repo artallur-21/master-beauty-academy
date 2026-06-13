@@ -104,9 +104,10 @@
     color: var(--color-ink-900);
   }
 
-  h1 { font-size: clamp(2.25rem, 4.5vw + 1rem, 4.25rem); line-height: 1.05; }
-  h2 { font-size: clamp(1.875rem, 2.5vw + 0.9rem, 2.875rem); line-height: 1.1; }
-  h3 { font-size: clamp(1.25rem, 1vw + 0.9rem, 1.625rem); line-height: 1.25; }
+  /* H1 reduced per client review-sheet — mobile 28-32, tablet 34-40, desktop 42-48 (clamp 1.75rem → 3rem) */
+  h1 { font-size: clamp(1.75rem, 2.4vw + 1rem, 3rem); line-height: 1.1; }
+  h2 { font-size: clamp(1.625rem, 1.8vw + 0.9rem, 2.375rem); line-height: 1.15; }
+  h3 { font-size: clamp(1.2rem, 0.8vw + 0.9rem, 1.5rem); line-height: 1.25; }
 
   p { line-height: 1.7; }
 
@@ -129,7 +130,7 @@
 @layer components {
   .container-px { @apply px-5 sm:px-8 lg:px-12; }
   .container-w { @apply max-w-7xl mx-auto; }
-  .section { @apply py-16 md:py-24 lg:py-28; }
+  .section { @apply py-12 md:py-16 lg:py-20; }
 
   .btn {
     display: inline-flex;

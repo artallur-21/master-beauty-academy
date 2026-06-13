@@ -41,5 +41,27 @@ const { schema, preloadImage, hideStickyCta = false, hideUrgencyBanner = false, 
     <WhatsAppFloat />
     {!hideStickyCta && <StickyMobileCTA />}
     {!hideExitIntent && <ExitIntentPopup />}
+
+    {/* Open all CTAs / external links in a new tab (per review-sheet directive).
+        Excludes: in-page #anchor links, links with explicit target=_self, and
+        the skip-to-content link so accessibility is preserved. */}
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        const here = location.host;
+        document.querySelectorAll('a[href]').forEach((a) => {
+          const href = a.getAttribute('href') || '';
+          if (!href) return;
+          if (href.startsWith('#')) return;
+          if (a.target === '_self') return;
+          if (a.hasAttribute('data-keep-self')) return;
+          // Skip links inside the skip-to-content nav
+          if (a.classList.contains('sr-only') || a.closest('.sr-only')) return;
+          if (!a.target) a.target = '_blank';
+          const rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+          if (!rel.includes('noopener')) rel.push('noopener');
+          a.setAttribute('rel', rel.join(' '));
+        });
+      });
+    </script>
   </body>
 </html>

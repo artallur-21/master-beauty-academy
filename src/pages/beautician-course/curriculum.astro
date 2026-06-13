@@ -28,12 +28,33 @@ const schema = [
     { name: 'Curriculum', url: '/beautician-course/curriculum' },
   ]} />
 
-  <section class="container-w container-px pt-8 pb-12">
-    <p class="eyebrow">Detailed curriculum</p>
-    <h1 class="mt-4 max-w-3xl text-balance">Beautician Course Curriculum — 9 Professional Categories</h1>
-    <p class="mt-6 max-w-2xl text-lg text-ink-500 text-pretty">
-      A complete, category-by-category breakdown of what you learn in the 30-day Professional Beautician Course — beauty, skincare, hair care, wellness, salon management and professional makeup. {SITE.courseDurationDays} days · ₹{SITE.courseFee.toLocaleString('en-IN')} all-inclusive.
-    </p>
+  <section class="container-w container-px pt-8 pb-8 lg:pt-10 lg:pb-10">
+    <div class="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
+      <div>
+        <p class="eyebrow">Detailed curriculum</p>
+        <h1 class="mt-4 text-balance">Beautician Course Curriculum — 9 Professional Categories</h1>
+        <p class="mt-5 max-w-xl text-base lg:text-lg text-ink-500 text-pretty">
+          A complete, category-by-category breakdown of what you learn in the 30-day Professional Beautician Course — beauty, skincare, hair care, wellness, salon management and professional makeup.
+        </p>
+        <ul class="mt-6 flex flex-wrap gap-3 text-sm">
+          <li class="px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 border border-brand-100 font-medium">{SITE.courseDurationDays} days</li>
+          <li class="px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 border border-brand-100 font-medium">₹{SITE.courseFee.toLocaleString('en-IN')}</li>
+          <li class="px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 border border-brand-100 font-medium">All-inclusive</li>
+        </ul>
+      </div>
+      <figure class="relative max-w-[480px] mx-auto lg:max-w-[520px] lg:justify-self-end">
+        <div aria-hidden="true" class="absolute -inset-5 rounded-3xl bg-gold-400/10 blur-2xl"></div>
+        <img
+          src="/images/curriculum-hero-800.webp"
+          srcset="/images/curriculum-hero-800.webp 800w, /images/curriculum-hero.webp 1200w"
+          sizes="(min-width:1024px) 520px, (min-width:640px) 60vw, 92vw"
+          alt="Master Beauty Academy curriculum"
+          width="800" height="1000"
+          fetchpriority="high" decoding="async"
+          class="relative w-full h-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
+        />
+      </figure>
+    </div>
   </section>
 
   <section class="container-w container-px pb-20">
