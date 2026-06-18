@@ -1,0 +1,72 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import CourseLanding from '@components/CourseLanding.astro';
+import { courseSchema, faqSchema, localBusinessSchema, breadcrumbSchema } from '@lib/schema';
+
+const PK = 'Bridal Makeup Course in Belagavi';
+
+const faqs = [
+  { q: 'Who teaches the Bridal Makeup Course in Belagavi?',
+    a: 'The Bridal Makeup Course in Belagavi is taught by Priyanka Sakhe — recipient of the Award of Excellence in Makeup from LAPT London and Best Makeup Artist at the Global Fame Awards 2023, presented by Bollywood actor Sonu Sood.' },
+  { q: 'How long is the Bridal Makeup Course?',
+    a: 'The Bridal Makeup foundation is part of the 30-day Professional Beautician Course (₹40,000). Advanced bridal makeup specialisation is available post-graduation for students who want to specialise.' },
+  { q: 'What does the Bridal Makeup Course include?',
+    a: 'Face preparation, product knowledge, day & night bridal looks, contouring, eye makeup, lip work, hair-coordination, photo-ready finishing, and end-to-end bridal-day flow.' },
+  { q: 'Will I get a certificate?',
+    a: 'Yes — a founder-signed Master Beauty Academy Professional Beautician Certificate naming every category trained, including Makeup Training.' },
+  { q: 'What income can a bridal makeup artist earn in Belagavi?',
+    a: 'Bridal makeup artists in Belagavi earn ₹3,000–₹10,000 per client and ₹50,000–₹1.5 lakh/month during wedding season once they\'ve built a portfolio.' },
+];
+
+const schema = [
+  courseSchema(),
+  localBusinessSchema('belagavi'),
+  faqSchema(faqs),
+  breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: PK, url: '/bridal-makeup-course-belagavi' },
+  ]),
+];
+---
+<BaseLayout
+  title={`${PK} | Professional Makeup Training — Master Beauty Academy`}
+  description={`The best ${PK} — taught by award-winning makeup artist Priyanka Sakhe (LAPT London · Global Fame Awards 2023). Professional Makeup and Beauty Course in Belagavi covering bridal looks, product knowledge and finishing.`}
+  path="/bridal-makeup-course-belagavi"
+  keywords={[
+    'Bridal Makeup Course in Belagavi','Professional Makeup and Beauty Course in Belagavi',
+    'Beautician Course in Belagavi','Beauty Academy in Belagavi','Beautician Classes in Belagavi',
+    'Best Beauty Academy in Belagavi','Beauty Courses Near Me',
+  ]}
+  schema={schema}
+>
+  <CourseLanding
+    primaryKeyword={PK}
+    eyebrow="Bridal Makeup Course · Belagavi"
+    h1="Bridal Makeup Course in Belagavi — Taught by an Award-Winning Makeup Artist"
+    lead="Learn bridal makeup in Belagavi from Priyanka Sakhe — Award of Excellence in Makeup, LAPT London · Best Makeup Artist, Global Fame Awards 2023. The bridal segment is the highest-paying corner of the beauty industry, and our 30-day course builds the foundation to enter it."
+    highlights={[
+      { t: 'Awarded by Sonu Sood', d: 'Trained by Priyanka Sakhe — Global Fame Awards 2023 Best Makeup Artist (presented by Sonu Sood).' },
+      { t: 'LAPT London certified', d: 'International technique — your trainer was certified by the London Academy of Professional Training.' },
+      { t: 'Bridal-day workflow', d: 'Beyond technique — pricing, scheduling, photo-ready finishing and bridal-party coordination.' },
+      { t: 'Career-ready portfolio', d: 'Build a portfolio across the course — real models, real shoot conditions.' },
+      { t: 'Founder-signed certificate', d: 'Master Beauty Academy certificate naming Makeup Training as a completed category.' },
+      { t: '₹3,000–₹10,000 per bridal', d: 'Bridal makeup pricing in Belagavi — wedding season earns ₹50K–₹1.5L/month.' },
+    ]}
+    modules={[
+      { t: 'Face preparation', d: 'Skin assessment, cleansing, base priming and bridal-grade prep.' },
+      { t: 'Foundation & contouring', d: 'Shade matching, base building, contour and highlight for camera-ready finish.' },
+      { t: 'Eye makeup', d: 'Day bridal · evening bridal · reception looks with lash application and liner technique.' },
+      { t: 'Lip work', d: 'Lip lining, colour layering and long-stay finish.' },
+      { t: 'Day → night transition', d: 'How to time bridal looks across the wedding-day schedule.' },
+      { t: 'Product knowledge', d: 'Brand-by-brand product matching: when to use what, and why.' },
+    ]}
+    benefits={[
+      'Enter the highest-paying segment of the beauty industry from day one.',
+      'Build a Belagavi-Karnataka client list via Instagram + wedding-planner network.',
+      'Add freelance bridal income on top of any salon job — most graduates do both.',
+      'Specialise post-course into editorial, party or pre-bridal segments.',
+    ]}
+    faqs={faqs}
+    ctaHeading="Train under an award-winning makeup artist — Belagavi."
+  />
+</BaseLayout>

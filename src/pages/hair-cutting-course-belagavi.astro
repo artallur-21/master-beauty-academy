@@ -1,0 +1,70 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import CourseLanding from '@components/CourseLanding.astro';
+import { courseSchema, faqSchema, localBusinessSchema, breadcrumbSchema } from '@lib/schema';
+
+const PK = 'Hair Cutting Course in Belagavi';
+
+const faqs = [
+  { q: 'What does the Hair Cutting Course in Belagavi include?',
+    a: 'The Hair Cutting Course in Belagavi covers 8 signature haircut styles — Straight, U Cut, Layer, Feather, Butterfly, French, Curtain Bangs and Front Layer — plus blow-dry, shampoo/conditioning, root touch-up and scissor-precision technique.' },
+  { q: 'Is this a standalone course?',
+    a: 'Hair Cutting is Category 6 of the 30-day Professional Beautician Course (₹40,000 all-inclusive). All 9 categories are bundled so graduates can offer a full parlour service.' },
+  { q: 'Do I need prior haircutting experience?',
+    a: 'No. The Hair Cutting Course in Belagavi starts from fundamentals — grip, sectioning, scissor practice — and progresses to advanced styling. Beginner-friendly.' },
+  { q: 'Where is the course taught in Belagavi?',
+    a: 'At our Khade Bazar centre — S N Pride Complex, Gondhali Galli, Raviwar Peth, Belagavi 590001.' },
+];
+
+const schema = [
+  courseSchema(),
+  localBusinessSchema('belagavi'),
+  faqSchema(faqs),
+  breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: PK, url: '/hair-cutting-course-belagavi' },
+  ]),
+];
+---
+<BaseLayout
+  title={`${PK} | Hair Styling Course — Master Beauty Academy`}
+  description={`Professional ${PK} at Master Beauty Academy. Learn 8 signature haircut styles, blow-dry, scissor precision and modern styling techniques. Hair Styling Course in Belagavi — admissions open.`}
+  path="/hair-cutting-course-belagavi"
+  keywords={[
+    'Hair Cutting Course in Belagavi','Hair Styling Course in Belagavi',
+    'Beautician Course in Belagavi','Beauty Parlour Course in Belagavi','Beauty Academy in Belagavi',
+    'Best Beauty Academy in Belagavi','Beauty Courses Near Me',
+  ]}
+  schema={schema}
+>
+  <CourseLanding
+    primaryKeyword={PK}
+    eyebrow="Hair Cutting Course · Belagavi"
+    h1="Hair Cutting Course in Belagavi — 8 Signature Styles + Scissor Precision"
+    lead="Master modern haircutting at Master Beauty Academy. Eight signature styles, professional styling techniques and scissor-precision technique — taught hands-on across our 30-day Professional Beautician Course at our Belagavi Khade Bazar centre."
+    highlights={[
+      { t: '8 signature cuts', d: 'Straight, U Cut, Layer, Feather, Butterfly, French, Curtain Bangs, Front Layer.' },
+      { t: 'Scissor precision drill', d: 'Hours of supervised scissor practice — the foundation real stylists work from.' },
+      { t: 'Modern styling techniques', d: 'Blow-dry, shampoo & conditioning, root touch-up, finish work.' },
+      { t: 'Founder-led demos', d: 'Every new cut demonstrated first by Priyanka or Anilkumar, then drilled hands-on.' },
+      { t: 'Real-equipment training', d: 'Salon-grade chairs, mirrors, shampoo bays — same as you\'ll work on in the field.' },
+      { t: 'Founder-signed certificate', d: 'Master Beauty Academy certificate naming Hair Cutting as a completed category.' },
+    ]}
+    modules={[
+      { t: 'Straight Cut',  d: 'Foundational cut — sectioning, tension and even finish.' },
+      { t: 'U Cut',         d: 'The U-shape silhouette — most common length-keeping ask.' },
+      { t: 'Layer Cut',     d: 'Volume and movement — the most-requested style in 2025.' },
+      { t: 'Feather Cut',   d: 'Soft layered finish for face-framing styling.' },
+      { t: 'Butterfly Haircut', d: 'Trending layered look with face-framing front layers.' },
+      { t: 'French / Bangs', d: 'French Cut and Curtain Bangs — period-correct precision technique.' },
+    ]}
+    benefits={[
+      'Add Hair Cutting to your skill portfolio — instant income boost in any salon.',
+      'Open a hair-focused parlour — Belagavi market has high demand and low supply.',
+      'Increase per-client revenue by adding styling on top of cuts.',
+      'Specialise in modern trending cuts — Butterfly and Layer cut high-demand in 2025.',
+    ]}
+    faqs={faqs}
+    ctaHeading="Master 8 signature cuts in Belagavi."
+  />
+</BaseLayout>

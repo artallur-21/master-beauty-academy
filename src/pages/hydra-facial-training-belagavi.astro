@@ -1,0 +1,71 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import CourseLanding from '@components/CourseLanding.astro';
+import { courseSchema, faqSchema, localBusinessSchema, breadcrumbSchema } from '@lib/schema';
+
+const PK = 'Hydra Facial Training in Belagavi';
+
+const faqs = [
+  { q: 'What is HydraFacial and why is it in demand?',
+    a: 'HydraFacial is an advanced skin-rejuvenation treatment combining cleansing, exfoliation, hydration and serum infusion in one session. It treats pigmentation, acne marks, dullness and dryness — and is one of the highest-margin facial services a salon can offer.' },
+  { q: 'How long is the Hydra Facial Training in Belagavi?',
+    a: 'HydraFacial is taught as part of Category 2 (Facial Treatments) inside the 30-day Professional Beautician Course in Belagavi. The course covers HydraFacial alongside clean-up, fundamental and advanced facials with electric massage therapy.' },
+  { q: 'What does the Hydra Facial Training cover?',
+    a: 'Skin assessment, machine technique, vacuum/suction settings, serum selection by concern (pigmentation, acne marks, dullness, dryness), aftercare and client consultation. Hands-on on real clients during live-session days.' },
+  { q: 'Will I get certified to perform HydraFacial?',
+    a: 'Yes — your Master Beauty Academy certificate names every category trained, including Facial Treatments with HydraFacial. Recognised across salons in Belagavi and Karnataka.' },
+  { q: 'What can I earn offering HydraFacial?',
+    a: 'HydraFacial pricing in tier-2 cities ranges ₹1,500–₹3,500 per session. A trained beautician offering HydraFacial can add ₹15,000–₹40,000/month to their income.' },
+];
+
+const schema = [
+  courseSchema(),
+  localBusinessSchema('belagavi'),
+  faqSchema(faqs),
+  breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: PK, url: '/hydra-facial-training-belagavi' },
+  ]),
+];
+---
+<BaseLayout
+  title={`${PK} | Advanced Facial Course — Master Beauty Academy`}
+  description={`Professional ${PK}. Learn HydraFacial technique, machine handling, serum selection and aftercare. Facial Course in Belagavi covering pigmentation, acne, dullness and dryness protocols. Admissions open.`}
+  path="/hydra-facial-training-belagavi"
+  keywords={[
+    'Hydra Facial Training in Belagavi','Facial Course in Belagavi','Advanced Beautician Course in Belagavi',
+    'Beautician Course in Belagavi','Beauty Academy in Belagavi','Best Beauty Academy in Belagavi','Beauty Courses Near Me',
+  ]}
+  schema={schema}
+>
+  <CourseLanding
+    primaryKeyword={PK}
+    eyebrow="Hydra Facial Training · Belagavi"
+    h1="Hydra Facial Training in Belagavi — Master the Premium Facial Service"
+    lead="HydraFacial is the highest-margin facial service a modern salon can offer. Our Hydra Facial Training in Belagavi covers machine technique, serum selection and concern-by-concern protocols — taught hands-on inside the 30-day Professional Beautician Course at our Khade Bazar centre."
+    highlights={[
+      { t: 'Machine + manual technique', d: 'Vacuum/suction settings, hand-held technique, sterile workflow.' },
+      { t: 'Concern-by-concern protocols', d: 'Pigmentation, acne marks, dullness, dryness — separate serum workflows.' },
+      { t: 'Electric massage therapy', d: 'Combined with HydraFacial for enhanced rejuvenation outcomes.' },
+      { t: 'Founder-led demos', d: 'Demonstrated by Priyanka Sakhe before students practise on live clients.' },
+      { t: 'Real-client practice', d: 'Live-session days build the confidence to charge premium pricing.' },
+      { t: 'High-margin service', d: 'HydraFacial pricing in Belagavi: ₹1,500–₹3,500 per session — high ROI for graduates.' },
+    ]}
+    modules={[
+      { t: 'Skin assessment',     d: 'Read the skin — type, condition, target concern. Plan the protocol before the machine touches the face.' },
+      { t: 'Machine fundamentals',d: 'Vacuum levels, suction tips, sterile workflow, tip change between zones.' },
+      { t: 'Serum selection',     d: 'Brightening, clarifying, hydrating, anti-ageing — when to use what.' },
+      { t: 'Targeted protocols',  d: 'Acne marks · pigmentation · dullness · dryness — concern-specific workflows.' },
+      { t: 'Aftercare',           d: 'SPF, hydration, follow-up regimen, when to re-book.' },
+      { t: 'Pricing & consultation', d: 'How to price HydraFacial, package it with other facials, upsell aftercare.' },
+    ]}
+    benefits={[
+      'Offer the most-asked-for premium facial service in Belagavi salons.',
+      'Add ₹15K–₹40K/month income on top of regular salon work.',
+      'Differentiate your parlour — most Belagavi parlours still don\'t offer HydraFacial professionally.',
+      'Build a returning-client base — HydraFacial works best as a monthly subscription.',
+    ]}
+    faqs={faqs}
+    ctaHeading="Train in Belagavi's most in-demand facial technique."
+  />
+</BaseLayout>

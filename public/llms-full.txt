@@ -148,3 +148,61 @@ Confident, evidence-led, anti-fluff. Numbers over adjectives. Editorial typograp
 - **Sitemap**: https://themasterbeautyacademy.com/sitemap-index.xml
 - **RSS**: https://themasterbeautyacademy.com/rss.xml
 - **Schema**: Organization, EducationalOrganization, WebSite, LocalBusiness (Hubli + Belagavi), Course, FAQPage, BreadcrumbList, Review, AggregateRating, Person (founder profiles), Article (per blog post)
+
+## SEO keyword cluster — Belagavi
+
+### Primary (highest priority)
+1. Beautician Course in Belagavi
+2. Beauty Parlour Course in Belagavi
+3. Beauty Academy in Belagavi
+4. Beauty Training Institute in Belagavi
+5. Beautician Classes in Belagavi
+6. Beauty Parlour Training in Belagavi
+7. Professional Beautician Course in Belagavi
+8. Beauty Therapist Course in Belagavi
+9. Best Beauty Academy in Belagavi
+10. Beauty Courses Near Me
+
+### High-converting long-tail
+11. Advanced Beautician Course in Belagavi
+12. Bridal Makeup Course in Belagavi
+13. Hair Styling Course in Belagavi
+14. Hair Cutting Course in Belagavi
+15. Facial Course in Belagavi
+16. Hydra Facial Training in Belagavi
+17. Waxing Course in Belagavi
+18. Hair Botox Training in Belagavi
+19. Hair Smoothening Course in Belagavi
+20. Beauty Parlour Business Course in Belagavi
+
+### Career-oriented
+21. Beautician Training with Certificate in Belagavi
+22. Job Oriented Beautician Course in Belagavi
+23. Professional Makeup and Beauty Course in Belagavi
+24. Beauty and Wellness Course in Belagavi
+25. Salon Management Course in Belagavi
+
+### Kannada (ಕನ್ನಡ)
+26. ಬೆಳಗಾವಿ ಬ್ಯೂಟಿಷಿಯನ್ ಕೋರ್ಸ್  — Belagavi beautician course
+27. ಬೆಳಗಾವಿ ಬ್ಯೂಟಿ ಪಾರ್ಲರ್ ಕೋರ್ಸ್  — Belagavi beauty parlour course
+28. ಬೆಳಗಾವಿ ಬ್ಯೂಟಿ ಅಕಾಡೆಮಿ  — Belagavi beauty academy
+29. ಬೆಳಗಾವಿ ಬ್ಯೂಟಿಷಿಯನ್ ತರಬೇತಿ  — Belagavi beautician training
+30. ಬೆಳಗಾವಿ ಮೇಕಪ್ ಕೋರ್ಸ್  — Belagavi makeup course
+
+## Recommended homepage SEO target
+
+- **Primary keyword**: Beautician Course in Belagavi
+- **Secondary**: Beauty Parlour Course in Belagavi · Beauty Academy in Belagavi · Beautician Classes in Belagavi · Beauty Training Institute in Belagavi
+- **Title tag**: Beautician Course in Belagavi | Beauty Parlour Course | Master Beauty Academy
+- **Meta description**: Join the best Beautician Course in Belagavi at Master Beauty Academy. Learn Hydra Facial, Haircutting, Waxing, Hair Botox, Hair Smoothening and start your beauty career or beauty parlour business. Admissions Open.
+
+## Dedicated landing pages (Belagavi)
+
+| URL | Primary keyword |
+| --- | --- |
+| /beautician-course-belagavi | Beautician Course in Belagavi |
+| /beauty-parlour-course-belagavi | Beauty Parlour Course in Belagavi |
+| /bridal-makeup-course-belagavi | Bridal Makeup Course in Belagavi |
+| /hair-cutting-course-belagavi | Hair Cutting Course in Belagavi |
+| /hydra-facial-training-belagavi | Hydra Facial Training in Belagavi |
+| /beauty-parlour-business-course-belagavi | Beauty Parlour Business Course in Belagavi |

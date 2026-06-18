@@ -1,0 +1,72 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import CourseLanding from '@components/CourseLanding.astro';
+import { courseSchema, faqSchema, localBusinessSchema, breadcrumbSchema } from '@lib/schema';
+
+const PK = 'Beauty Parlour Business Course in Belagavi';
+
+const faqs = [
+  { q: 'What is the Beauty Parlour Business Course in Belagavi?',
+    a: 'A career-oriented programme bundling the full Professional Beautician Course (9 categories) with dedicated salon-management training — customer handling, basic salon operations, beauty parlour management and professional grooming standards. Designed for graduates who want to launch their own parlour.' },
+  { q: 'Do I need investment to start a parlour after the course?',
+    a: 'A small Belagavi parlour can be opened with ₹2.5–₹5 lakh setup capital (interior, equipment, initial stock, licences). Many graduates start with home-service first to build a client list, then open a small space.' },
+  { q: 'What does the salon-management training cover?',
+    a: 'Customer handling, basic salon operations, beauty parlour management, professional grooming standards, billing, hygiene protocols and pricing. The non-technical foundation of a profitable salon career.' },
+  { q: 'How long does it take to break even on a new parlour?',
+    a: 'Tier-2 city parlours typically break even in 6–10 months. Faster if you walk in with 30+ existing clients from prior salon work — slower if the location is new and visibility takes time to build.' },
+  { q: 'Will I get a certificate?',
+    a: 'Yes — the Master Beauty Academy Professional Beautician Certificate signed by the founders, naming Salon Management Training as a completed category.' },
+];
+
+const schema = [
+  courseSchema(),
+  localBusinessSchema('belagavi'),
+  faqSchema(faqs),
+  breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: PK, url: '/beauty-parlour-business-course-belagavi' },
+  ]),
+];
+---
+<BaseLayout
+  title={`${PK} | Salon Management — Master Beauty Academy`}
+  description={`The ${PK} bundling beautician technique with Salon Management Course content — open your own beauty parlour in Belagavi. Job Oriented Beautician Course with founder-led business training. ₹40,000 all-inclusive.`}
+  path="/beauty-parlour-business-course-belagavi"
+  keywords={[
+    'Beauty Parlour Business Course in Belagavi','Salon Management Course in Belagavi',
+    'Job Oriented Beautician Course in Belagavi','Beauty and Wellness Course in Belagavi',
+    'Beautician Course in Belagavi','Best Beauty Academy in Belagavi','Beauty Courses Near Me',
+  ]}
+  schema={schema}
+>
+  <CourseLanding
+    primaryKeyword={PK}
+    eyebrow="Beauty Parlour Business · Belagavi"
+    h1="Beauty Parlour Business Course in Belagavi — Open Your Own Salon"
+    lead="Most beautician courses stop at technique. Ours doesn't. Our Beauty Parlour Business Course in Belagavi bundles the 9-category Professional Beautician syllabus with hands-on Salon Management Training — so you graduate ready to either join a salon or launch your own."
+    highlights={[
+      { t: 'Business + technique', d: 'Beautician skills + parlour-management training under one fee — ₹40,000 all-inclusive.' },
+      { t: 'Anilkumar Sakhe leads', d: '15+ years business development. Has helped 1,000+ women launch beauty careers.' },
+      { t: 'Customer handling drill', d: 'Real consultation flow, billing, complaint handling — practised in role-play.' },
+      { t: 'Pricing & packaging', d: 'How to price services in Belagavi, build packages, monthly memberships, upsells.' },
+      { t: 'Hygiene & operations', d: 'Sanitation, sterilisation, daily salon-floor rhythm — open-to-close.' },
+      { t: 'Founder-signed certificate', d: 'Named Salon Management Training category on your certificate.' },
+    ]}
+    modules={[
+      { t: 'Customer handling',     d: 'Consultation flow, complaint resolution, retention. The skill that turns first-timers into regulars.' },
+      { t: 'Basic salon operations', d: 'Daily open-to-close routine, stock control, billing systems, schedule management.' },
+      { t: 'Parlour management',     d: 'Hiring, supervising, basic accounts, GST/Shop Act basics for Karnataka.' },
+      { t: 'Professional grooming',  d: 'How you and your team present — a major retention lever in tier-2 cities.' },
+      { t: 'Pricing strategy',       d: 'Belagavi pricing benchmarks for facials, hair, waxing, bridal — and when to charge premium.' },
+      { t: 'Marketing fundamentals', d: 'Google Business Profile, Instagram, WhatsApp broadcasts — what actually drives walk-ins.' },
+    ]}
+    benefits={[
+      'Open a tier-2 city parlour — many earn ₹1–3 lakh/month within 2–3 years.',
+      'Skip the trial-and-error phase most new salon owners go through.',
+      'Build pricing confidence — undercharging is the #1 reason new parlours fail.',
+      'Network with our 40+ partner salons during placement to learn the industry first.',
+    ]}
+    faqs={faqs}
+    ctaHeading="Build your own beauty parlour business in Belagavi."
+  />
+</BaseLayout>

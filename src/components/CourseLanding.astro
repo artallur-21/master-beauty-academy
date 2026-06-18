@@ -1,0 +1,146 @@
+---
+/**
+ * Reusable landing-page layout for single-keyword landing pages.
+ * Designed for SEO targeting per the Master Beauty Academy keyword strategy
+ * (Belagavi-focused, primary kw appears in H1 / meta / first paragraph).
+ */
+import { SITE } from '@lib/site';
+import EnquiryForm from './EnquiryForm.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import CTA from './CTA.astro';
+import FAQ from './FAQ.astro';
+import RelatedPages from './RelatedPages.astro';
+
+interface Highlight { t: string; d: string }
+interface Module    { t: string; d: string }
+interface FaqItem   { q: string; a: string }
+interface Props {
+  primaryKeyword: string;
+  h1: string;
+  eyebrow?: string;
+  lead: string;
+  badges?: string[];
+  highlights?: Highlight[];
+  modules?: Module[];
+  benefits?: string[];
+  faqs?: FaqItem[];
+  heroImage?: string;
+  ctaHeading?: string;
+}
+
+const {
+  primaryKeyword,
+  h1,
+  eyebrow,
+  lead,
+  badges = ['30 days', '₹40,000 all-inclusive', 'Belagavi · Hubli'],
+  highlights = [],
+  modules = [],
+  benefits = [],
+  faqs = [],
+  heroImage = '/images/master-herosection-800.webp',
+  ctaHeading,
+} = Astro.props;
+---
+<Breadcrumbs items={[
+  { name: 'Home', url: '/' },
+  { name: primaryKeyword, url: Astro.url.pathname },
+]} />
+
+<section class="container-w container-px pt-8 pb-8 lg:pt-10 lg:pb-12">
+  <div class="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-14 items-center">
+    <div>
+      <p class="eyebrow">{eyebrow ?? primaryKeyword}</p>
+      <h1 class="mt-4 text-balance">{h1}</h1>
+      <p class="mt-5 max-w-xl text-base lg:text-lg text-ink-500 text-pretty">{lead}</p>
+      <ul class="mt-6 flex flex-wrap gap-2 text-sm">
+        {badges.map((b) => (
+          <li class="px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 border border-brand-100 font-medium">{b}</li>
+        ))}
+      </ul>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#enquire" class="btn btn-primary">Enrol now</a>
+        <a href={`https://wa.me/${SITE.phoneWhatsapp}`} rel="noopener" class="btn btn-outline">WhatsApp us</a>
+      </div>
+    </div>
+    <figure class="relative max-w-[480px] mx-auto lg:max-w-[520px] lg:justify-self-end">
+      <div aria-hidden="true" class="absolute -inset-5 rounded-3xl bg-gold-400/10 blur-2xl"></div>
+      <img src={heroImage} alt={primaryKeyword} width="800" height="1000"
+           fetchpriority="high" decoding="async"
+           class="relative w-full h-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.25)]" />
+    </figure>
+  </div>
+</section>
+
+{highlights.length > 0 && (
+  <section class="section bg-white">
+    <div class="container-w container-px text-center">
+      <p class="eyebrow justify-center">Why choose Master Beauty Academy</p>
+      <h2 class="mt-3 mx-auto max-w-2xl text-balance">Built around real salon-floor outcomes.</h2>
+      <ul class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3 text-left">
+        {highlights.map((h) => (
+          <li class="card">
+            <div class="w-10 h-10 grid place-items-center rounded-full bg-brand-50 text-brand-700 mb-4">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h3 class="font-serif text-lg">{h.t}</h3>
+            <p class="mt-2 text-sm text-ink-500 leading-relaxed">{h.d}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+{modules.length > 0 && (
+  <section class="section">
+    <div class="container-w container-px text-center">
+      <p class="eyebrow justify-center">What you'll learn</p>
+      <h2 class="mt-3 mx-auto max-w-2xl text-balance">A hands-on syllabus — every module practical.</h2>
+      <ol class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3 text-left">
+        {modules.map((m, i) => (
+          <li class="card">
+            <span class="font-serif text-gold-500 text-xs tracking-[0.18em]">MODULE {String(i + 1).padStart(2, '0')}</span>
+            <h3 class="mt-2 font-serif text-lg leading-tight">{m.t}</h3>
+            <p class="mt-2 text-sm text-ink-500 leading-relaxed">{m.d}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+)}
+
+{benefits.length > 0 && (
+  <section class="section bg-cream">
+    <div class="container-w container-px text-center">
+      <p class="eyebrow justify-center">Career outcomes</p>
+      <h2 class="mt-3 mx-auto max-w-2xl text-balance">Why this course is a career investment.</h2>
+      <ul class="mt-10 grid gap-3 md:grid-cols-2 max-w-3xl mx-auto text-left">
+        {benefits.map((b) => (
+          <li class="card !py-4 !px-5 flex items-start gap-3">
+            <span class="w-7 h-7 grid place-items-center rounded-full bg-brand-700 text-white shrink-0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+            <p class="text-ink-700 leading-relaxed text-sm">{b}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<section id="enquire" class="container-w container-px py-12 scroll-mt-24">
+  <div class="max-w-xl mx-auto">
+    <p class="eyebrow text-center justify-center">Enrol now</p>
+    <h2 class="mt-3 text-center text-balance">Get a personalised counselling call.</h2>
+    <p class="mt-3 text-center text-ink-500 text-sm">Fees, batch timings, EMI, career advice — within 24 hours.</p>
+    <div class="mt-7"><EnquiryForm id="landing-enquiry" /></div>
+  </div>
+</section>
+
+{faqs.length > 0 && (
+  <FAQ items={faqs} heading={`${primaryKeyword} — your questions answered`} eyebrow="FAQ" />
+)}
+
+<RelatedPages />
+<CTA heading={ctaHeading ?? `Begin your beauty career — ${primaryKeyword}.`} />

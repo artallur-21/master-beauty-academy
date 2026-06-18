@@ -1,0 +1,73 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import CourseLanding from '@components/CourseLanding.astro';
+import { courseSchema, faqSchema, localBusinessSchema, breadcrumbSchema } from '@lib/schema';
+
+const PK = 'Beauty Parlour Course in Belagavi';
+
+const faqs = [
+  { q: 'What does the Beauty Parlour Course in Belagavi cover?',
+    a: 'Master Beauty Academy\'s Beauty Parlour Course in Belagavi covers all parlour-floor services: threading, waxing, facials (incl. HydraFacial), bleaching, de-tan, hair spa, manicure, pedicure, basic makeup and salon-management training.' },
+  { q: 'How long is the Beauty Parlour Course?',
+    a: 'The Beauty Parlour Course in Belagavi is 30 days — intensive, hands-on, and taught directly by Anilkumar Sakhe and Priyanka Sakhe at our Khade Bazar centre.' },
+  { q: 'What is the fee for the Beauty Parlour Course in Belagavi?',
+    a: 'The Beauty Parlour Course fee in Belagavi is ₹40,000 — flat and all-inclusive. Interest-free 2 or 3-month EMI plans are available.' },
+  { q: 'Will I get a certificate after the Beauty Parlour Training?',
+    a: 'Yes. Every graduate receives the Master Beauty Academy Professional Beautician Certificate, signed by the founders. Recognised by salons across India.' },
+  { q: 'Can I open my own beauty parlour after this course?',
+    a: 'Yes. Category 7 (Salon Management Training) covers customer handling, salon operations, parlour management and grooming standards — designed for graduates who want to launch their own beauty parlour business.' },
+];
+
+const schema = [
+  courseSchema(),
+  localBusinessSchema('belagavi'),
+  faqSchema(faqs),
+  breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: PK, url: '/beauty-parlour-course-belagavi' },
+  ]),
+];
+---
+<BaseLayout
+  title={`${PK} | Beauty Academy in Belagavi — Master Beauty Academy`}
+  description={`Best ${PK} at Master Beauty Academy — 30 days, ₹40,000 all-inclusive. Threading, waxing, HydraFacial, hair care, basic makeup and salon management. Beauty Parlour Training in Belagavi with founder-signed certificate.`}
+  path="/beauty-parlour-course-belagavi"
+  keywords={[
+    'Beauty Parlour Course in Belagavi','Beauty Parlour Training in Belagavi',
+    'Beautician Course in Belagavi','Beauty Academy in Belagavi','Beauty Training Institute in Belagavi',
+    'Beautician Classes in Belagavi','Best Beauty Academy in Belagavi','Beauty Courses Near Me',
+    'Professional Beautician Course in Belagavi','Beauty Therapist Course in Belagavi',
+  ]}
+  schema={schema}
+>
+  <CourseLanding
+    primaryKeyword={PK}
+    eyebrow="Beauty Parlour Course · Belagavi"
+    h1="Beauty Parlour Course in Belagavi — Master Beauty Academy"
+    lead="The most comprehensive Beauty Parlour Training in Belagavi. Master every service a working parlour offers — facials, threading, waxing, hair care, manicure, pedicure, basic makeup and salon-management — in one focused 30-day course at our Khade Bazar centre."
+    highlights={[
+      { t: 'Founder-led training', d: 'Learn directly from Anilkumar Sakhe (15+ yrs business) and Priyanka Sakhe (LAPT London).' },
+      { t: 'Complete parlour-floor skills', d: 'Every service a real parlour delivers — taught in the order you’ll learn fastest.' },
+      { t: 'Salon-management module', d: 'Customer handling, billing, hygiene and pricing — built into Category 7.' },
+      { t: '₹40,000 all-inclusive', d: 'Single transparent fee. Interest-free EMI. No hidden material or certificate fees.' },
+      { t: 'Recognised certificate', d: 'Founder-signed Professional Beautician Certificate accepted across India.' },
+      { t: 'Khade Bazar location', d: 'S N Pride Complex, Gondhali Galli — minutes from Raviwar Peth and Central Bus Stand.' },
+    ]}
+    modules={[
+      { t: 'Beauty & Grooming', d: 'Threading, eyebrow shaping, hot/cold/Rica/Brizzlin wax across full body.' },
+      { t: 'Facial Treatments', d: 'Clean-ups, fundamental & advanced facials, HydraFacial — incl. pigmentation, acne, dullness protocols.' },
+      { t: 'Hand & Foot Care', d: 'Manicure, pedicure, scrub, massage, pack — salon-floor standard.' },
+      { t: 'Hair Care', d: 'Hair spa, scalp therapy, anti-dandruff, anti-hair-fall, oil head massage.' },
+      { t: 'Basic Makeup Technician', d: 'Product knowledge, face prep and everyday makeup — taught by Priyanka.' },
+      { t: 'Salon Management', d: 'Customer handling, parlour operations, hygiene, pricing — open-your-own-parlour ready.' },
+    ]}
+    benefits={[
+      'Open your own beauty parlour with confidence — Category 7 covers the business side.',
+      'Walk into any Belagavi salon job-ready — graduates start at ₹15–25K/month with commissions.',
+      'Add freelance bridal & home-service work — many graduates earn ₹25–50K/month privately.',
+      'Sustainable career — beauty services are recession-resistant and demand keeps growing.',
+    ]}
+    faqs={faqs}
+    ctaHeading="Begin your Beauty Parlour Course in Belagavi today."
+  />
+</BaseLayout>
