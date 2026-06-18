@@ -11,6 +11,7 @@ import DayInLife from '@components/DayInLife.astro';
 import FeeTable from '@components/FeeTable.astro';
 import CertificatePreview from '@components/CertificatePreview.astro';
 import RelatedPages from '@components/RelatedPages.astro';
+import BbsProgram from '@components/BbsProgram.astro';
 
 const courseFaqs = await getEntry('faqs', 'course');
 const schema = [
@@ -129,6 +130,7 @@ const schema = [
   </section>
 
   <DayInLife />
+  <BbsProgram />
   <FeeTable />
   <CertificatePreview />
   <FAQ items={courseFaqs.data.items} heading="Questions about the course" eyebrow="Course FAQ" />
